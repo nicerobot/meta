@@ -4,7 +4,7 @@ text-plain! DRAFT
 - Compliant with StruxtML.
 - Uses Markdown for documentation.
 
-The goal is to be able to transform text-plain into may actual language sources. Since it's StruxtML, it can be converted into XML. XML is "easily" transformed using XSLT. Providing a single source for multiple languages. That is, a single text-plain document can be transformed into multiple compilable or interpreted programming languages.
+The goal is to be able to transform text-plain into many actual language sources. Since it's StruxtML, it can be converted into XML. XML is "easily" transformed using XSLT. This provides a single source for multiple languages. That is, a single text-plain document can be transformed into multiple compilable or interpreted programming language sources.
 
 textc will transform the document into a some language-specific compilation unit.
 textdoc will transform the document into HTML documentation.
