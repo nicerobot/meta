@@ -21,8 +21,8 @@ The following is a text-plain document/algorithm for quick sort:
 define: sort array of integers:
   define: sort left integer, right integer:
     variable pivot: array at ((left + right) / 2);
-    variable left: i;
-    variable right: j;
+    variable i: left;
+    variable j: right;
     loop inclusively from i to j:
       loop from (array at i) to pivot: increment i by 1;
       loop from (array at j) to pivot: decrement j by 1;
