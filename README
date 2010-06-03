@@ -4,7 +4,9 @@ StruxtML :: XML
 
 Structured like XML. Readable as plain text.
 
-The intent is to provide an easily readable representation of an XML document and, like Markdown, provide an easy, natural means of manually creating structured documents. in other words, do away with all the < / > marks and tags and replace them with less readability-intrusive punctuation.
+The intent is to provide an easily readable representation of an XML document and, like Markdown,
+provide an easy, natural means of manually creating structured documents. in other words, do away
+with all the < / > marks and tags and replace them with less readability-intrusive punctuation.
 
 ## Examples ##
 
@@ -45,13 +47,42 @@ The intent is to provide an easily readable representation of an XML document an
 
 ---
 
+### For this XML ###
+
+    <?xml version="1.0"?>
+    <iCalendar xmlns="urn:ietf:params:xml:ns:xcal">
+      <vcalendar>
+        <version>2.0</version>
+        <prodid>-//hacksw/handcal//NONSGML v1.0//EN</prodid>
+        <vevent>
+          <dtstart>19970714T170000Z</dtstart>
+          <dtend>19970715T035959Z</dtend>
+            <summary xml:lang="en_US">Bastille Day Party</summary>
+        </vevent>
+        </vcalendar>
+    </iCalendar>
+
+### The StruxtML ###
+
+    iCalendar "urn:ietf:params:xml:ns:xcal" xmlns:
+      vcalendar:
+        version: "2.0".
+        prodid: "-//hacksw/handcal//NONSGML v1.0//EN".
+        vevent:
+          dtstart: "19970714T170000Z".
+          dtend: "19970715T035959Z".
+          summary "en_US" lang'xml: "Bastille Day Party".
+    !
+
+---
+
 ## Syntax ##
 
 - : indicates the opening of element, children follow. This is optional if there are no children.
 - . or , closes an element.
 - ; closes two elements.
 - , indicates the continuation of a list of attributes.
-- ! xloses all open elements. Essentially ending the document. The same as using "." for each open element.
+- ! closes all open elements. Essentially ending the document. The same as using "." for each open element.
 - " in " or ' followed by namespace name. For the default namespace, ' must be used. e.g. "root'." is "<:root>"
 - " is text. All \ are escaped as \\ and all " are escaped as \".
 - """ is multi-line text. All \ are escaped as \\ and all """ are escaped as \""".
