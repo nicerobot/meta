@@ -250,8 +250,8 @@ text-plain! DRAFT
 
 The goal is to be able to transform text-plain into many actual language sources. Since it's StruxtML, it can be converted into XML. XML is "easily" transformed using XSLT. This provides a single source for multiple languages. That is, a single text-plain document can be transformed into multiple compilable or interpreted programming language sources.
 
-textc will transform the document into a some language-specific compilation unit.
-textdoc will transform the document into HTML documentation.
+`textc` will transform the document into a some language-specific compilation unit.
+`textdoc` will transform the document into HTML documentation.
 
 === Example ===
 
@@ -259,28 +259,27 @@ The following is a text-plain document/algorithm for quick sort:
 
 ---
 
-== QuickSort ==
+### QuickSort ###
 
-`
-define: sort array of integers:
-  define: sort left integer, right integer:
-    variable pivot: array at ((left + right) / 2);
-    variable i: left;
-    variable j: right;
-    loop inclusively from i to j:
-      loop from (array at i) to pivot: increment i by 1;
-      loop from (array at j) to pivot: decrement j by 1;
-      if (i <= j):
-        swap index i and j.
-        increment i by 1.
-        decrement j by 1.
-    . .
-    if (l < j): sort from left to j;
-    if (j < r): sort from i to right;
-  .
-  sort from 0 to (array length - 1).
-!
-`
+    define: sort array of integers:
+      define: sort left integer, right integer:
+        variable pivot: array at ((left + right) / 2);
+        variable i: left;
+        variable j: right;
+        loop inclusively from i to j:
+          loop from (array at i) to pivot: increment i by 1;
+          loop from (array at j) to pivot: decrement j by 1;
+          if (i <= j):
+            swap index i and j.
+            increment i by 1.
+            decrement j by 1.
+        . .
+        if (l < j): sort from left to j;
+        if (j < r): sort from i to right;
+      .
+      sort from 0 to (array length - 1).
+    !
+
 
 ---
 
