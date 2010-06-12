@@ -119,11 +119,11 @@ with all the `< / >` marks and tags and replace them with human-friendly punctua
       - http://text-plain.org/ns/uri/xsl - for namespace for "xsl"
   
 - Optional. Using
-  - "and" after the last "," of a list.
-  - "with" or "w/" before attribute lists.
-  - "of" or "as" between attribute name and value.
-  - "contains" or "includes" before ":".
-  - "in" prior to namespace prefix.
+  - ` and ` after the last `,` of a list.
+  - ` with ` or ` w/ ` before attribute lists.
+  - ` of ` or ` as ` between attribute name and value.
+  - ` contains` or ` includes` before `:`.
+  - ` in ` prior to namespace prefix instead of `'`.
   
 Space is not relevant between nodes and tokens.
 Space, or the lack of it, is relevant between words and multi-character tokens, lists of elements omitting commas, and within quotes.
