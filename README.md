@@ -1,4 +1,4 @@
-`text-plain` is based on Struxt.
+`text-plain` is a language based on Struxt.
 
 ## Struxt - Structured Text ##
 
