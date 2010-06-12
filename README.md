@@ -250,7 +250,7 @@ Anything not directly supported above can be included verbatim with #|"""..."""
 
 ---
 
-# `text-plain`! #
+# `text-plain` : The Language #
 (draft)
 
 - A meta-language.
@@ -258,6 +258,8 @@ Anything not directly supported above can be included verbatim with #|"""..."""
 - Uses Markdown for documentation.
 
 The goal is to be able to transform text-plain into many actual language sources. Since it's Struxt, it can be converted into XML. XML is "easily" transformed using XSLT. This provides a single source for multiple languages. That is, a single text-plain document can be transformed into multiple compilable or interpreted programming language sources.
+
+Essentially, a formal pseudo-code that, as the draft progresses, will attempt to align with [Structured English](http://en.wikipedia.org/wiki/Structured_English).
 
 `textc` will transform the document into a some language-specific compilation unit.
 `textdoc` will transform the document into HTML documentation.
@@ -295,6 +297,7 @@ The following is a text-plain document/algorithm for quick sort:
 Special syntax considerations which must be processed prior to Struxt processing:
 
 - Infix notation allowed within "()".
+  - They are essentially nested documents.
   - Mathematical expressions (within "()") are automatically MathML.
   - operator characters, <, >, +, ..., are converted to names.
     - each operator character and ")" imply ".".
