@@ -85,14 +85,14 @@ with all the `< / >` marks and tags and replace them with human-friendly punctua
 ## Syntax ##
 (draft)
 
-- : indicates the opening of element, children follow. This is optional if there are no children.
-- . or , closes an element.
-- ; closes two elements.
-- , indicates the continuation of a list of attributes.
-- ! closes all open elements. Essentially ending the document. The same as using "." for each open element.
-- " in " or ' followed by namespace name. For the default namespace, ' must be used. e.g. "root'." is "<:root>"
-- " is text. All \ are escaped as \\ and all " are escaped as \".
-- """ is multi-line text. All \ are escaped as \\ and all """ are escaped as \\""".
+- `:` indicates the opening of element, children follow. This is optional if there are no children.
+- `.` or `,` closes an element.
+- `;` closes two elements.
+- `,` indicates the continuation of a list of attributes.
+- `!` closes all open elements. Essentially ending the document. The same as using "." for each open element.
+- `'` followed by namespace name. For the default namespace, ' must be used. e.g. `root'.` is `<:root>`
+- `"` is text. All `\` are escaped as `\\` and all `"` are escaped as `\"`.
+- `"""` is multi-line text. All `\` are escaped as `\\` and all `"""` are escaped as `\"""`.
   Any single-line text can be represented as multi-line and vice-versa, given the customary escaping.
 
 - Attribute:
