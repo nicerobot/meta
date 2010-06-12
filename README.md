@@ -14,11 +14,21 @@ Readable   ... like plain text.
 ### For this XML ###
 
     <note>
-    <to>Tove</to>
-    <from>Jani</from>
-    <heading>Reminder</heading>
-    <body>Don't forget me this weekend!</body>
+      <to>Tove</to>
+      <from>Jani</from>
+      <heading>Reminder</heading>
+      <body>Don't forget me this weekend!</body>
     </note>
+
+### Struxt formatted like the XML ###
+
+    note:
+      to: "Tove".
+      from: "Jani".
+      heading: "Reminder".
+      body: "Don't forget me this weekend!".
+    .
+
 
 ---
 
@@ -69,7 +79,7 @@ with all the `< / >` marks and tags and replace them with human-friendly punctua
 
 ### The Struxt ###
 
-	#?xml "1.1" version.
+    #?xml "1.1" version.
     iCalendar "urn:ietf:params:xml:ns:xcal" xmlns:
       vcalendar:
         version: "2.0".
