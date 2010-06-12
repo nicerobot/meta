@@ -101,11 +101,17 @@ with all the `< / >` marks and replace them with human-friendly spaces and punct
 - `.` or `,` closes an element.
 - `;` closes two elements.
 - `,` indicates the continuation of a list of attributes.
-- `!` closes all open elements. Essentially ending the document. The same as using "." for each open element.
+- `!` closes all open elements. Essentially ending the document. The same as using `.` for each open element.
 - `'` followed by namespace name. For the default namespace, ' must be used. e.g. `root'.` is `<:root>`
-- `"` is text. All `` \ `` are escaped as `` \\ `` and all `"` are escaped as `` \" ``.
-- `"""` is multi-line text. All `` \ `` are escaped as `` \\ `` and all `"""` are escaped as `` \""" ``.
-  Any single-line text can be represented as multi-line and vice-versa, given the customary escaping.
+- text
+  - All `` \ `` are escaped as `` \\ ``.
+  - `"` is single-line text.
+    - All `"` are escaped as `` \" ``.
+    - Carriage returns are escaped as `` \n ``.
+  - `"""` is multi-line text.
+    - All `"""` are escaped as `` \""" ``.
+    - Carriage returns are not escaped.
+  - Any single-line `"text"` can be represented as multi-line `"""text"""` and vice-versa, providing the appropriate escaping.
 
 - Attribute:
   - Specified "name value" but if name isn't a valid attribute name, "value name" will be used/attempted.
