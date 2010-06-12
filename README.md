@@ -1,8 +1,9 @@
-`text-plain` is a language based on Struxt.
+`text-plain` is a language based on Struxt. First, to define Struxt:
 
 ## Struxt - Structured Text ##
 
 Structured ... like XML.
+
 Readable   ... like plain text.
 
 ## For example ##
