@@ -26,7 +26,7 @@ Readable   ... like plain text.
 
 The goal is to provide an easily readable representation of an XML document and, like Markdown,
 provide an easy, natural means of manually creating structured documents. In other words, do away
-with all the < / > marks and tags and replace them with human-friendly punctuation.
+with all the `< / >` marks and tags and replace them with human-friendly punctuation.
 
 ## More Examples ##
 
@@ -92,7 +92,7 @@ with all the < / > marks and tags and replace them with human-friendly punctuati
 - ! closes all open elements. Essentially ending the document. The same as using "." for each open element.
 - " in " or ' followed by namespace name. For the default namespace, ' must be used. e.g. "root'." is "<:root>"
 - " is text. All \ are escaped as \\ and all " are escaped as \".
-- """ is multi-line text. All \ are escaped as \\ and all """ are escaped as \""".
+- """ is multi-line text. All \ are escaped as \\ and all """ are escaped as \\""".
   Any single-line text can be represented as multi-line and vice-versa, given the customary escaping.
 
 - Attribute:
