@@ -1,6 +1,6 @@
 `text-plain` is a language based on Struxt. First, to define Struxt:
 
-## Struxt - Structured Text ##
+# Struxt - Structured Text #
 
 Structured ... like XML.
 
@@ -59,7 +59,8 @@ with all the `< / >` marks and tags and replace them with human-friendly spaces 
       caption:
         """This is Raphael's "Foligno" Madonna, painted in """
         date: "1511". "-"
-        date: "1512". "."..
+        date: "1512". "."
+    . .
 
 ---
 
@@ -89,7 +90,7 @@ with all the `< / >` marks and tags and replace them with human-friendly spaces 
           dtstart: "19970714T170000Z".
           dtend: "19970715T035959Z".
           summary "en_US" lang'xml: "Bastille Day Party".
-    !
+    . . .
 
 ---
 
@@ -161,7 +162,8 @@ Space, or the lack of it, is relevant between words and multi-character tokens, 
       http://www.w3.org/1999/xhtml xhtml in xmlns,
       http://www.w3.org/1999/XSL/Transform xsl in xmlns:
       template in xsl w/ * match:
-        "[" value-of in xsl w/ . select. "]"!
+        "[" value-of in xsl w/ . select. "]"
+    . .
 
   or
 
@@ -169,7 +171,8 @@ Space, or the lack of it, is relevant between words and multi-character tokens, 
       http://www.w3.org/1999/xhtml xhtml'xmlns,
       http://www.w3.org/1999/XSL/Transform xsl'xmlns:
       template'xsl * match:
-        "[" value-of'xsl . select. "]"!
+        "[" value-of'xsl . select. "]"
+    . .
 
 ---
 
@@ -186,10 +189,6 @@ Space, or the lack of it, is relevant between words and multi-character tokens, 
 ### The Struxt ###
 
     ["""<greeting>Hello, world!</greeting>""".
-
-  or
-
-    [greeting: "Hello, world!"..
 
 ---
 
@@ -249,7 +248,9 @@ Anything not directly supported above can be included verbatim with #|"""..."""
     ]>""".
     greeting: "Hello, world!".
 
-text-plain! DRAFT
+---
+
+# `text-plain`! DRAFT #
 
 - A meta-language.
 - Compliant with Struxt.
@@ -260,7 +261,7 @@ The goal is to be able to transform text-plain into many actual language sources
 `textc` will transform the document into a some language-specific compilation unit.
 `textdoc` will transform the document into HTML documentation.
 
-=== Example ===
+## Example ##
 
 The following is a text-plain document/algorithm for quick sort:
 
