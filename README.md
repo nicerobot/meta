@@ -35,7 +35,7 @@ Readable   ... like plain text.
 ## The Goal ##
 
 The goal is to provide an easily readable representation of an XML document and, like Markdown,
-provide an easy, natural means of manually creating structured documents. In other words, do away
+provide an easy, more natural means of manually creating structured documents. In other words, do away
 with all the `< / >` marks and tags and replace them with human-friendly punctuation.
 
 ## More Examples ##
