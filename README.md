@@ -91,8 +91,8 @@ with all the `< / >` marks and tags and replace them with human-friendly punctua
 - `,` indicates the continuation of a list of attributes.
 - `!` closes all open elements. Essentially ending the document. The same as using "." for each open element.
 - `'` followed by namespace name. For the default namespace, ' must be used. e.g. `root'.` is `<:root>`
-- `"` is text. All `` \ `` are escaped as `` \\ `` and all `"` are escaped as `` \" ``.
-- `"""` is multi-line text. All `` \ `` are escaped as `` \\ `` and all `"""` are escaped as `` \""" ``.
+- `"` is text. All ``\`` are escaped as ``\\`` and all `"` are escaped as ``\"``.
+- `"""` is multi-line text. All ``\`` are escaped as ``\\`` and all `"""` are escaped as ``\"""``.
   Any single-line text can be represented as multi-line and vice-versa, given the customary escaping.
 
 - Attribute:
