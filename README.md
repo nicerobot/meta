@@ -250,7 +250,8 @@ Anything not directly supported above can be included verbatim with #|"""..."""
 
 ---
 
-# `text-plain`! DRAFT #
+# `text-plain`! #
+(draft)
 
 - A meta-language.
 - Compliant with Struxt.
