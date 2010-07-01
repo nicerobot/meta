@@ -8,7 +8,7 @@ Readable   ... like plain text.
 
 ## For example ##
 
-### Here is a [Struxt document](/nicerobot/text-plain/tree/master/src/test/resources/output/note.struxt) ###
+### Here is a [Struxt document](/nicerobot/text-plain/tree/master/src/test/resources/output/note.stxt) ###
 
     note: to: "Tove". from: "Jani". heading: "Reminder". body: "Don't forget me this weekend!"!
 
@@ -52,7 +52,7 @@ with all the `< / >` marks and replace them with human-friendly spaces and punct
       </caption>
     </painting>
 
-### [The Struxt](/nicerobot/text-plain/tree/master/src/test/resources/output/painting.struxt) ###
+### [The Struxt](/nicerobot/text-plain/tree/master/src/test/resources/output/painting.stxt) ###
 
     painting:
       img "madonna.jpg" src, "Foligno Madonna, by Raphael" alt.
@@ -79,7 +79,7 @@ with all the `< / >` marks and replace them with human-friendly spaces and punct
         </vcalendar>
     </iCalendar>
 
-### [The Struxt](/nicerobot/text-plain/tree/master/src/test/resources/output/ical.struxt) ###
+### [The Struxt](/nicerobot/text-plain/tree/master/src/test/resources/output/ical.stxt) ###
 
     #?xml "1.1" version.
     iCalendar "urn:ietf:params:xml:ns:xcal" xmlns:
