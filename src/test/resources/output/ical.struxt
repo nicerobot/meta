@@ -1,0 +1,8 @@
+iCalendar:
+  vcalendar:
+    version: "2.0".
+    prodid: "-//hacksw/handcal//NONSGML v1.0//EN".
+    vevent:
+      dtstart: "19970714T170000Z".
+      dtend: "19970715T035959Z".
+      summary "en_US" lang'xml: "Bastille Day Party"....

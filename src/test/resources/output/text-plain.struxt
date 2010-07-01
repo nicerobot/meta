@@ -1,0 +1,96 @@
+/*
+  Based on text-plain.xslt
+  
+  Created: 2010-05-18-0800
+  Modified: 2010-05-18-0800
+  
+  This transformation converts any XML document into text-plain.
+*/
+stylesheet'xsl "2.0" version:
+  output'xsl "UTF-8" encoding, "no" indent, "text/plain" media-type, "text" method, "yes" omit-xml-declaration.
+  strip-space'xsl "*" elements.
+  variable'xsl "struxtml" name, "'http://www.struxtml.org/xmlns/version/2010/05'" select.
+  variable'xsl "CR" name:
+    text'xsl..
+  variable'xsl "START_ELEM" name, "':'" select.
+  variable'xsl "END_ELEM" name, "'.'" select.
+  variable'xsl "END_DOCUMENT" name, "'!'" select.
+  variable'xsl "VALUE_DELIM" name, "','" select.
+  variable'xsl "QUOTE_ATTRIB" name, 
+    """'"'""" select.
+  variable'xsl "STRING_DELIM" name, 
+    """'"'""" select.
+  variable'xsl "START_TEXT" name, 
+    """'"'""" select.
+  variable'xsl "END_TEXT" name, 
+    """'"'""" select.
+  variable'xsl "START_COMMENT" name, "'/*'" select.
+  variable'xsl "END_COMMENT" name, "'*/'" select.
+  template'xsl "comment()" match:
+    value-of'xsl "$START_COMMENT" select.
+    value-of'xsl "." select.
+    value-of'xsl "$END_COMMENT" select.
+    value-of'xsl "$CR" select..
+  template'xsl "*" match:
+    call-template'xsl "indent" name:
+      with-param'xsl "value" name, "." select..
+    call-template'xsl "name" name:
+      with-param'xsl "local-name" name, "local-name()" select.
+      with-param'xsl "name" name, "name()" select..
+    if'xsl "count(@*)>0" test:
+      for-each'xsl "@*" select:
+        if'xsl "position()>1" test:
+          value-of'xsl "$VALUE_DELIM" select..
+        apply-templates'xsl "." select...
+    choose'xsl:
+      when'xsl "count(*|text())>0" test:
+        value-of'xsl "$START_ELEM" select.
+        for-each'xsl "*|text()" select:
+          apply-templates'xsl "." select....
+    value-of'xsl "$END_ELEM" select..
+  template'xsl "text()" match:
+    call-template'xsl "quote" name:
+      with-param'xsl "value" name, "." select...
+  template'xsl "@*" match:
+    call-template'xsl "quote" name:
+      with-param'xsl "value" name, "." select..
+    text'xsl.
+    call-template'xsl "name" name:
+      with-param'xsl "local-name" name, "local-name()" select.
+      with-param'xsl "name" name, "name()" select...
+  template'xsl "quote" name:
+    param'xsl "value" name.
+    text'xsl.
+    choose'xsl:
+      when'xsl "contains($value,$QUOTE_ATTRIB)" test:
+        call-template'xsl "indent" name:
+          with-param'xsl "value" name, "." select..
+        value-of'xsl "$QUOTE_ATTRIB" select.
+        value-of'xsl "$QUOTE_ATTRIB" select.
+        value-of'xsl "$QUOTE_ATTRIB" select..
+      otherwise'xsl:
+        value-of'xsl "$QUOTE_ATTRIB" select...
+    value-of'xsl "$value" select.
+    choose'xsl:
+      when'xsl "contains($value,$QUOTE_ATTRIB)" test:
+        value-of'xsl "$QUOTE_ATTRIB" select.
+        value-of'xsl "$QUOTE_ATTRIB" select.
+        value-of'xsl "$QUOTE_ATTRIB" select..
+      otherwise'xsl:
+        value-of'xsl "$QUOTE_ATTRIB" select....
+  template'xsl "indent" name:
+    param'xsl "value" name.
+    if'xsl "count(./ancestor::node())>1" test:
+      for-each'xsl "./ancestor::node()" select:
+        choose'xsl:
+          when'xsl "position()=1" test:
+            value-of'xsl "$CR" select..
+          when'xsl "position()>1" test:
+            text'xsl......
+  template'xsl "name" name:
+    param'xsl "local-name" name.
+    param'xsl "name" name.
+    value-of'xsl "$local-name" select.
+    if'xsl "$local-name!=$name" test:
+      text'xsl: "'".
+      value-of'xsl "substring-before($name, ':')" select....

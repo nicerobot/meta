@@ -1,0 +1,6 @@
+painting:
+  img "madonna.jpg" src, "Foligno Madonna, by Raphael" alt.
+  caption: 
+    """This is Raphael's "Foligno" Madonna, painted in """
+    date: "1511". "-"
+    date: "1512". "."..

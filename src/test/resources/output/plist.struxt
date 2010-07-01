@@ -1,0 +1,14 @@
+#!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"
+plist "1.0" version:
+  dict:
+    key: "Label".
+    string: "com.google.code.synergy-plus".
+    key: "OnDemand".
+    false.
+    key: "ProgramArguments".
+    array:
+      string: "sh".
+      string: "-c".
+      string: "/usr/bin/synergys -f -c ${HOME}/.synergy"..
+    key: "RunAtLoad".
+    true...
