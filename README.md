@@ -8,11 +8,11 @@ Readable   ... like plain text.
 
 ## For example ##
 
-### Here is a [Struxt document](/text-plain/tree/master/src/test/resources/output/note.struxt) ###
+### Here is a [Struxt document](/nicerobot/text-plain/tree/master/src/test/resources/output/note.struxt) ###
 
     note: to: "Tove". from: "Jani". heading: "Reminder". body: "Don't forget me this weekend!"!
 
-### For [this XML](/text-plain/tree/master/src/test/resources/note.xml) ###
+### For [this XML](/nicerobot/text-plain/tree/master/src/test/resources/note.xml) ###
 
     <note>
       <to>Tove</to>
@@ -43,7 +43,7 @@ with all the `< / >` marks and replace them with human-friendly spaces and punct
 
 ---
 
-### For [this XML](/text-plain/tree/master/src/test/resources/painting.xml) ###
+### For [this XML](/nicerobot/text-plain/tree/master/src/test/resources/painting.xml) ###
 
     <painting>
       <img src="madonna.jpg" alt='Foligno Madonna, by Raphael'/>
@@ -52,7 +52,7 @@ with all the `< / >` marks and replace them with human-friendly spaces and punct
       </caption>
     </painting>
 
-### [The Struxt](/text-plain/tree/master/src/test/resources/output/painting.struxt) ###
+### [The Struxt](/nicerobot/text-plain/tree/master/src/test/resources/output/painting.struxt) ###
 
     painting:
       img "madonna.jpg" src, "Foligno Madonna, by Raphael" alt.
@@ -64,7 +64,7 @@ with all the `< / >` marks and replace them with human-friendly spaces and punct
 
 ---
 
-### For [this XML](/text-plain/tree/master/src/test/resources/ical.xml) ###
+### For [this XML](/nicerobot/text-plain/tree/master/src/test/resources/ical.xml) ###
 
     <?xml version="1.0"?>
     <iCalendar xmlns="urn:ietf:params:xml:ns:xcal">
@@ -79,7 +79,7 @@ with all the `< / >` marks and replace them with human-friendly spaces and punct
         </vcalendar>
     </iCalendar>
 
-### [The Struxt](/text-plain/tree/master/src/test/resources/output/ical.struxt) ###
+### [The Struxt](/nicerobot/text-plain/tree/master/src/test/resources/output/ical.struxt) ###
 
     #?xml "1.1" version.
     iCalendar "urn:ietf:params:xml:ns:xcal" xmlns:
