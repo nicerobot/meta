@@ -17,14 +17,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B00ED3A11DCB30F00CEAC86 /* metatext.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 1B67CB8111E8322A00F6A7D1 /* libmetatext.a */;
+			remoteGlobalIDString = 1B67CB8111E8322A00F6A7D1;
 			remoteInfo = metatext;
 		};
 		1B67CBA711E8398B00F6A7D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1B00ED3A11DCB30F00CEAC86 /* metatext.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 1B67CBA211E8396800F6A7D1 /* metatext_shell */;
+			remoteGlobalIDString = 1B67CBA211E8396800F6A7D1;
 			remoteInfo = metatext;
 		};
 /* End PBXContainerItemProxy section */
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				1B67CB9111E8324900F6A7D1 /* libmetatext.a */,
-				1B67CBA811E8398B00F6A7D1 /* metatext_shell */,
+				1B67CBA811E8398B00F6A7D1 /* metatext */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,7 +148,14 @@
 			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "t" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* t */;
 			projectDirPath = "";
 			projectReferences = (
@@ -172,10 +179,10 @@
 			remoteRef = 1B67CB9011E8324900F6A7D1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1B67CBA811E8398B00F6A7D1 /* metatext_shell */ = {
+		1B67CBA811E8398B00F6A7D1 /* metatext */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
-			path = metatext_shell;
+			path = metatext;
 			remoteRef = 1B67CBA711E8398B00F6A7D1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

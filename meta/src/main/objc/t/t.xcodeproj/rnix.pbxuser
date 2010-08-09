@@ -11,6 +11,20 @@
 			1B00ED3211DCB2D600CEAC86 /* t */,
 		);
 		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					483,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
@@ -55,12 +69,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300432589;
-			PBXWorkspaceStateSaveDate = 300432589;
+			PBXPerProjectTemplateStateSaveDate = 302919826;
+			PBXWorkspaceStateSaveDate = 302919826;
 		};
 		perUserProjectItems = {
-			1B67C95D11E82FF600F6A7D1 /* PBXTextBookmark */ = 1B67C95D11E82FF600F6A7D1 /* PBXTextBookmark */;
-			1B67CC0511E83CEC00F6A7D1 /* PBXTextBookmark */ = 1B67CC0511E83CEC00F6A7D1 /* PBXTextBookmark */;
+			1B1807C3120E2F3F00FDFDCC /* PBXTextBookmark */ = 1B1807C3120E2F3F00FDFDCC /* PBXTextBookmark */;
+			1B1807D0120E309E00FDFDCC /* PBXTextBookmark */ = 1B1807D0120E309E00FDFDCC /* PBXTextBookmark */;
 		};
 		sourceControlManager = 1B00ED3811DCB30900CEAC86 /* Source Control */;
 		userBuildSettings = {
@@ -68,7 +82,7 @@
 	};
 	08FB7796FE84155DC02AAC07 /* t.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {773, 532}}";
+			sepNavIntBoundsRect = "{{0, 0}, {773, 413}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 234}";
 		};
@@ -89,6 +103,7 @@
 		dataTipSortType = 0;
 		debuggerPlugin = GDBDebugging;
 		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
 		enableDebugStr = 1;
 		environmentEntries = (
 		);
@@ -114,7 +129,7 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	1B67C95D11E82FF600F6A7D1 /* PBXTextBookmark */ = {
+	1B1807C3120E2F3F00FDFDCC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 08FB7796FE84155DC02AAC07 /* t.m */;
 		name = "t.m: 1";
@@ -124,7 +139,7 @@
 		vrLen = 234;
 		vrLoc = 0;
 	};
-	1B67CC0511E83CEC00F6A7D1 /* PBXTextBookmark */ = {
+	1B1807D0120E309E00FDFDCC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 08FB7796FE84155DC02AAC07 /* t.m */;
 		name = "t.m: 1";

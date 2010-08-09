@@ -7,7 +7,7 @@
 //
 
 #import "Metatext.h"
-
+#import "MTItem.h"
 
 @implementation Metatext 
 
@@ -19,7 +19,7 @@
  */
 
 - (NSString *)applicationSupportDirectory {
-  
+
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory,
                                                        NSUserDomainMask,
                                                        YES);
@@ -41,7 +41,8 @@
   
   if (managedObjectModel) return managedObjectModel;
 	
-  managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+  managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
+  //NSLog(@"%@",managedObjectModel);
   return managedObjectModel;
 }
 
@@ -90,7 +91,7 @@
                                                           URL:url 
                                                       options:nil 
                                                         error:&error]){
-    [[NSApplication sharedApplication] presentError:error];
+    NSLog(@"%@",error);
     [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
     return nil;
   }    
@@ -117,7 +118,7 @@
     NSError *error = [NSError errorWithDomain:@"nicerobot.org"
                                          code:9999
                                      userInfo:dict];
-    [[NSApplication sharedApplication] presentError:error];
+    NSLog(@"%@",error);
     return nil;
   }
   managedObjectContext = [[NSManagedObjectContext alloc] init];
@@ -127,22 +128,12 @@
 }
 
 /**
- Returns the NSUndoManager for the application.  In this case, the manager
- returned is that of the managed object context for the application.
- */
-
-- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
-  return [[self managedObjectContext] undoManager];
-}
-
-
-/**
  Performs the save action for the application, which is to send the save:
  message to the application's managed object context.  Any encountered errors
  are presented to the user.
  */
 
-- (IBAction) saveAction:(id)sender {
+- (void)save {
   
   NSError *error = nil;
   
@@ -151,64 +142,9 @@
   }
   
   if (![[self managedObjectContext] save:&error]) {
-    [[NSApplication sharedApplication] presentError:error];
+    NSLog(@"%@:%@ unable to save", [self class], error);
   }
 }
-
-
-/**
- Implementation of the applicationShouldTerminate: method, used here to
- handle the saving of changes in the application managed object context
- before the application terminates.
- */
-
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-  
-  if (!managedObjectContext) return NSTerminateNow;
-  
-  if (![managedObjectContext commitEditing]) {
-    NSLog(@"%@:%s unable to commit editing to terminate", [self class], _cmd);
-    return NSTerminateCancel;
-  }
-  
-  if (![managedObjectContext hasChanges]) return NSTerminateNow;
-  
-  NSError *error = nil;
-  if (![managedObjectContext save:&error]) {
-    
-    // This error handling simply presents error information in a panel with an 
-    // "Ok" button, which does not include any attempt at error recovery (meaning, 
-    // attempting to fix the error.)  As a result, this implementation will 
-    // present the information to the user and then follow up with a panel asking 
-    // if the user wishes to "Quit Anyway", without saving the changes.
-    
-    // Typically, this process should be altered to include application-specific 
-    // recovery steps.  
-    
-    BOOL result = [sender presentError:error];
-    if (result) return NSTerminateCancel;
-    
-    NSString *question = NSLocalizedString(@"Could not save changes while quitting.  Quit anyway?", @"Quit without saves error question message");
-    NSString *info = NSLocalizedString(@"Quitting now will lose any changes you have made since the last successful save", @"Quit without saves error question info");
-    NSString *quitButton = NSLocalizedString(@"Quit anyway", @"Quit anyway button title");
-    NSString *cancelButton = NSLocalizedString(@"Cancel", @"Cancel button title");
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:question];
-    [alert setInformativeText:info];
-    [alert addButtonWithTitle:quitButton];
-    [alert addButtonWithTitle:cancelButton];
-    
-    NSInteger answer = [alert runModal];
-    [alert release];
-    alert = nil;
-    
-    if (answer == NSAlertAlternateReturn) return NSTerminateCancel;
-    
-  }
-  
-  return NSTerminateNow;
-}
-
 
 /**
  Implementation of dealloc, to release the retained variables.
@@ -232,14 +168,18 @@ int ShellApplicationMain(int argc, const char * argv[]) {
 
   Metatext *m = [[Metatext alloc] init];
 
-  for (int a=1; a<argc; a++) {
-    NSString *text = [NSString stringWithUTF8String:argv[a]];
-    NSString *uuid = (NSString*) CFUUIDCreateString(kCFAllocatorDefault,
-                                                    CFUUIDCreate(kCFAllocatorDefault));
-    
-    NSLog(@"%@ %@", uuid, text); 
-  }  
+  NSManagedObjectContext *moc = [m managedObjectContext];
 
+  if (moc) {
+    for (int a=1; a<argc; a++) {
+      MTItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"Item"
+                                                   inManagedObjectContext:moc];
+      item.text = [NSString stringWithUTF8String:argv[a]];
+      NSLog(@"%@", item);
+    }  
+    
+    [m save];
+  }
   [m release];
 
   return EXIT_SUCCESS;

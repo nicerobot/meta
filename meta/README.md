@@ -4,14 +4,16 @@ Meta-text is a superset of plain text that assigns context based on identifiers.
 
 Meta-identifiers:
 
-    !  priority
-    ^  calendar + relatives: now, today, tomorrow, ...
-    *  repeating
-    #  tags
-    @  contact
-    =  location
-    ~  duration estimate
-    [  link
+       Description              Example
+       -----------              -------
+    !  priority.                !(number|name)
+    ^  calendar | relatives.    ^(now|today|tomorrow|...|date)
+    #  tags.                    #tags,list
+    @  contact.                 @name
+    =  location.                =(log,lat|name)
+    ~  duration estimate.       ~NyNtNwNdNhNmNsNi(^date)
+    *  repeating.               *TBD
+    [  link.                    [(name=)link
     -- multiline markdown
     :: context
 
@@ -21,7 +23,7 @@ Any meta-string except #word [link can be immediately followed by #name to assig
 
 ## Examples
 
-    I need @Anna to !help with the [Groceries #shopping #list for ^Sunday. It should only take ~15min at =Publix =-44.2,-25.6.
+    I need @Anna to !help with the [Groceries #shopping #list for ^Sunday. It should only take ~15min at =Publix.
 
 ### Plain text
 
@@ -52,7 +54,7 @@ Named priorities:
 
 Latitude and longitude:
 
-    =44.1,66.4#home
+    =48.858845,2.294351#EiffelTower
     =here
 
 Named:
@@ -73,15 +75,25 @@ Address:
     ~3h30m
     ~1y
     ~6mo
+    
+Durations default to "from now" (i.e. "^now"). For example
+
+    ~3h30m
+
+is the same as
+
+    ~3h30m^now
 
 ### Repetitions
 
     *1mo
+    
+Repetitions default to "from now". See Durations.
 
 ### Links
 
     [groceries
-    [party#https://mail.google.com/mail/?ui=2&shva=1#label/_data_/123bb3b356190ba1
+    [party=https://mail.google.com/mail/?ui=2&shva=1#label/_data_/123bb3b356190ba1
 
 ### Markdown
 
@@ -89,6 +101,28 @@ Address:
 
 ### Context
 
-    :c=1275725795:
+    :c=1265000033:
 
 Context is generally automated by processing utilities at the time of creation but can be specified explicitly as any recognizable date format.
+
+## Relative Data
+
+### Relative Dates
+
+Relative dates are always transformed into a fixed format at the time of processing. For example,
+
+    ^now
+    
+is transformed into
+
+    ^now=1265000033
+
+### Relative Locations
+
+Relative locations are always transformed into a fixed location at the time of processing. For example,
+
+    =here
+
+is transformed into
+
+    =here=48.858845,2.294351
