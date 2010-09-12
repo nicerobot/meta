@@ -9,7 +9,9 @@ Meta-identifiers:
     !  priority.                !(number|name)
     ^  calendar | relatives.    ^(now|today|tomorrow|...|date)
     #  tags.                    #tags,list
+    #t tags.                    #t tags,list,info,fun
     @  contact.                 @name
+    @d mood.                    @d happy
     =  location.                =(log,lat|name)
     ~  duration estimate.       ~NyNtNwNdNhNmNsNi(^date)
     *  repeating.               *TBD

@@ -24,6 +24,7 @@
 
 - (void)setText:(NSString *)aString;
 
+@property (nonatomic, retain) NSString * did;
 @property (nonatomic, retain) NSString * item;
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSString * name;
