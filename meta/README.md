@@ -4,18 +4,18 @@ Meta-text is a superset of plain text that assigns context based on identifiers.
 
 Meta-identifiers:
 
-       Description              Example
-       -----------              -------
-    !  priority.                !(number|name)
-    ^  calendar | relatives.    ^(now|today|tomorrow|...|date)
-    #  tags.                    #tags,list
-    #t tags.                    #t tags,list,info,fun
-    @  contact.                 @name
-    @d mood.                    @d happy
-    =  location.                =(log,lat|name)
-    ~  duration estimate.       ~NyNtNwNdNhNmNsNi(^date)
-    *  repeating.               *TBD
-    [  link.                    [(name=)link
+       Description              Example                            General
+       -----------              -------                            -------
+    !  priority.                !2 !hot                            !(number|name)
+    ^  calendar | relatives.    ^tomorrow                          ^(now|today|tomorrow|...|date)
+    #  tags.                    #grocery,eggs #milk                #tags,list
+    #t tags.                    #t grocery,eggs,milk               #t tags,list,info,fun
+    @  contact.                 @Anna                              @name
+    @d mood.                    @d happy                           @d anything
+    =  location.                                                   =(log,lat|name)
+    ~  duration estimate.       ~2h45m                             ~NyNtNwNdNhNmNsNi(^date)
+    *  repeating.                                                  *TBD
+    [  link.                                                       [(name=)link
     -- multiline markdown
     :: context
 
@@ -71,6 +71,7 @@ Address:
 
     @Anna
     @800.555.1234#Work
+    @tel:800.555.1234#Work
 
 ### Durations
 
