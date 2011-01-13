@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  Based on text-plain.xslt
+  text-plain.xslt
   
   Created: 2010-05-18-0800
   Modified: 2010-05-18-0800
