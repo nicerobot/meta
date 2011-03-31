@@ -16,12 +16,14 @@ Meta-identifiers:
     ~  duration estimate.       ~2h45m                   ~NyNtNwNdNhNmNsNi(^date)
     *  repeating.                                        *TBD
     [  link.                                             [(name=)link
-    -- multiline markdown
+    -m multiline markdown
+    -t multiline textile
+    -w multiline mediawiki
     :: context
 
 A meta-string is a meta-identifier followed immediately by a word. The only exception is --.
 
-Any meta-string except #word [link can be immediately followed by #name to assign a name to the string. A [link can be immediately #url.
+Any meta-string except #word and [link can be immediately followed by #name to assign a name/tag to the string.
 
 ## Examples
 
