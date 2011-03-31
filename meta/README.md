@@ -1,6 +1,6 @@
 ## Meta-text
 
-Meta-text is a superset of plain text that assigns context based on identifiers.
+Meta-text is plain text that assigns context to text based on short, character identifiers.
 
 Meta-identifiers:
 
