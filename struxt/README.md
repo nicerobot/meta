@@ -28,6 +28,25 @@ Readable   ... like plain text.
       body: "Don't forget me this weekend!".
     .
 
+### With implied closing "." ###
+
+The closing "." can be excluded and EOL will close 1 open tag and EOF will close all.
+
+    note:
+      to: "Tove"
+      from: "Jani"
+      heading: "Reminder"
+      body: "Don't forget me this weekend!"
+
+### Alternately, {} can replace :. ###
+
+    note {
+      to{"Tove"}
+      from{"Jani"}
+      heading: "Reminder"
+      body: "Don't forget me this weekend!"
+    }
+
 ---
 
 ## Compared to Markdown ##
