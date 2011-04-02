@@ -8,10 +8,14 @@ object Struxt extends JavaTokenParsers {
 
   val STR = "\".*?\""r
  
+  def open = "{" | ":"
+
+  def close = "}" | "."
+
   def attribute = ID ~ ( STR | ID )
 
   def attributes = repsep(attribute, "," )
 
-  def node:Parser[Any] = ID ~ (attributes?) | ID ~ (attributes?) ~ ("{" ~> (node*) <~ "}")
+  def node:Parser[Any] = ID ~ (attributes?) | ID ~ (attributes?) ~ (open ~> (node*) <~ close)
 
 }
