@@ -12,6 +12,6 @@ object Struxt extends JavaTokenParsers {
 
   def attributes = repsep(attribute, "," )
 
-  def node:Parser[Any] = ID ~ (attributes?) | ID ~ (attributes?) ~ "{" ~> (node*) <~ "}"
+  def node:Parser[Any] = ID ~ (attributes?) | ID ~ (attributes?) ~ ("{" ~> (node*) <~ "}")
 
 }
