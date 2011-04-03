@@ -29,24 +29,57 @@ package org.nicerobot.struxt.parser;
       System.out.println();
     }
 
+    public static void _out(String s) {
+      System.out.print(s);
+    }
+
+    public static String open(Token ns, Token nodename) {
+      String tag=(null!=ns?ns.getText()+":":"")+nodename.getText();
+      _out(String.format("<\%s",tag));
+      return tag;
+    }
+
+    public static String singleline(String s) {
+      return s.replaceAll("\\r?\\n","");
+    }
+
     public static String unquote(String s) {
-      if ('"'!=s.charAt(0)) return s;
-      return s.substring(1,s.length()-1);
+      int q=0;
+      if (s.startsWith("'''")) q+=3;
+      if (s.startsWith("!!!")) q+=3;
+      if (s.startsWith("\"\"\"")) q+=2;
+      if (s.startsWith("\"")) q+=1;
+      if (0==q) return s;
+      return s.substring(q,s.length()-q);
+    }
+    
+    public static void attr(Token ns, Token name, Token value) {
+      String v = unquote(singleline(value.getText()));
+      // TODO: Make "value" configurable (per namespace?)
+      _out(String.format(" \%s\%s=\"\%s\"",(null!=ns?ns.getText()+":":""),(null!=name?name.getText():"value"),v));
     }
     
 }
 
 struxt
-    : node EOF
+    : xml=xmldecl?
+      doctype=DOC? { if (null!=$doctype)_out(String.format("<!DOCTYPE \%s>\n",unquote($doctype.text))); }
+      node EOF
+    ;
+
+xmldecl returns [String attrs]
+    : XML { _out("<?xml"); } attributes '.' { _out(" ?>\n"); }
     ;
 
 node
-    : tagname=tag {System.out.format(">");} children {System.out.format("</\%s>",tagname);} 
-    | text=STR {System.out.format("\%s",unquote($text.text));} 
+    : tagname=tag { _out(">"); }
+      children { _out(String.format("</\%s>",tagname)); }
+    | text=STR
+      { _out(String.format("\%s",unquote($text.text))); }
     ;
 
 tag returns [String tagname]
-    : nodename=ID {System.out.format("<\%s",$tagname=$nodename.text);} attributes?
+    : nodename=ID (('@'|'/') ns=ID)? { $tagname=open($ns,$nodename); } attributes?
 	  ;
 
 fragment children
@@ -57,12 +90,12 @@ fragment children
     ;
 
 fragment childs
-    : node* nodename=tag? {if (null!=nodename) System.out.format("/>");}
+    : node* nodename=tag? { if (null!=nodename) System.out.format("/>"); }
     ;
 
 fragment attribute
-    : name=ID value=(STR | INT | FLOAT | CHAR)? {System.out.format(" \%s=\"\%s\"",(null!=$name?$name.text:"name"),unquote($value.text));}
-    | value=(STR | INT | FLOAT | CHAR) name=ID? {System.out.format(" \%s=\"\%s\"",(null!=$name?$name.text:"name"),unquote($value.text));}
+    : (ns=ID ('!'|'#') name=ID | name=ID ( ('@'|'/') ns=ID)?) value=(STR | INT | FLOAT | CHAR)? { attr($ns,$name,$value); }
+    | value=(STR | INT | FLOAT | CHAR) (ns=ID  ('!'|'#') name=ID | name=ID (('@'|'/') ns=ID)?)? { attr($ns,$name,$value); }
     ;
 
 fragment attributes
@@ -70,11 +103,21 @@ fragment attributes
     ;
 
 ID
-    : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+    : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'-')*
+    ;
+
+XML
+    : '?xml'
+    ;
+
+DOC
+    : '!!!' (options {greedy=false;}:.)+ '!!!'
     ;
 
 STR
-    :  '"' ~('"')* '"'
+    : '"""' (options {greedy=false;}:.)* '"""'
+    | '\'\'\'' (options {greedy=false;}:.)* '\'\'\''
+    |'"' ~('"')* '"'
     ;
 
 COMMENT
@@ -90,10 +133,6 @@ WS
         ) {$channel=HIDDEN;}
     ;
 
-STRING
-    :  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
-    ;
-
 INT :	'0'..'9'+
     ;
 
@@ -104,7 +143,7 @@ FLOAT
     ;
 
 CHAR
-    :  '\'' ( ESC_SEQ | ~('\''|'\\') ) '\''
+    :  '\'' ~('\'')+ '\''
     ;
 
 fragment
@@ -115,23 +154,4 @@ EXPONENT
 fragment
 HEX_DIGIT
     : ('0'..'9'|'a'..'f'|'A'..'F')
-    ;
-
-fragment
-ESC_SEQ
-    :   '\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
-    |   UNICODE_ESC
-    |   OCTAL_ESC
-    ;
-
-fragment
-OCTAL_ESC
-    :   '\\' ('0'..'3') ('0'..'7') ('0'..'7')
-    |   '\\' ('0'..'7') ('0'..'7')
-    |   '\\' ('0'..'7')
-    ;
-
-fragment
-UNICODE_ESC
-    :   '\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
     ;
