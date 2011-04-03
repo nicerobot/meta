@@ -54,7 +54,7 @@ package org.nicerobot.struxt.parser;
     }
     
     public static void attr(Token ns, Token name, Token value) {
-      String v = unquote(singleline(value.getText()));
+      String v = unquote(singleline(null!=value?value.getText():"true"));
       // TODO: Make "value" configurable (per namespace?)
       _out(String.format(" \%s\%s=\"\%s\"",(null!=ns?ns.getText()+":":""),(null!=name?name.getText():"value"),v));
     }
