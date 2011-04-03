@@ -6,10 +6,34 @@ options {
 
 @header {
 package org.nicerobot.struxt.parser;
+import java.io.IOException;
 }
 
 @lexer::header {
 package org.nicerobot.struxt.parser;
+}
+
+@members {
+    public static void main(String... args) throws IOException {
+      ANTLRStringStream st = null;
+      if (0 == args.length) {
+        st = new ANTLRInputStream(System.in);
+      } else {
+        st = new ANTLRFileStream(args[0]);
+      }
+      try {
+        new StruxtParser(new CommonTokenStream(new StruxtLexer(st))).struxt();
+      } catch (RecognitionException e)  {
+        e.printStackTrace();
+      }
+      System.out.println();
+    }
+
+    public static String unquote(String s) {
+      if ('"'!=s.charAt(0)) return s;
+      return s.substring(1,s.length()-1);
+    }
+    
 }
 
 struxt
@@ -18,7 +42,7 @@ struxt
 
 node
     : tagname=tag {System.out.format(">");} children {System.out.format("</\%s>",tagname);} 
-    | text=STR {System.out.format("\%s ",$text.text);} 
+    | text=STR {System.out.format("\%s",unquote($text.text));} 
     ;
 
 tag returns [String tagname]
@@ -37,8 +61,8 @@ fragment childs
     ;
 
 fragment attribute
-    : name=ID value=(STR | INT | FLOAT | CHAR)? {System.out.format(" \%s=\%s",(null!=$name?$name.text:"name"),$value.text);}
-    | value=(STR | INT | FLOAT | CHAR) name=ID? {System.out.format(" \%s=\%s",(null!=$name?$name.text:"name"),$value.text);}
+    : name=ID value=(STR | INT | FLOAT | CHAR)? {System.out.format(" \%s=\"\%s\"",(null!=$name?$name.text:"name"),unquote($value.text));}
+    | value=(STR | INT | FLOAT | CHAR) name=ID? {System.out.format(" \%s=\"\%s\"",(null!=$name?$name.text:"name"),unquote($value.text));}
     ;
 
 fragment attributes
