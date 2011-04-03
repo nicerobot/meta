@@ -1,9 +1,7 @@
-grammar struxt;
+grammar Struxt;
 
 options {
   language=Java;
-  output=AST;
-  ASTLabelType=CommonTree;
 }
 
 @header {
@@ -15,35 +13,40 @@ package org.nicerobot.struxt.parser;
 }
 
 struxt
-    : root=node EOF
+    : node EOF
     ;
 
 node
-    : tag children
-    | STR
+    : tagname=tag {System.out.format(">");} children {System.out.format("</\%s>",tagname);} 
+    | text=STR {System.out.format("\%s ",$text.text);} 
     ;
 
-tag
-    : nodename=ID attrs=attributes?
+tag returns [String tagname]
+    : nodename=ID {System.out.format("<\%s",$tagname=$nodename.text);} attributes?
 	  ;
 
 fragment children
-    : '{' node* tag? '}'
-    | '[' node* tag? ']'
-    | '(' node* tag? ')'
+    : '{' childs '}'
+    | '[' childs ']'
+    | '(' childs ')'
     | (':' node*)? ('.'|';')
     ;
 
+fragment childs
+    : node* nodename=tag? {if (null!=nodename) System.out.format("/>");}
+    ;
+
 fragment attribute
-    : name=ID value=(STR | INT | FLOAT | CHAR)
-    | value=(STR | INT | FLOAT | CHAR) name=ID
+    : name=ID value=(STR | INT | FLOAT | CHAR)? {System.out.format(" \%s=\%s",(null!=$name?$name.text:"name"),$value.text);}
+    | value=(STR | INT | FLOAT | CHAR) name=ID? {System.out.format(" \%s=\%s",(null!=$name?$name.text:"name"),$value.text);}
     ;
 
 fragment attributes
     : attribute ( ',' attribute)*
     ;
 
-ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+ID
+    : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
     ;
 
 STR
@@ -55,7 +58,8 @@ COMMENT
     |   '/*' ( options {greedy=false;} : . )* '*/' {$channel=HIDDEN;}
     ;
 
-WS  :   ( ' '
+WS
+    :   ( ' '
         | '\t'
         | '\r'
         | '\n'
@@ -75,14 +79,19 @@ FLOAT
     |   ('0'..'9')+ EXPONENT
     ;
 
-CHAR:  '\'' ( ESC_SEQ | ~('\''|'\\') ) '\''
+CHAR
+    :  '\'' ( ESC_SEQ | ~('\''|'\\') ) '\''
     ;
 
 fragment
-EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
+EXPONENT
+    : ('e'|'E') ('+'|'-')? ('0'..'9')+
+    ;
 
 fragment
-HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F') ;
+HEX_DIGIT
+    : ('0'..'9'|'a'..'f'|'A'..'F')
+    ;
 
 fragment
 ESC_SEQ
@@ -101,36 +110,4 @@ OCTAL_ESC
 fragment
 UNICODE_ESC
     :   '\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
-    ;
-
-BOPEN
-    : '{'
-    ;
-
-BCLOSE
-    : '}'
-    ;
-
-COPEN
-    : ':'
-    ;
-
-CCLOSE
-    : '.'
-    ;
-
-DOPEN
-    : '('
-    ;
-
-DCLOSE
-    : ')'
-    ;
-
-EOPEN
-    : '['
-    ;
-
-ECLOSE
-    : ']'
     ;
