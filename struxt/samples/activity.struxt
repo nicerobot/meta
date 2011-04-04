@@ -1,25 +1,27 @@
 activity {
+
   if "Some Test", use "true" {
     to "activity 1";
 
     if {
-      to a3;
-    } else {
-      if "Other test" {
-        to "activity 5", left;
+      to "activity 3".
+
+      if "last test" {
+        to "activity 7";
       } else {
-        to "activity 6";
+        to "activity 8";
       }
+      return.
     }
+
+    if "Other test" {
+      to "activity 5", left;
+    } else {
+      to "activity 6";
+    }
+
   } else use "false" {
     to "activity 2";
   }
 
-  a3 "activity 3" {
-    if "last test" {
-      to "activity 7";
-    } else {
-      to "activity 8";
-    }
-  }
 }

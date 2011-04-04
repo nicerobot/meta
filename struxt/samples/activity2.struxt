@@ -2,7 +2,7 @@ activity {
 
   title "Servlet Container".
 
-  to "ClickServlet.handleRequest ()".
+  start "ClickServlet.handleRequest ()".
   to "new Page".
   
   if "Page.onSecurityCheck", use "true" {

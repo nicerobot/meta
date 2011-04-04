@@ -1,0 +1,7 @@
+activity {
+  start parallel {
+    to "Parallel Activity 1".
+    to "Parallel Activity 2".
+  }
+  to end.
+}
