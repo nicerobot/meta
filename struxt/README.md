@@ -9,7 +9,7 @@ As readable and writable as plain text.
 The goal is to facilitate creating Domain Specific Languages (DSLs) that readily transform into XML,
 to provide an easy, more natural, less verbose means of manually creating structured documents.
 
-In other words, do away with all the `< / >` marks and replace them with eye-friendly spaces and punctuation.
+In other words, do away with all the `< / >` marks and replace them with human-friendly spaces and punctuation.
 
 **This is especially apparent when namespaces are involved in the markup.**
 
@@ -17,7 +17,7 @@ In other words, do away with all the `< / >` marks and replace them with eye-fri
 
 ### Here is a [Struxt document](/nicerobot/text-plain/tree/master/language/src/test/resources/output/note.stxt) ###
 
-    note: to: "Tove". from: "Jani". heading: "Reminder". body: "Don't forget me this weekend!"!
+    note: to: "Tove". from: "Jani". heading: "Reminder". body: "Don't forget me this weekend!".
 
 ### For [this XML](/nicerobot/text-plain/tree/master/language/src/test/resources/note.xml) ###
 
@@ -92,33 +92,14 @@ equivalently produce:
 
 ---
 
-### Sequence "Diagram" ###
-
-    <sequence>
-        <actors>
-            <user id="User"/>
-            <boundary id=":View"/>
-            <controller id=":Controller"/>
-            <entity id=":Model"/>
-        </actors>
-        <messages>
-            <user view="request()"/>
-            <view controller="handleEvent()"/>
-            <controller model="queryInformation()"/>
-            <controller controller="doValidation()"/>
-            <view controller="updateView()"/>
-            <user view="notifyUser()"/>
-        </messages>
-    </sequence>
-
-### Struxt for Sequence "Diagram" ###
+### Struxt for a [Sequence Diagram](/nicerobot/text-plain/blob/master/struxt/samples/sequence2.struxt) ###
 
     sequence{
       actors{
         user "User".
-        boundary ":View".
-        controller ":Controller".
-        entity ":Model".
+        participant view ":View".
+        participant controller ":Controller".
+        participant model ":Model".
       }
       messages{
         user "request()" view.
@@ -129,6 +110,25 @@ equivalently produce:
         user "notifyUser()" view.
       }
     }
+
+### The XML ###
+
+    <sequence>
+        <actors>
+            <user id="User"/>
+            <participant view=":View"/>
+            <participant controller=":Controller"/>
+            <participant entity=":Model"/>
+        </actors>
+        <messages>
+            <user view="request()"/>
+            <view controller="handleEvent()"/>
+            <controller model="queryInformation()"/>
+            <controller controller="doValidation()"/>
+            <view controller="updateView()"/>
+            <user view="notifyUser()"/>
+        </messages>
+    </sequence>
 
 ---
 
