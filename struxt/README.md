@@ -6,6 +6,8 @@ As readable and writable as plain text.
 
 ## The Goal ##
 
+If you can write XML, you can write Struxt.
+
 The goal is to facilitate creating Domain Specific Languages (DSLs) that readily transform into XML,
 to provide an easy, more natural, less verbose means of manually creating structured documents.
 
