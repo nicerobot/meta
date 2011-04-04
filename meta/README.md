@@ -29,10 +29,6 @@ Any meta-string except #word and [link can be immediately followed by #name to a
 
     I need @Anna to !help with the [Groceries #shopping #list for ^Sunday. It should only take ~15min at =Publix.
 
-### Plain text
-
-    Meta-text is a superset of plain text.
-
 ### Dates
 
     ^2010-09-30#my-birthday

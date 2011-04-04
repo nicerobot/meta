@@ -22,7 +22,6 @@
 ]]></xsl:text></xsl:variable>
   <xsl:variable name="START_ELEM" select="':'" />
   <xsl:variable name="END_ELEM" select="'.'" />
-  <xsl:variable name="END_DOCUMENT" select="'!'" />
   <xsl:variable name="VALUE_DELIM" select="','" />
   <xsl:variable name="QUOTE_ATTRIB" select="'&quot;'" />
   <xsl:variable name="STRING_DELIM" select="'&quot;'" />
@@ -146,7 +145,7 @@
     <xsl:param name="name" />
     <xsl:value-of select="$local-name"/>
     <xsl:if test="$local-name!=$name">
-      <xsl:text>'</xsl:text>
+      <xsl:text>/</xsl:text>
       <xsl:value-of select="substring-before($name, ':')"/>
     </xsl:if>
   </xsl:template>
