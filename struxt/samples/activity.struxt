@@ -4,14 +4,14 @@ activity {
     to "activity 1";
 
     if {
-      to "activity 3".
+      to "activity 3";
 
       if "last test" {
         to "activity 7";
       } else {
         to "activity 8";
       }
-      return.
+      return;
     }
 
     if "Other test" {
