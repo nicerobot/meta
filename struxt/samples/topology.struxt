@@ -1,0 +1,12 @@
+topology {
+  host name "${hostname1}", CPU "${CPUGhz1}", Memory "${memory1}", OS "${OS1}", user "${username1}", path "${path1}" {
+    software name "${software1}"
+  }
+  host name "${hostname2}", CPU "${CPUGhz2}", Memory "${memory2}", OS "${OS2}", user "${username2}", path "${path2}" {
+    software name "${software2}"
+  }
+  host name "${hostname3}", CPU "${CPUGhz3}", Memory "${memory3}", OS "${OS3}", user "${username3}", path "${path3}" {
+    software name "${software3}"
+  }
+  protocol "${protocol}" { host "${hostname1}". host "${hostname2}". }
+}

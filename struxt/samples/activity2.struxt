@@ -1,0 +1,48 @@
+activity {
+
+  title "Servlet Container".
+
+  to "ClickServlet.handleRequest ()".
+  to "new Page".
+  
+  if "Page.onSecurityCheck", use "true" {
+    to "Page.onInit ()".
+
+    if not "isForward ?" {
+      to "Process controls".
+      
+      if not "continue processing ?" {
+        to REDIRECT_CHECK.
+      }
+    }
+    /* implied else */
+    /* implied synchronization */
+
+    if "is Post?" {
+      to "Page.onPost ()".
+      to "Page.onRender ()", as "render".
+      to REDIRECT_CHECK.
+    } else {
+      to "Page.onGet ()".
+      to "render".
+    }
+
+  }
+  /* implied else */
+
+  REDIRECT_CHECK {
+    if "Do redirect ?" {
+      to "redirect request".
+    } else {
+      if "Do Forward?" {
+        to "Forward request", left.
+      } else {
+        to "Render page template", right.
+      }
+    }
+  }
+  /* implied synchronization */
+
+  to "Page.onDestroy ()".
+
+}

@@ -1,0 +1,25 @@
+activity {
+  if "Some Test" {
+    to "activity 1":"true";
+
+    if {
+      to "activity 3", as "a3";
+    } else {
+      if "Other test" {
+        to "activity 5", left;
+      } else {
+        to "activity 6";
+      }
+    }
+  } else {
+    to "activity 2":"false";
+  }
+
+  a3 {
+    if "last test" {
+      to "activity 7";
+    } else {
+      to "activity 8";
+    }
+  }
+}

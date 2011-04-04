@@ -1,0 +1,21 @@
+sequence {
+
+  actors {
+    user "User".
+    participant A "First Class".
+    participant B "Second Class".
+    participant C "Last Class".
+  }
+
+  messages {
+    user "DoWork" A {
+      A "<< createRequest >>" B {
+        B "DoWork" C {
+          return "WorkDone", destroy.
+        }
+        return "Request <u>Created</u>".
+      }
+      return "Done".
+    }
+  }
+}
