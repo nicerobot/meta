@@ -1,15 +1,17 @@
 # Struxt - Structured Text #
 
-Structured ... like XML.
+Equivalent structure to XML.
 
-Readable   ... like plain text.
+As readable and writable as plain text.
 
 ## The Goal ##
 
 The goal is to facilitate creating Domain Specific Languages (DSLs) that readily transform into XML,
 to provide an easy, more natural, less verbose means of manually creating structured documents.
+
 In other words, do away with all the `< / >` marks and replace them with eye-friendly spaces and punctuation.
-This is especially apparent when namespaces are involved in the markup.
+
+**This is especially apparent when namespaces are involved in the markup.**
 
 ## For example ##
 
@@ -25,6 +27,8 @@ This is especially apparent when namespaces are involved in the markup.
       <heading>Reminder</heading>
       <body>Don't forget me this weekend!</body>
     </note>
+
+Not only is the Struxt far less verbose, it's simply easier to read.
 
 ### Struxt formatted like the XML ###
 
@@ -44,6 +48,30 @@ This is especially apparent when namespaces are involved in the markup.
       body: "Don't forget me this weekend!".
     }
 
+This enables tools capable of matching braces.
+
+---
+
+## Attributes ##
+
+Attributes are specified as `name "value"` or `"value" name`. Numeric values, including floats, can omit surrounding quotes.
+
+e.g.
+
+    a "/nicerobot/text-plain/tree/master/struxt" href:"Struxt".
+
+and
+
+    a href "/nicerobot/text-plain/tree/master/struxt":"Struxt".
+
+equivalently produce:
+
+    <a href="/nicerobot/text-plain/tree/master/struxt">Struxt</a>
+
+## More Examples ##
+
+---
+
 ### HTML Example ###
 
     html{
@@ -62,7 +90,45 @@ This is especially apparent when namespaces are involved in the markup.
       </body>
     </html>
 
-## More Examples ##
+---
+
+### Sequence "Diagram" ###
+
+    <sequence>
+        <actors>
+            <user id="User"/>
+            <boundary id=":View"/>
+            <controller id=":Controller"/>
+            <entity id=":Model"/>
+        </actors>
+        <messages>
+            <user view="request()"/>
+            <view controller="handleEvent()"/>
+            <controller model="queryInformation()"/>
+            <controller controller="doValidation()"/>
+            <view controller="updateView()"/>
+            <user view="notifyUser()"/>
+        </messages>
+    </sequence>
+
+### Struxt for Sequence "Diagram" ###
+
+    sequence{
+      actors{
+        user "User".
+        boundary ":View".
+        controller ":Controller".
+        entity ":Model".
+      }
+      messages{
+        user "request()" view.
+        view "handleEvent()" controller.
+        controller "queryInformation()" model.
+        controller "doValidation()" controller.
+        view "updateView()" controller.
+        user "notifyUser()" view.
+      }
+    }
 
 ---
 
@@ -117,19 +183,6 @@ This is especially apparent when namespaces are involved in the markup.
     }
 
 ---
-
-## Semantics ##
-
-- Attribute:
-  - Specified "name value" but if name isn't a valid attribute name, "value name" will be used/attempted.
-    - This can be force by always quoting the value. name "value" or "value" name.
-  - Numeric values, including floats, can omit surrounding quotes.
-  
----
-
-## More Examples ##
-
----
  
 ### For this XML ###
 
@@ -147,9 +200,7 @@ This is especially apparent when namespaces are involved in the markup.
       "http://www.w3.org/1999/xhtml" xhtml/xmlns,
       "http://www.w3.org/1999/XSL/Transform" xsl/xmlns
     {
-      template/xsl match "*" {
-        "[" value-of/xsl select ".". "]"
-      }
+      template/xsl match "*": "[" value-of/xsl select ".". "]".
     }
 
 ---

@@ -56,7 +56,7 @@ package org.nicerobot.struxt.parser;
     public static void attr(Token ns, Token name, Token value) {
       String v = unquote(singleline(null!=value?value.getText():"true"));
       // TODO: Make "value" configurable (per namespace?)
-      _out(String.format(" \%s\%s=\"\%s\"",(null!=ns?ns.getText()+":":""),(null!=name?name.getText():"value"),v));
+      _out(String.format(" \%s\%s=\"\%s\"",(null!=ns?ns.getText()+":":""),(null!=name?name.getText():"id"),v));
     }
     
 }
@@ -73,6 +73,7 @@ xmldecl returns [String attrs]
 
 node
     : tagname=tag { _out(">"); }
+      /* TODO: If there are no children, close the open tag. */
       children { _out(String.format("</\%s>",tagname)); }
     | text=STR
       { _out(String.format("\%s",unquote($text.text))); }
@@ -86,7 +87,7 @@ fragment children
     : '{' childs '}'
     | '[' childs ']'
     | '(' childs ')'
-    | (':' node*)? ('.'|';')
+    | ((':'|'='|'|'|'||'|'>'|'->'|'-->'|'<'|'<-'|'<--'|'<>'|'<->') node*)? ('.'|';')
     ;
 
 fragment childs
