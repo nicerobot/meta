@@ -3,4 +3,13 @@
   <groupId>struxt.parsers</groupId>
   <artifactId>org.nicerobot.struxt.parser</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.antlr</groupId>
+  		<artifactId>antlr</artifactId>
+  		<version>3.3</version>
+  		<type>jar</type>
+  		<scope>runtime</scope>
+  	</dependency>
+  </dependencies>
 </project>
