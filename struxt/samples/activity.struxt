@@ -1,9 +1,9 @@
 activity {
-  if "Some Test" {
-    to "activity 1":"true";
+  if "Some Test", use "true" {
+    to "activity 1";
 
     if {
-      to "activity 3", as "a3";
+      to a3;
     } else {
       if "Other test" {
         to "activity 5", left;
@@ -11,11 +11,11 @@ activity {
         to "activity 6";
       }
     }
-  } else {
-    to "activity 2":"false";
+  } else use "false" {
+    to "activity 2";
   }
 
-  a3 {
+  a3 "activity 3" {
     if "last test" {
       to "activity 7";
     } else {
