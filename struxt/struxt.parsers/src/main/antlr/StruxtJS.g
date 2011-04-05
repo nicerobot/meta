@@ -5,44 +5,72 @@ options {
 }
 
 struxt
-    : node EOF
+    : xml=xmldecl?
+      doctype=DOC?
+      node EOF
+    ;
+
+xmldecl returns [String attrs]
+    : XML attributes '.'
     ;
 
 node
-    : tag children
-    | STR
+    : tagname=tag
+      /* TODO: If there are no children, close the open tag. */
+      children
+    | text=STR
+     
     ;
 
-tag
-    : ID attributes?
+tag returns [String tagname]
+    : nodename=ID (('@'|'\\') ns=ID)? attributes?
 	  ;
 
 fragment children
     : '{' childs '}'
-    | '[' childs ']'
-    | '(' childs ')'
     | (':' node*)? ('.'|';')
     ;
 
 fragment childs
-    : node* tag?
+    : node* nodename=tag?
     ;
 
 fragment attribute
-    : ID (STR | INT | FLOAT | CHAR)?
-    | (STR | INT | FLOAT | CHAR) ID?
+    : (ns=ID ('!'|'#') name=ID | name=ID ( ('@'|'\\') ns=ID)?) o=OP? v=value?
+    | v=value o=OP? (ns=ID  ('!'|'#') name=ID | name=ID (('@'|'\\') ns=ID)?)?
+    ;
+
+fragment value returns [Token value]
+    : (STR | INT | FLOAT | CHAR)
     ;
 
 fragment attributes
     : attribute ( ',' attribute)*
+    | '(' attribute ( (','|';'|'.') attribute)* ')'
+    | '[' attribute ( (','|';'|'.') attribute)* ']'
+    ;
+
+OP
+    : ('<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&'
+    | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?')
     ;
 
 ID
-    : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+    : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'-')*
+    ;
+
+XML
+    : '?xml'
+    ;
+
+DOC
+    : '!!!' (options {greedy=false;}:.)+ '!!!'
     ;
 
 STR
-    :  '"' ~('"')* '"'
+    : '"""' (options {greedy=false;}:.)* '"""'
+    | '\'\'\'' (options {greedy=false;}:.)* '\'\'\''
+    |'"' ~('"')* '"'
     ;
 
 COMMENT
@@ -58,10 +86,6 @@ WS
         ) {$channel=HIDDEN;}
     ;
 
-STRING
-    :  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
-    ;
-
 INT :	'0'..'9'+
     ;
 
@@ -72,7 +96,7 @@ FLOAT
     ;
 
 CHAR
-    :  '\'' ( ESC_SEQ | ~('\''|'\\') ) '\''
+    :  '\'' ~('\'')+ '\''
     ;
 
 fragment
@@ -83,23 +107,4 @@ EXPONENT
 fragment
 HEX_DIGIT
     : ('0'..'9'|'a'..'f'|'A'..'F')
-    ;
-
-fragment
-ESC_SEQ
-    :   '\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
-    |   UNICODE_ESC
-    |   OCTAL_ESC
-    ;
-
-fragment
-OCTAL_ESC
-    :   '\\' ('0'..'3') ('0'..'7') ('0'..'7')
-    |   '\\' ('0'..'7') ('0'..'7')
-    |   '\\' ('0'..'7')
-    ;
-
-fragment
-UNICODE_ESC
-    :   '\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
     ;

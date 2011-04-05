@@ -52,11 +52,15 @@ package org.nicerobot.struxt.parser;
       if (0==q) return s;
       return s.substring(q,s.length()-q);
     }
-    
-    public static void attr(Token ns, Token name, Token value) {
+
+    public static void attr(Token ns, Token name, Token op, Token value) {
       String v = unquote(singleline(null!=value?value.getText():"true"));
       // TODO: Make "value" configurable (per namespace?)
-      _out(String.format(" \%s\%s=\"\%s\"",(null!=ns?ns.getText()+":":""),(null!=name?name.getText():"id"),v));
+      _out(String.format(" \%s\%s=\"\%s\%s\"",
+        (null!=ns?ns.getText()+":":""),
+        (null!=name?name.getText():"id"),
+        (null!=op?op.getText():""),
+        v));
     }
     
 }
@@ -93,8 +97,8 @@ fragment childs
     ;
 
 fragment attribute
-    : (ns=ID ('!'|'#') name=ID | name=ID ( ('@'|'\\') ns=ID)?) o=OP? v=value? { attr($ns,$name,$o+v); }
-    | v=value o=OP? (ns=ID  ('!'|'#') name=ID | name=ID (('@'|'\\') ns=ID)?)? { attr($ns,$name,$o+v); }
+    : (ns=ID ('!'|'#') name=ID | name=ID ( ('@'|'\\') ns=ID)?) o=OP? v=value? { attr($ns,$name,$o,v); }
+    | v=value o=OP? (ns=ID  ('!'|'#') name=ID | name=ID (('@'|'\\') ns=ID)?)? { attr($ns,$name,$o,v); }
     ;
 
 fragment value returns [Token value]

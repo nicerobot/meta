@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g 2011-04-04 13:31:56
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g 2011-04-05 10:37:36
 
 package org.nicerobot.struxt.parser;
 import java.io.IOException;
@@ -11,10 +11,9 @@ import java.util.ArrayList;
 
 public class StruxtParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "DOC", "XML", "STR", "ID", "INT", "FLOAT", "CHAR", "COMMENT", "WS", "EXPONENT", "HEX_DIGIT", "'.'", "'@'", "'/'", "'{'", "'}'", "'['", "']'", "'('", "')'", "':'", "'='", "'|'", "'||'", "'>'", "'->'", "'-->'", "'<'", "'<-'", "'<--'", "'<>'", "'<->'", "';'", "'!'", "'#'", "','"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "DOC", "XML", "STR", "ID", "OP", "INT", "FLOAT", "CHAR", "COMMENT", "WS", "EXPONENT", "HEX_DIGIT", "'.'", "'@'", "'\\\\'", "'{'", "'}'", "':'", "';'", "'!'", "'#'", "','", "'('", "')'", "'['", "']'"
     };
     public static final int EOF=-1;
-    public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
@@ -29,27 +28,18 @@ public class StruxtParser extends Parser {
     public static final int T__27=27;
     public static final int T__28=28;
     public static final int T__29=29;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
-    public static final int T__33=33;
-    public static final int T__34=34;
-    public static final int T__35=35;
-    public static final int T__36=36;
-    public static final int T__37=37;
-    public static final int T__38=38;
-    public static final int T__39=39;
     public static final int DOC=4;
     public static final int XML=5;
     public static final int STR=6;
     public static final int ID=7;
-    public static final int INT=8;
-    public static final int FLOAT=9;
-    public static final int CHAR=10;
-    public static final int COMMENT=11;
-    public static final int WS=12;
-    public static final int EXPONENT=13;
-    public static final int HEX_DIGIT=14;
+    public static final int OP=8;
+    public static final int INT=9;
+    public static final int FLOAT=10;
+    public static final int CHAR=11;
+    public static final int COMMENT=12;
+    public static final int WS=13;
+    public static final int EXPONENT=14;
+    public static final int HEX_DIGIT=15;
 
     // delegates
     // delegators
@@ -106,28 +96,32 @@ public class StruxtParser extends Parser {
           if (0==q) return s;
           return s.substring(q,s.length()-q);
         }
-        
-        public static void attr(Token ns, Token name, Token value) {
+
+        public static void attr(Token ns, Token name, Token op, Token value) {
           String v = unquote(singleline(null!=value?value.getText():"true"));
           // TODO: Make "value" configurable (per namespace?)
-          _out(String.format(" %s%s=\"%s\"",(null!=ns?ns.getText()+":":""),(null!=name?name.getText():"id"),v));
+          _out(String.format(" %s%s=\"%s%s\"",
+            (null!=ns?ns.getText()+":":""),
+            (null!=name?name.getText():"id"),
+            (null!=op?op.getText():""),
+            v));
         }
         
 
 
 
     // $ANTLR start "struxt"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:64:1: struxt : (xml= xmldecl )? (doctype= DOC )? node EOF ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:68:1: struxt : (xml= xmldecl )? (doctype= DOC )? node EOF ;
     public final void struxt() throws RecognitionException {
         Token doctype=null;
         String xml = null;
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:65:5: ( (xml= xmldecl )? (doctype= DOC )? node EOF )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:65:7: (xml= xmldecl )? (doctype= DOC )? node EOF
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:69:5: ( (xml= xmldecl )? (doctype= DOC )? node EOF )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:69:7: (xml= xmldecl )? (doctype= DOC )? node EOF
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:65:10: (xml= xmldecl )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:69:10: (xml= xmldecl )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -136,7 +130,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt1) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:65:10: xml= xmldecl
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:69:10: xml= xmldecl
                     {
                     pushFollow(FOLLOW_xmldecl_in_struxt49);
                     xml=xmldecl();
@@ -149,7 +143,7 @@ public class StruxtParser extends Parser {
 
             }
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:66:14: (doctype= DOC )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:70:14: (doctype= DOC )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -158,7 +152,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:66:14: doctype= DOC
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:70:14: doctype= DOC
                     {
                     doctype=(Token)match(input,DOC,FOLLOW_DOC_in_struxt60); 
 
@@ -190,13 +184,13 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "xmldecl"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:70:1: xmldecl returns [String attrs] : XML attributes '.' ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:74:1: xmldecl returns [String attrs] : XML attributes '.' ;
     public final String xmldecl() throws RecognitionException {
         String attrs = null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:71:5: ( XML attributes '.' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:71:7: XML attributes '.'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:75:5: ( XML attributes '.' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:75:7: XML attributes '.'
             {
             match(input,XML,FOLLOW_XML_in_xmldecl94); 
              _out("<?xml"); 
@@ -205,7 +199,7 @@ public class StruxtParser extends Parser {
 
             state._fsp--;
 
-            match(input,15,FOLLOW_15_in_xmldecl100); 
+            match(input,16,FOLLOW_16_in_xmldecl100); 
              _out(" ?>\n"); 
 
             }
@@ -223,14 +217,14 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "node"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:74:1: node : (tagname= tag children | text= STR );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:78:1: node : (tagname= tag children | text= STR );
     public final void node() throws RecognitionException {
         Token text=null;
         String tagname = null;
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:75:5: (tagname= tag children | text= STR )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:79:5: (tagname= tag children | text= STR )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -248,7 +242,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt3) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:75:7: tagname= tag children
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:79:7: tagname= tag children
                     {
                     pushFollow(FOLLOW_tag_in_node121);
                     tagname=tag();
@@ -266,7 +260,7 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:78:7: text= STR
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:82:7: text= STR
                     {
                     text=(Token)match(input,STR,FOLLOW_STR_in_node151); 
                      _out(String.format("%s",unquote((text!=null?text.getText():null)))); 
@@ -288,7 +282,7 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "tag"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:82:1: tag returns [String tagname] : nodename= ID ( ( '@' | '/' ) ns= ID )? ( attributes )? ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:86:1: tag returns [String tagname] : nodename= ID ( ( '@' | '\\\\' ) ns= ID )? ( attributes )? ;
     public final String tag() throws RecognitionException {
         String tagname = null;
 
@@ -296,22 +290,22 @@ public class StruxtParser extends Parser {
         Token ns=null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:83:5: (nodename= ID ( ( '@' | '/' ) ns= ID )? ( attributes )? )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:83:7: nodename= ID ( ( '@' | '/' ) ns= ID )? ( attributes )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:5: (nodename= ID ( ( '@' | '\\\\' ) ns= ID )? ( attributes )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:7: nodename= ID ( ( '@' | '\\\\' ) ns= ID )? ( attributes )?
             {
             nodename=(Token)match(input,ID,FOLLOW_ID_in_tag182); 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:83:19: ( ( '@' | '/' ) ns= ID )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:19: ( ( '@' | '\\\\' ) ns= ID )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( ((LA4_0>=16 && LA4_0<=17)) ) {
+            if ( ((LA4_0>=17 && LA4_0<=18)) ) {
                 alt4=1;
             }
             switch (alt4) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:83:20: ( '@' | '/' ) ns= ID
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:20: ( '@' | '\\\\' ) ns= ID
                     {
-                    if ( (input.LA(1)>=16 && input.LA(1)<=17) ) {
+                    if ( (input.LA(1)>=17 && input.LA(1)<=18) ) {
                         input.consume();
                         state.errorRecovery=false;
                     }
@@ -328,16 +322,16 @@ public class StruxtParser extends Parser {
             }
 
              tagname =open(ns,nodename); 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:83:72: ( attributes )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:73: ( attributes )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( ((LA5_0>=STR && LA5_0<=CHAR)) ) {
+            if ( ((LA5_0>=STR && LA5_0<=ID)||(LA5_0>=INT && LA5_0<=CHAR)||LA5_0==26||LA5_0==28) ) {
                 alt5=1;
             }
             switch (alt5) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:83:72: attributes
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:73: attributes
                     {
                     pushFollow(FOLLOW_attributes_in_tag199);
                     attributes();
@@ -366,116 +360,55 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "children"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:86:10: fragment children : ( '{' childs '}' | '[' childs ']' | '(' childs ')' | ( ( ':' | '=' | '|' | '||' | '>' | '->' | '-->' | '<' | '<-' | '<--' | '<>' | '<->' ) ( node )* )? ( '.' | ';' ) );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:90:10: fragment children : ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' ) );
     public final void children() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:5: ( '{' childs '}' | '[' childs ']' | '(' childs ')' | ( ( ':' | '=' | '|' | '||' | '>' | '->' | '-->' | '<' | '<-' | '<--' | '<>' | '<->' ) ( node )* )? ( '.' | ';' ) )
-            int alt8=4;
-            switch ( input.LA(1) ) {
-            case 18:
-                {
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:91:5: ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' ) )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==19) ) {
                 alt8=1;
-                }
-                break;
-            case 20:
-                {
+            }
+            else if ( (LA8_0==16||(LA8_0>=21 && LA8_0<=22)) ) {
                 alt8=2;
-                }
-                break;
-            case 22:
-                {
-                alt8=3;
-                }
-                break;
-            case 15:
-            case 24:
-            case 25:
-            case 26:
-            case 27:
-            case 28:
-            case 29:
-            case 30:
-            case 31:
-            case 32:
-            case 33:
-            case 34:
-            case 35:
-            case 36:
-                {
-                alt8=4;
-                }
-                break;
-            default:
+            }
+            else {
                 NoViableAltException nvae =
                     new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-
             switch (alt8) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:87:7: '{' childs '}'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:91:7: '{' childs '}'
                     {
-                    match(input,18,FOLLOW_18_in_children218); 
+                    match(input,19,FOLLOW_19_in_children218); 
                     pushFollow(FOLLOW_childs_in_children220);
                     childs();
 
                     state._fsp--;
 
-                    match(input,19,FOLLOW_19_in_children222); 
+                    match(input,20,FOLLOW_20_in_children222); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:88:7: '[' childs ']'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:92:7: ( ':' ( node )* )? ( '.' | ';' )
                     {
-                    match(input,20,FOLLOW_20_in_children230); 
-                    pushFollow(FOLLOW_childs_in_children232);
-                    childs();
-
-                    state._fsp--;
-
-                    match(input,21,FOLLOW_21_in_children234); 
-
-                    }
-                    break;
-                case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:89:7: '(' childs ')'
-                    {
-                    match(input,22,FOLLOW_22_in_children242); 
-                    pushFollow(FOLLOW_childs_in_children244);
-                    childs();
-
-                    state._fsp--;
-
-                    match(input,23,FOLLOW_23_in_children246); 
-
-                    }
-                    break;
-                case 4 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:90:7: ( ( ':' | '=' | '|' | '||' | '>' | '->' | '-->' | '<' | '<-' | '<--' | '<>' | '<->' ) ( node )* )? ( '.' | ';' )
-                    {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:90:7: ( ( ':' | '=' | '|' | '||' | '>' | '->' | '-->' | '<' | '<-' | '<--' | '<>' | '<->' ) ( node )* )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:92:7: ( ':' ( node )* )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
-                    if ( ((LA7_0>=24 && LA7_0<=35)) ) {
+                    if ( (LA7_0==21) ) {
                         alt7=1;
                     }
                     switch (alt7) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:90:8: ( ':' | '=' | '|' | '||' | '>' | '->' | '-->' | '<' | '<-' | '<--' | '<>' | '<->' ) ( node )*
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:92:8: ':' ( node )*
                             {
-                            if ( (input.LA(1)>=24 && input.LA(1)<=35) ) {
-                                input.consume();
-                                state.errorRecovery=false;
-                            }
-                            else {
-                                MismatchedSetException mse = new MismatchedSetException(null,input);
-                                throw mse;
-                            }
-
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:90:68: ( node )*
+                            match(input,21,FOLLOW_21_in_children231); 
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:92:12: ( node )*
                             loop6:
                             do {
                                 int alt6=2;
@@ -488,9 +421,9 @@ public class StruxtParser extends Parser {
 
                                 switch (alt6) {
                             	case 1 :
-                            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:90:68: node
+                            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:92:12: node
                             	    {
-                            	    pushFollow(FOLLOW_node_in_children281);
+                            	    pushFollow(FOLLOW_node_in_children233);
                             	    node();
 
                             	    state._fsp--;
@@ -510,7 +443,7 @@ public class StruxtParser extends Parser {
 
                     }
 
-                    if ( input.LA(1)==15||input.LA(1)==36 ) {
+                    if ( input.LA(1)==16||input.LA(1)==22 ) {
                         input.consume();
                         state.errorRecovery=false;
                     }
@@ -537,25 +470,25 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "childs"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:93:10: fragment childs : ( node )* (nodename= tag )? ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:95:10: fragment childs : ( node )* (nodename= tag )? ;
     public final void childs() throws RecognitionException {
         String nodename = null;
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:94:5: ( ( node )* (nodename= tag )? )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:94:7: ( node )* (nodename= tag )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:96:5: ( ( node )* (nodename= tag )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:96:7: ( node )* (nodename= tag )?
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:94:7: ( node )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:96:7: ( node )*
             loop9:
             do {
                 int alt9=2;
                 alt9 = dfa9.predict(input);
                 switch (alt9) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:94:7: node
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:96:7: node
             	    {
-            	    pushFollow(FOLLOW_node_in_childs309);
+            	    pushFollow(FOLLOW_node_in_childs261);
             	    node();
 
             	    state._fsp--;
@@ -569,7 +502,7 @@ public class StruxtParser extends Parser {
                 }
             } while (true);
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:94:21: (nodename= tag )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:96:21: (nodename= tag )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -578,9 +511,9 @@ public class StruxtParser extends Parser {
             }
             switch (alt10) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:94:21: nodename= tag
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:96:21: nodename= tag
                     {
-                    pushFollow(FOLLOW_tag_in_childs314);
+                    pushFollow(FOLLOW_tag_in_childs266);
                     nodename=tag();
 
                     state._fsp--;
@@ -608,44 +541,46 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "attribute"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:97:10: fragment attribute : ( (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? ) (value= ( STR | INT | FLOAT | CHAR ) )? | value= ( STR | INT | FLOAT | CHAR ) (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? )? );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:99:10: fragment attribute : ( (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? ) (o= OP )? (v= value )? | v= value (o= OP )? (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? )? );
     public final void attribute() throws RecognitionException {
         Token ns=null;
         Token name=null;
-        Token value=null;
+        Token o=null;
+        Token v = null;
+
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:5: ( (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? ) (value= ( STR | INT | FLOAT | CHAR ) )? | value= ( STR | INT | FLOAT | CHAR ) (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? )? )
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:5: ( (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? ) (o= OP )? (v= value )? | v= value (o= OP )? (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? )? )
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA16_0==ID) ) {
-                alt16=1;
+            if ( (LA18_0==ID) ) {
+                alt18=1;
             }
-            else if ( (LA16_0==STR||(LA16_0>=INT && LA16_0<=CHAR)) ) {
-                alt16=2;
+            else if ( (LA18_0==STR||(LA18_0>=INT && LA18_0<=CHAR)) ) {
+                alt18=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 16, 0, input);
+                    new NoViableAltException("", 18, 0, input);
 
                 throw nvae;
             }
-            switch (alt16) {
+            switch (alt18) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:7: (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? ) (value= ( STR | INT | FLOAT | CHAR ) )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:7: (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? ) (o= OP )? (v= value )?
                     {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:7: (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? )
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:7: (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? )
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
                     if ( (LA12_0==ID) ) {
                         int LA12_1 = input.LA(2);
 
-                        if ( ((LA12_1>=37 && LA12_1<=38)) ) {
+                        if ( ((LA12_1>=23 && LA12_1<=24)) ) {
                             alt12=1;
                         }
-                        else if ( (LA12_1==STR||(LA12_1>=INT && LA12_1<=CHAR)||(LA12_1>=15 && LA12_1<=36)||LA12_1==39) ) {
+                        else if ( (LA12_1==STR||(LA12_1>=OP && LA12_1<=CHAR)||(LA12_1>=16 && LA12_1<=22)||LA12_1==25||LA12_1==27||LA12_1==29) ) {
                             alt12=2;
                         }
                         else {
@@ -663,10 +598,10 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt12) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:8: ns= ID ( '!' | '#' ) name= ID
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:8: ns= ID ( '!' | '#' ) name= ID
                             {
-                            ns=(Token)match(input,ID,FOLLOW_ID_in_attribute339); 
-                            if ( (input.LA(1)>=37 && input.LA(1)<=38) ) {
+                            ns=(Token)match(input,ID,FOLLOW_ID_in_attribute291); 
+                            if ( (input.LA(1)>=23 && input.LA(1)<=24) ) {
                                 input.consume();
                                 state.errorRecovery=false;
                             }
@@ -675,26 +610,26 @@ public class StruxtParser extends Parser {
                                 throw mse;
                             }
 
-                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute349); 
+                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute301); 
 
                             }
                             break;
                         case 2 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:34: name= ID ( ( '@' | '/' ) ns= ID )?
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:34: name= ID ( ( '@' | '\\\\' ) ns= ID )?
                             {
-                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute355); 
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:42: ( ( '@' | '/' ) ns= ID )?
+                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute307); 
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:42: ( ( '@' | '\\\\' ) ns= ID )?
                             int alt11=2;
                             int LA11_0 = input.LA(1);
 
-                            if ( ((LA11_0>=16 && LA11_0<=17)) ) {
+                            if ( ((LA11_0>=17 && LA11_0<=18)) ) {
                                 alt11=1;
                             }
                             switch (alt11) {
                                 case 1 :
-                                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:44: ( '@' | '/' ) ns= ID
+                                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:44: ( '@' | '\\\\' ) ns= ID
                                     {
-                                    if ( (input.LA(1)>=16 && input.LA(1)<=17) ) {
+                                    if ( (input.LA(1)>=17 && input.LA(1)<=18) ) {
                                         input.consume();
                                         state.errorRecovery=false;
                                     }
@@ -703,7 +638,7 @@ public class StruxtParser extends Parser {
                                         throw mse;
                                     }
 
-                                    ns=(Token)match(input,ID,FOLLOW_ID_in_attribute367); 
+                                    ns=(Token)match(input,ID,FOLLOW_ID_in_attribute319); 
 
                                     }
                                     break;
@@ -716,26 +651,39 @@ public class StruxtParser extends Parser {
 
                     }
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:68: (value= ( STR | INT | FLOAT | CHAR ) )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:65: (o= OP )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
-                    if ( (LA13_0==STR||(LA13_0>=INT && LA13_0<=CHAR)) ) {
+                    if ( (LA13_0==OP) ) {
                         alt13=1;
                     }
                     switch (alt13) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:98:68: value= ( STR | INT | FLOAT | CHAR )
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:65: o= OP
                             {
-                            value=(Token)input.LT(1);
-                            if ( input.LA(1)==STR||(input.LA(1)>=INT && input.LA(1)<=CHAR) ) {
-                                input.consume();
-                                state.errorRecovery=false;
+                            o=(Token)match(input,OP,FOLLOW_OP_in_attribute326); 
+
                             }
-                            else {
-                                MismatchedSetException mse = new MismatchedSetException(null,input);
-                                throw mse;
-                            }
+                            break;
+
+                    }
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:71: (v= value )?
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
+
+                    if ( (LA14_0==STR||(LA14_0>=INT && LA14_0<=CHAR)) ) {
+                        alt14=1;
+                    }
+                    switch (alt14) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:100:71: v= value
+                            {
+                            pushFollow(FOLLOW_value_in_attribute331);
+                            v=value();
+
+                            state._fsp--;
 
 
                             }
@@ -743,43 +691,56 @@ public class StruxtParser extends Parser {
 
                     }
 
-                     attr(ns,name,value); 
+                     attr(ns,name,o,v); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:99:7: value= ( STR | INT | FLOAT | CHAR ) (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:7: v= value (o= OP )? (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? )?
                     {
-                    value=(Token)input.LT(1);
-                    if ( input.LA(1)==STR||(input.LA(1)>=INT && input.LA(1)<=CHAR) ) {
-                        input.consume();
-                        state.errorRecovery=false;
-                    }
-                    else {
-                        MismatchedSetException mse = new MismatchedSetException(null,input);
-                        throw mse;
-                    }
+                    pushFollow(FOLLOW_value_in_attribute344);
+                    v=value();
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:99:40: (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '/' ) ns= ID )? )?
-                    int alt15=3;
+                    state._fsp--;
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:16: (o= OP )?
+                    int alt15=2;
                     int LA15_0 = input.LA(1);
 
-                    if ( (LA15_0==ID) ) {
-                        int LA15_1 = input.LA(2);
-
-                        if ( ((LA15_1>=37 && LA15_1<=38)) ) {
-                            alt15=1;
-                        }
-                        else if ( ((LA15_1>=15 && LA15_1<=36)||LA15_1==39) ) {
-                            alt15=2;
-                        }
+                    if ( (LA15_0==OP) ) {
+                        alt15=1;
                     }
                     switch (alt15) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:99:41: ns= ID ( '!' | '#' ) name= ID
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:16: o= OP
                             {
-                            ns=(Token)match(input,ID,FOLLOW_ID_in_attribute420); 
-                            if ( (input.LA(1)>=37 && input.LA(1)<=38) ) {
+                            o=(Token)match(input,OP,FOLLOW_OP_in_attribute348); 
+
+                            }
+                            break;
+
+                    }
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:21: (ns= ID ( '!' | '#' ) name= ID | name= ID ( ( '@' | '\\\\' ) ns= ID )? )?
+                    int alt17=3;
+                    int LA17_0 = input.LA(1);
+
+                    if ( (LA17_0==ID) ) {
+                        int LA17_1 = input.LA(2);
+
+                        if ( ((LA17_1>=23 && LA17_1<=24)) ) {
+                            alt17=1;
+                        }
+                        else if ( ((LA17_1>=16 && LA17_1<=22)||LA17_1==25||LA17_1==27||LA17_1==29) ) {
+                            alt17=2;
+                        }
+                    }
+                    switch (alt17) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:22: ns= ID ( '!' | '#' ) name= ID
+                            {
+                            ns=(Token)match(input,ID,FOLLOW_ID_in_attribute354); 
+                            if ( (input.LA(1)>=23 && input.LA(1)<=24) ) {
                                 input.consume();
                                 state.errorRecovery=false;
                             }
@@ -788,26 +749,26 @@ public class StruxtParser extends Parser {
                                 throw mse;
                             }
 
-                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute431); 
+                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute365); 
 
                             }
                             break;
                         case 2 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:99:68: name= ID ( ( '@' | '/' ) ns= ID )?
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:49: name= ID ( ( '@' | '\\\\' ) ns= ID )?
                             {
-                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute437); 
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:99:76: ( ( '@' | '/' ) ns= ID )?
-                            int alt14=2;
-                            int LA14_0 = input.LA(1);
+                            name=(Token)match(input,ID,FOLLOW_ID_in_attribute371); 
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:57: ( ( '@' | '\\\\' ) ns= ID )?
+                            int alt16=2;
+                            int LA16_0 = input.LA(1);
 
-                            if ( ((LA14_0>=16 && LA14_0<=17)) ) {
-                                alt14=1;
+                            if ( ((LA16_0>=17 && LA16_0<=18)) ) {
+                                alt16=1;
                             }
-                            switch (alt14) {
+                            switch (alt16) {
                                 case 1 :
-                                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:99:77: ( '@' | '/' ) ns= ID
+                                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:101:58: ( '@' | '\\\\' ) ns= ID
                                     {
-                                    if ( (input.LA(1)>=16 && input.LA(1)<=17) ) {
+                                    if ( (input.LA(1)>=17 && input.LA(1)<=18) ) {
                                         input.consume();
                                         state.errorRecovery=false;
                                     }
@@ -816,7 +777,7 @@ public class StruxtParser extends Parser {
                                         throw mse;
                                     }
 
-                                    ns=(Token)match(input,ID,FOLLOW_ID_in_attribute448); 
+                                    ns=(Token)match(input,ID,FOLLOW_ID_in_attribute382); 
 
                                     }
                                     break;
@@ -829,7 +790,7 @@ public class StruxtParser extends Parser {
 
                     }
 
-                     attr(ns,name,value); 
+                     attr(ns,name,o,v); 
 
                     }
                     break;
@@ -847,51 +808,218 @@ public class StruxtParser extends Parser {
     // $ANTLR end "attribute"
 
 
-    // $ANTLR start "attributes"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:102:10: fragment attributes : attribute ( ',' attribute )* ;
-    public final void attributes() throws RecognitionException {
+    // $ANTLR start "value"
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:104:10: fragment value returns [Token value] : ( STR | INT | FLOAT | CHAR ) ;
+    public final Token value() throws RecognitionException {
+        Token value = null;
+
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:103:5: ( attribute ( ',' attribute )* )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:103:7: attribute ( ',' attribute )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:105:5: ( ( STR | INT | FLOAT | CHAR ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:105:7: ( STR | INT | FLOAT | CHAR )
             {
-            pushFollow(FOLLOW_attribute_in_attributes473);
-            attribute();
-
-            state._fsp--;
-
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:103:17: ( ',' attribute )*
-            loop17:
-            do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
-
-                if ( (LA17_0==39) ) {
-                    alt17=1;
-                }
-
-
-                switch (alt17) {
-            	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:103:19: ',' attribute
-            	    {
-            	    match(input,39,FOLLOW_39_in_attributes477); 
-            	    pushFollow(FOLLOW_attribute_in_attributes479);
-            	    attribute();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop17;
-                }
-            } while (true);
+            if ( input.LA(1)==STR||(input.LA(1)>=INT && input.LA(1)<=CHAR) ) {
+                input.consume();
+                state.errorRecovery=false;
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                throw mse;
+            }
 
 
             }
 
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return value;
+    }
+    // $ANTLR end "value"
+
+
+    // $ANTLR start "attributes"
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:108:10: fragment attributes : ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' );
+    public final void attributes() throws RecognitionException {
+        try {
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:109:5: ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' )
+            int alt22=3;
+            switch ( input.LA(1) ) {
+            case STR:
+            case ID:
+            case INT:
+            case FLOAT:
+            case CHAR:
+                {
+                alt22=1;
+                }
+                break;
+            case 26:
+                {
+                alt22=2;
+                }
+                break;
+            case 28:
+                {
+                alt22=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 22, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt22) {
+                case 1 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:109:7: attribute ( ',' attribute )*
+                    {
+                    pushFollow(FOLLOW_attribute_in_attributes444);
+                    attribute();
+
+                    state._fsp--;
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:109:17: ( ',' attribute )*
+                    loop19:
+                    do {
+                        int alt19=2;
+                        int LA19_0 = input.LA(1);
+
+                        if ( (LA19_0==25) ) {
+                            alt19=1;
+                        }
+
+
+                        switch (alt19) {
+                    	case 1 :
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:109:19: ',' attribute
+                    	    {
+                    	    match(input,25,FOLLOW_25_in_attributes448); 
+                    	    pushFollow(FOLLOW_attribute_in_attributes450);
+                    	    attribute();
+
+                    	    state._fsp--;
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop19;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:110:7: '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')'
+                    {
+                    match(input,26,FOLLOW_26_in_attributes460); 
+                    pushFollow(FOLLOW_attribute_in_attributes462);
+                    attribute();
+
+                    state._fsp--;
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:110:21: ( ( ',' | ';' | '.' ) attribute )*
+                    loop20:
+                    do {
+                        int alt20=2;
+                        int LA20_0 = input.LA(1);
+
+                        if ( (LA20_0==16||LA20_0==22||LA20_0==25) ) {
+                            alt20=1;
+                        }
+
+
+                        switch (alt20) {
+                    	case 1 :
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:110:23: ( ',' | ';' | '.' ) attribute
+                    	    {
+                    	    if ( input.LA(1)==16||input.LA(1)==22||input.LA(1)==25 ) {
+                    	        input.consume();
+                    	        state.errorRecovery=false;
+                    	    }
+                    	    else {
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        throw mse;
+                    	    }
+
+                    	    pushFollow(FOLLOW_attribute_in_attributes474);
+                    	    attribute();
+
+                    	    state._fsp--;
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop20;
+                        }
+                    } while (true);
+
+                    match(input,27,FOLLOW_27_in_attributes478); 
+
+                    }
+                    break;
+                case 3 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:111:7: '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']'
+                    {
+                    match(input,28,FOLLOW_28_in_attributes486); 
+                    pushFollow(FOLLOW_attribute_in_attributes488);
+                    attribute();
+
+                    state._fsp--;
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:111:21: ( ( ',' | ';' | '.' ) attribute )*
+                    loop21:
+                    do {
+                        int alt21=2;
+                        int LA21_0 = input.LA(1);
+
+                        if ( (LA21_0==16||LA21_0==22||LA21_0==25) ) {
+                            alt21=1;
+                        }
+
+
+                        switch (alt21) {
+                    	case 1 :
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:111:23: ( ',' | ';' | '.' ) attribute
+                    	    {
+                    	    if ( input.LA(1)==16||input.LA(1)==22||input.LA(1)==25 ) {
+                    	        input.consume();
+                    	        state.errorRecovery=false;
+                    	    }
+                    	    else {
+                    	        MismatchedSetException mse = new MismatchedSetException(null,input);
+                    	        throw mse;
+                    	    }
+
+                    	    pushFollow(FOLLOW_attribute_in_attributes500);
+                    	    attribute();
+
+                    	    state._fsp--;
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop21;
+                        }
+                    } while (true);
+
+                    match(input,29,FOLLOW_29_in_attributes504); 
+
+                    }
+                    break;
+
+            }
         }
         catch (RecognitionException re) {
             reportError(re);
@@ -908,60 +1036,151 @@ public class StruxtParser extends Parser {
 
     protected DFA9 dfa9 = new DFA9(this);
     static final String DFA9_eotS =
-        "\37\uffff";
+        "\141\uffff";
     static final String DFA9_eofS =
-        "\37\uffff";
+        "\141\uffff";
     static final String DFA9_minS =
-        "\2\6\2\uffff\1\7\1\6\1\7\1\6\2\7\1\17\1\6\1\17\3\6\5\7\4\17\2\6"+
-        "\2\7\2\17";
+        "\2\6\2\uffff\1\7\1\6\1\7\3\6\2\7\1\6\1\20\1\6\1\7\1\20\1\6\1\7\1"+
+        "\6\1\7\3\6\5\7\1\6\1\20\1\6\1\20\1\7\1\20\2\7\1\6\1\20\1\6\1\20"+
+        "\1\7\1\20\2\7\1\6\1\20\1\7\3\20\3\6\3\7\3\6\3\7\2\6\4\7\1\6\1\20"+
+        "\1\7\3\20\2\7\1\6\1\20\1\7\5\20\2\6\2\7\2\6\2\7\4\20";
     static final String DFA9_maxS =
-        "\1\27\1\44\2\uffff\1\7\2\47\1\44\2\7\1\47\1\12\5\47\4\7\6\47\2\7"+
-        "\2\47";
+        "\1\24\1\34\2\uffff\1\7\2\31\2\13\1\34\2\7\2\31\1\13\2\31\2\33\2"+
+        "\35\4\31\4\7\2\33\1\13\1\26\2\33\2\7\2\35\1\13\1\26\2\35\2\7\6\31"+
+        "\4\33\2\7\4\35\2\7\2\31\4\7\6\33\2\7\6\35\2\31\2\33\2\7\2\35\2\7"+
+        "\2\33\2\35";
     static final String DFA9_acceptS =
-        "\2\uffff\1\2\1\1\33\uffff";
+        "\2\uffff\1\2\1\1\135\uffff";
     static final String DFA9_specialS =
-        "\37\uffff}>";
+        "\141\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\1\3\1\1\13\uffff\1\2\1\uffff\1\2\1\uffff\1\2",
-            "\1\6\1\5\3\6\4\uffff\1\3\2\4\1\3\1\2\1\3\1\2\1\3\1\2\15\3",
+            "\1\3\1\1\14\uffff\1\2",
+            "\1\6\1\5\1\uffff\3\6\4\uffff\1\3\2\4\1\3\1\2\2\3\3\uffff\1"+
+            "\7\1\uffff\1\10",
             "",
             "",
-            "\1\7",
-            "\1\12\1\uffff\3\12\4\uffff\1\3\2\11\1\3\1\2\1\3\1\2\1\3\1\2"+
-            "\15\3\2\10\1\13",
-            "\1\14\7\uffff\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff"+
-            "\1\13",
-            "\1\6\1\5\3\6\4\uffff\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15"+
-            "\3",
-            "\1\15",
+            "\1\11",
+            "\1\15\1\uffff\1\14\3\15\4\uffff\1\3\2\13\1\3\1\2\2\3\2\12\1"+
+            "\16",
+            "\1\20\1\17\7\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\22\1\21\1\uffff\3\22",
+            "\1\24\1\23\1\uffff\3\24",
+            "\1\6\1\5\1\uffff\3\6\4\uffff\1\3\2\uffff\1\3\1\2\2\3\3\uffff"+
+            "\1\7\1\uffff\1\10",
+            "\1\25",
+            "\1\26",
+            "\1\15\2\uffff\3\15\4\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff"+
             "\1\16",
-            "\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff\1\13",
-            "\1\20\1\17\3\20",
-            "\1\3\2\22\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\21\1\13",
-            "\1\12\1\uffff\3\12\4\uffff\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3"+
-            "\1\2\15\3\2\uffff\1\13",
-            "\1\12\1\uffff\3\12\4\uffff\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3"+
-            "\1\2\15\3\2\uffff\1\13",
-            "\1\25\1\uffff\3\25\4\uffff\1\3\2\24\1\3\1\2\1\3\1\2\1\3\1\2"+
-            "\15\3\2\23\1\13",
-            "\1\26\7\uffff\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff"+
-            "\1\13",
-            "\1\27",
-            "\1\30",
-            "\1\31",
-            "\1\32",
-            "\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff\1\13",
-            "\1\3\2\34\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\33\1\13",
-            "\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff\1\13",
-            "\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff\1\13",
-            "\1\25\1\uffff\3\25\4\uffff\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3"+
-            "\1\2\15\3\2\uffff\1\13",
-            "\1\25\1\uffff\3\25\4\uffff\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3"+
-            "\1\2\15\3\2\uffff\1\13",
-            "\1\35",
-            "\1\36",
-            "\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff\1\13",
-            "\1\3\2\uffff\1\3\1\2\1\3\1\2\1\3\1\2\15\3\2\uffff\1\13"
+            "\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\30\1\27\1\uffff\3\30",
+            "\1\20\10\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\3\2\32\1\3\1\2\2\3\2\31\1\16",
+            "\1\36\1\uffff\1\35\3\36\4\uffff\1\37\2\34\3\uffff\1\37\2\33"+
+            "\1\37\1\uffff\1\40",
+            "\1\42\1\41\7\uffff\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1"+
+            "\40",
+            "\1\46\1\uffff\1\45\3\46\4\uffff\1\47\2\44\3\uffff\1\47\2\43"+
+            "\1\47\3\uffff\1\50",
+            "\1\52\1\51\7\uffff\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1"+
+            "\50",
+            "\1\15\1\uffff\1\14\3\15\4\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff"+
+            "\1\16",
+            "\1\15\1\uffff\1\14\3\15\4\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff"+
+            "\1\16",
+            "\1\56\1\uffff\1\55\3\56\4\uffff\1\3\2\54\1\3\1\2\2\3\2\53\1"+
+            "\16",
+            "\1\60\1\57\7\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\61",
+            "\1\62",
+            "\1\63",
+            "\1\64",
+            "\1\36\2\uffff\3\36\4\uffff\1\37\5\uffff\1\37\2\uffff\1\37\1"+
+            "\uffff\1\40",
+            "\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\66\1\65\1\uffff\3\66",
+            "\1\3\2\uffff\1\3\1\2\2\3",
+            "\1\42\10\uffff\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\37\2\70\3\uffff\1\37\2\67\1\37\1\uffff\1\40",
+            "\1\71",
+            "\1\72",
+            "\1\46\2\uffff\3\46\4\uffff\1\47\5\uffff\1\47\2\uffff\1\47\3"+
+            "\uffff\1\50",
+            "\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50",
+            "\1\74\1\73\1\uffff\3\74",
+            "\1\3\2\uffff\1\3\1\2\2\3",
+            "\1\52\10\uffff\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50",
+            "\1\47\2\76\3\uffff\1\47\2\75\1\47\3\uffff\1\50",
+            "\1\77",
+            "\1\100",
+            "\1\56\2\uffff\3\56\4\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff"+
+            "\1\16",
+            "\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\60\10\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\3\2\102\1\3\1\2\2\3\2\101\1\16",
+            "\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\36\1\uffff\1\35\3\36\4\uffff\1\37\5\uffff\1\37\2\uffff\1"+
+            "\37\1\uffff\1\40",
+            "\1\36\1\uffff\1\35\3\36\4\uffff\1\37\5\uffff\1\37\2\uffff\1"+
+            "\37\1\uffff\1\40",
+            "\1\106\1\uffff\1\105\3\106\4\uffff\1\37\2\104\3\uffff\1\37"+
+            "\2\103\1\37\1\uffff\1\40",
+            "\1\110\1\107\7\uffff\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff"+
+            "\1\40",
+            "\1\111",
+            "\1\112",
+            "\1\46\1\uffff\1\45\3\46\4\uffff\1\47\5\uffff\1\47\2\uffff\1"+
+            "\47\3\uffff\1\50",
+            "\1\46\1\uffff\1\45\3\46\4\uffff\1\47\5\uffff\1\47\2\uffff\1"+
+            "\47\3\uffff\1\50",
+            "\1\116\1\uffff\1\115\3\116\4\uffff\1\47\2\114\3\uffff\1\47"+
+            "\2\113\1\47\3\uffff\1\50",
+            "\1\120\1\117\7\uffff\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff"+
+            "\1\50",
+            "\1\121",
+            "\1\122",
+            "\1\56\1\uffff\1\55\3\56\4\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff"+
+            "\1\16",
+            "\1\56\1\uffff\1\55\3\56\4\uffff\1\3\2\uffff\1\3\1\2\2\3\2\uffff"+
+            "\1\16",
+            "\1\123",
+            "\1\124",
+            "\1\125",
+            "\1\126",
+            "\1\106\2\uffff\3\106\4\uffff\1\37\5\uffff\1\37\2\uffff\1\37"+
+            "\1\uffff\1\40",
+            "\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\110\10\uffff\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\37\2\130\3\uffff\1\37\2\127\1\37\1\uffff\1\40",
+            "\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\131",
+            "\1\132",
+            "\1\116\2\uffff\3\116\4\uffff\1\47\5\uffff\1\47\2\uffff\1\47"+
+            "\3\uffff\1\50",
+            "\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50",
+            "\1\120\10\uffff\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50",
+            "\1\47\2\134\3\uffff\1\47\2\133\1\47\3\uffff\1\50",
+            "\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50",
+            "\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50",
+            "\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\3\2\uffff\1\3\1\2\2\3\2\uffff\1\16",
+            "\1\106\1\uffff\1\105\3\106\4\uffff\1\37\5\uffff\1\37\2\uffff"+
+            "\1\37\1\uffff\1\40",
+            "\1\106\1\uffff\1\105\3\106\4\uffff\1\37\5\uffff\1\37\2\uffff"+
+            "\1\37\1\uffff\1\40",
+            "\1\135",
+            "\1\136",
+            "\1\116\1\uffff\1\115\3\116\4\uffff\1\47\5\uffff\1\47\2\uffff"+
+            "\1\47\3\uffff\1\50",
+            "\1\116\1\uffff\1\115\3\116\4\uffff\1\47\5\uffff\1\47\2\uffff"+
+            "\1\47\3\uffff\1\50",
+            "\1\137",
+            "\1\140",
+            "\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\37\5\uffff\1\37\2\uffff\1\37\1\uffff\1\40",
+            "\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50",
+            "\1\47\5\uffff\1\47\2\uffff\1\47\3\uffff\1\50"
     };
 
     static final short[] DFA9_eot = DFA.unpackEncodedString(DFA9_eotS);
@@ -994,7 +1213,7 @@ public class StruxtParser extends Parser {
             this.transition = DFA9_transition;
         }
         public String getDescription() {
-            return "()* loopback of 94:7: ( node )*";
+            return "()* loopback of 96:7: ( node )*";
         }
     }
  
@@ -1003,46 +1222,53 @@ public class StruxtParser extends Parser {
     public static final BitSet FOLLOW_DOC_in_struxt60 = new BitSet(new long[]{0x00000000000000D0L});
     public static final BitSet FOLLOW_node_in_struxt71 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_struxt73 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_XML_in_xmldecl94 = new BitSet(new long[]{0x00000000000007C0L});
-    public static final BitSet FOLLOW_attributes_in_xmldecl98 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_xmldecl100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_tag_in_node121 = new BitSet(new long[]{0x0000001FFF548000L});
+    public static final BitSet FOLLOW_XML_in_xmldecl94 = new BitSet(new long[]{0x0000000014000EC0L});
+    public static final BitSet FOLLOW_attributes_in_xmldecl98 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_xmldecl100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_tag_in_node121 = new BitSet(new long[]{0x0000000000690000L});
     public static final BitSet FOLLOW_children_in_node139 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STR_in_node151 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_tag182 = new BitSet(new long[]{0x00000000000307C2L});
+    public static final BitSet FOLLOW_ID_in_tag182 = new BitSet(new long[]{0x0000000014060EC2L});
     public static final BitSet FOLLOW_set_in_tag185 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ID_in_tag193 = new BitSet(new long[]{0x00000000000007C2L});
+    public static final BitSet FOLLOW_ID_in_tag193 = new BitSet(new long[]{0x0000000014000EC2L});
     public static final BitSet FOLLOW_attributes_in_tag199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_children218 = new BitSet(new long[]{0x00000000000800D0L});
-    public static final BitSet FOLLOW_childs_in_children220 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_children222 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_children230 = new BitSet(new long[]{0x00000000002000D0L});
-    public static final BitSet FOLLOW_childs_in_children232 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_children234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_children242 = new BitSet(new long[]{0x00000000008000D0L});
-    public static final BitSet FOLLOW_childs_in_children244 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_children246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_children255 = new BitSet(new long[]{0x00000010000080D0L});
-    public static final BitSet FOLLOW_node_in_children281 = new BitSet(new long[]{0x00000010000080D0L});
-    public static final BitSet FOLLOW_set_in_children286 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_node_in_childs309 = new BitSet(new long[]{0x00000000000000D2L});
-    public static final BitSet FOLLOW_tag_in_childs314 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_attribute339 = new BitSet(new long[]{0x0000006000000000L});
-    public static final BitSet FOLLOW_set_in_attribute341 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ID_in_attribute349 = new BitSet(new long[]{0x0000000000000742L});
-    public static final BitSet FOLLOW_ID_in_attribute355 = new BitSet(new long[]{0x0000000000030742L});
-    public static final BitSet FOLLOW_set_in_attribute359 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ID_in_attribute367 = new BitSet(new long[]{0x0000000000000742L});
-    public static final BitSet FOLLOW_set_in_attribute374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_attribute401 = new BitSet(new long[]{0x0000000000000082L});
-    public static final BitSet FOLLOW_ID_in_attribute420 = new BitSet(new long[]{0x0000006000000000L});
-    public static final BitSet FOLLOW_set_in_attribute423 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ID_in_attribute431 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_attribute437 = new BitSet(new long[]{0x0000000000030002L});
-    public static final BitSet FOLLOW_set_in_attribute440 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ID_in_attribute448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_attribute_in_attributes473 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_39_in_attributes477 = new BitSet(new long[]{0x00000000000007C0L});
-    public static final BitSet FOLLOW_attribute_in_attributes479 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_19_in_children218 = new BitSet(new long[]{0x00000000001000D0L});
+    public static final BitSet FOLLOW_childs_in_children220 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_children222 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_children231 = new BitSet(new long[]{0x00000000004100D0L});
+    public static final BitSet FOLLOW_node_in_children233 = new BitSet(new long[]{0x00000000004100D0L});
+    public static final BitSet FOLLOW_set_in_children238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_node_in_childs261 = new BitSet(new long[]{0x00000000000000D2L});
+    public static final BitSet FOLLOW_tag_in_childs266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_attribute291 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_set_in_attribute293 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_ID_in_attribute301 = new BitSet(new long[]{0x0000000000000FC2L});
+    public static final BitSet FOLLOW_ID_in_attribute307 = new BitSet(new long[]{0x0000000000060FC2L});
+    public static final BitSet FOLLOW_set_in_attribute311 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_ID_in_attribute319 = new BitSet(new long[]{0x0000000000000FC2L});
+    public static final BitSet FOLLOW_OP_in_attribute326 = new BitSet(new long[]{0x0000000000000EC2L});
+    public static final BitSet FOLLOW_value_in_attribute331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_value_in_attribute344 = new BitSet(new long[]{0x0000000000000182L});
+    public static final BitSet FOLLOW_OP_in_attribute348 = new BitSet(new long[]{0x0000000000000082L});
+    public static final BitSet FOLLOW_ID_in_attribute354 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_set_in_attribute357 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_ID_in_attribute365 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_attribute371 = new BitSet(new long[]{0x0000000000060002L});
+    public static final BitSet FOLLOW_set_in_attribute374 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_ID_in_attribute382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_value411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_attribute_in_attributes444 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_25_in_attributes448 = new BitSet(new long[]{0x0000000000000EC0L});
+    public static final BitSet FOLLOW_attribute_in_attributes450 = new BitSet(new long[]{0x0000000002000002L});
+    public static final BitSet FOLLOW_26_in_attributes460 = new BitSet(new long[]{0x0000000000000EC0L});
+    public static final BitSet FOLLOW_attribute_in_attributes462 = new BitSet(new long[]{0x000000000A410000L});
+    public static final BitSet FOLLOW_set_in_attributes466 = new BitSet(new long[]{0x0000000000000EC0L});
+    public static final BitSet FOLLOW_attribute_in_attributes474 = new BitSet(new long[]{0x000000000A410000L});
+    public static final BitSet FOLLOW_27_in_attributes478 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_attributes486 = new BitSet(new long[]{0x0000000000000EC0L});
+    public static final BitSet FOLLOW_attribute_in_attributes488 = new BitSet(new long[]{0x0000000022410000L});
+    public static final BitSet FOLLOW_set_in_attributes492 = new BitSet(new long[]{0x0000000000000EC0L});
+    public static final BitSet FOLLOW_attribute_in_attributes500 = new BitSet(new long[]{0x0000000022410000L});
+    public static final BitSet FOLLOW_29_in_attributes504 = new BitSet(new long[]{0x0000000000000002L});
 
 }
