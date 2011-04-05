@@ -80,14 +80,12 @@ node
     ;
 
 tag returns [String tagname]
-    : nodename=ID (('@'|'/') ns=ID)? { $tagname=open($ns,$nodename); } attributes?
+    : nodename=ID (('@'|'\\') ns=ID)? { $tagname=open($ns,$nodename); } attributes?
 	  ;
 
 fragment children
     : '{' childs '}'
-    | '[' childs ']'
-    | '(' childs ')'
-    | ((':'|'='|'|'|'||'|'>'|'->'|'-->'|'<'|'<-'|'<--'|'<>'|'<->') node*)? ('.'|';')
+    | (':' node*)? ('.'|';')
     ;
 
 fragment childs
@@ -95,12 +93,23 @@ fragment childs
     ;
 
 fragment attribute
-    : (ns=ID ('!'|'#') name=ID | name=ID ( ('@'|'/') ns=ID)?) value=(STR | INT | FLOAT | CHAR)? { attr($ns,$name,$value); }
-    | value=(STR | INT | FLOAT | CHAR) (ns=ID  ('!'|'#') name=ID | name=ID (('@'|'/') ns=ID)?)? { attr($ns,$name,$value); }
+    : (ns=ID ('!'|'#') name=ID | name=ID ( ('@'|'\\') ns=ID)?) o=OP? v=value? { attr($ns,$name,$o+v); }
+    | v=value o=OP? (ns=ID  ('!'|'#') name=ID | name=ID (('@'|'\\') ns=ID)?)? { attr($ns,$name,$o+v); }
+    ;
+
+fragment value returns [Token value]
+    : (STR | INT | FLOAT | CHAR)
     ;
 
 fragment attributes
     : attribute ( ',' attribute)*
+    | '(' attribute ( (','|';'|'.') attribute)* ')'
+    | '[' attribute ( (','|';'|'.') attribute)* ']'
+    ;
+
+OP
+    : ('<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&'
+    | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?')
     ;
 
 ID
