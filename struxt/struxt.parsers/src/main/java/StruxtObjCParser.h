@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtObjC.g 2011-04-04 13:36:28
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtObjC.g 2011-04-05 10:59:03
 
 /* =============================================================================
  * Standard antlr3 OBJC runtime definitions
@@ -20,16 +20,17 @@ typedef enum {
     MIN
 } ANTLR3TokenType;
 
-#pragma mark Cyclic DFA interface start DFA6
-@interface DFA6 : ANTLRDFA {
+#pragma mark Cyclic DFA interface start DFA9
+@interface DFA9 : ANTLRDFA {
 }
-+ newDFA6WithRecognizer:(ANTLRBaseRecognizer *)theRecognizer;
++ newDFA9WithRecognizer:(ANTLRBaseRecognizer *)theRecognizer;
 - initWithRecognizer:(ANTLRBaseRecognizer *)recognizer;
-@end /* end of DFA6 interface  */
+@end /* end of DFA9 interface  */
 
-#pragma mark Cyclic DFA interface end DFA6
+#pragma mark Cyclic DFA interface end DFA9
 #pragma mark Tokens
 #define EOF -1
+#define T__16 16
 #define T__17 17
 #define T__18 18
 #define T__19 19
@@ -40,19 +41,21 @@ typedef enum {
 #define T__24 24
 #define T__25 25
 #define T__26 26
-#define STR 4
-#define ID 5
-#define INT 6
-#define FLOAT 7
-#define CHAR 8
-#define COMMENT 9
-#define WS 10
-#define ESC_SEQ 11
-#define STRING 12
-#define EXPONENT 13
-#define HEX_DIGIT 14
-#define UNICODE_ESC 15
-#define OCTAL_ESC 16
+#define T__27 27
+#define T__28 28
+#define T__29 29
+#define DOC 4
+#define XML 5
+#define STR 6
+#define ID 7
+#define OP 8
+#define INT 9
+#define FLOAT 10
+#define CHAR 11
+#define COMMENT 12
+#define WS 13
+#define EXPONENT 14
+#define HEX_DIGIT 15
 #pragma mark Dynamic Global Scopes
 #pragma mark Dynamic Rule Scopes
 #pragma mark Rule Return Scopes start
@@ -67,18 +70,20 @@ typedef enum {
 
 // Start of memVars
 
-DFA6 *dfa6;
+DFA9 *dfa9;
  }
 
 // start of action-actionScope-methodsDecl
 
 
 - (void)struxt; 
+- (String)xmldecl; 
 - (void)node; 
-- (void)tag; 
+- (String)tag; 
 - (void)children; 
 - (void)childs; 
 - (void)attribute; 
+- (Token)value; 
 - (void)attributes; 
 
 

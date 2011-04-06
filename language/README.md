@@ -20,24 +20,25 @@ The following is a text-plain document/algorithm for quick sort:
 
 ### QuickSort ###
 
-    define: sort array of integers:
-      define: sort left integer, right integer:
-        variable pivot: array at ((left + right) / 2);
+    define: sort (array: integer) {
+      define: sort (left: integer, right: integer) {
+        variable pivot: array ((left + right) / 2);
         variable i: left;
         variable j: right;
-        loop inclusively from i to j:
+        loop inclusively from i to j {
           loop from (array at i) to pivot: increment i by 1;
           loop from (array at j) to pivot: decrement j by 1;
-          if (i <= j):
+          if (i <= j) {
             swap index i and j.
             increment i by 1.
             decrement j by 1.
-        . .
+          }
+        }
         if (l < j): sort from left to j;
         if (j < r): sort from i to right;
-      .
+      }
       sort from 0 to (array length - 1).
-    !
+    }
 
 
 ---

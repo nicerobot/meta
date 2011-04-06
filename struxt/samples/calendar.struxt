@@ -1,0 +1,54 @@
+?xml version "1.0", encoding "UTF-8".
+control@metal "calendar" name {
+
+  div "previous-month${index}" id, "navigator previous-month" class: " ← ".
+  div "month" class: "${this.now.getMonth() + 1}/${this.now.getYear() + 1900}".
+  div "next-month${index}" id, "navigator net-month" class: " → ".
+  
+  control@metal "week" name {
+    control@metal "days" name {
+      div "day${calendar.index}-${week.index}-${index}" id, "week${week.index} day${index} day" class: "${this.day}".
+    }
+  }
+  
+  init@metal "[]" this, "months" variable {
+    """
+    function getDate(t) {
+      if (t instanceof Date) {
+        return t;
+      }
+        
+      if ("string" === typeof(t)) {
+        try {
+          t = new Date(t);
+        } 
+        catch (e) {
+          t = undefined;
+        }
+      }    
+      if (!(t instanceof Date) || !!!+t) {
+        t = new Date();
+      }
+      return t;
+    }
+    for (var a=0; a<months.length; a++) {
+      var t = getDate(months[a]);
+      var y = t.getYear() + 1900;
+      var m = t.getMonth();
+      var firstWeekday = new Date(y,m,1).getDay();
+      var lastDay = new Date(y,m+1,1,0,0,-1).getDate();
+      this.push({
+        "now"  : t,
+        "week" : [0, 1, 2, 3, 4, 5, 6].map(function(w,wi){ return { 
+          "days" : ["Su", "M", "Tu", "W", "Th", "F", "Sa"].map(function(d,di) {
+             var day = +w * 7 - (6 + firstWeekday) + di;
+             if (0 == wi) day = d;
+             else if (1 > day || day > lastDay) day = "";
+             return { "day": String(day) };
+          })
+        };}),
+      });
+    }
+  """
+  }
+}

@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g 2011-04-04 13:32:03
+// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g 2011-04-05 10:59:06
 
 var StruxtJSLexer = function(input, state) {
 // alternate constructor @todo
@@ -11,8 +11,9 @@ var StruxtJSLexer = function(input, state) {
     (function(){
     }).call(this);
 
-    this.dfa15 = new StruxtJSLexer.DFA15(this);
-    this.dfa21 = new StruxtJSLexer.DFA21(this);
+    this.dfa1 = new StruxtJSLexer.DFA1(this);
+    this.dfa19 = new StruxtJSLexer.DFA19(this);
+    this.dfa23 = new StruxtJSLexer.DFA23(this);
     StruxtJSLexer.superclass.constructor.call(this, input, state);
 
 
@@ -20,6 +21,7 @@ var StruxtJSLexer = function(input, state) {
 
 org.antlr.lang.augmentObject(StruxtJSLexer, {
     EOF: -1,
+    T__16: 16,
     T__17: 17,
     T__18: 18,
     T__19: 19,
@@ -30,19 +32,21 @@ org.antlr.lang.augmentObject(StruxtJSLexer, {
     T__24: 24,
     T__25: 25,
     T__26: 26,
-    STR: 4,
-    ID: 5,
-    INT: 6,
-    FLOAT: 7,
-    CHAR: 8,
-    COMMENT: 9,
-    WS: 10,
-    ESC_SEQ: 11,
-    STRING: 12,
-    EXPONENT: 13,
-    HEX_DIGIT: 14,
-    UNICODE_ESC: 15,
-    OCTAL_ESC: 16
+    T__27: 27,
+    T__28: 28,
+    T__29: 29,
+    DOC: 4,
+    XML: 5,
+    STR: 6,
+    ID: 7,
+    OP: 8,
+    INT: 9,
+    FLOAT: 10,
+    CHAR: 11,
+    COMMENT: 12,
+    WS: 13,
+    EXPONENT: 14,
+    HEX_DIGIT: 15
 });
 
 (function(){
@@ -50,6 +54,7 @@ var HIDDEN = org.antlr.runtime.Token.HIDDEN_CHANNEL,
     EOF = org.antlr.runtime.Token.EOF;
 org.antlr.lang.extend(StruxtJSLexer, org.antlr.runtime.Lexer, {
     EOF : -1,
+    T__16 : 16,
     T__17 : 17,
     T__18 : 18,
     T__19 : 19,
@@ -60,30 +65,51 @@ org.antlr.lang.extend(StruxtJSLexer, org.antlr.runtime.Lexer, {
     T__24 : 24,
     T__25 : 25,
     T__26 : 26,
-    STR : 4,
-    ID : 5,
-    INT : 6,
-    FLOAT : 7,
-    CHAR : 8,
-    COMMENT : 9,
-    WS : 10,
-    ESC_SEQ : 11,
-    STRING : 12,
-    EXPONENT : 13,
-    HEX_DIGIT : 14,
-    UNICODE_ESC : 15,
-    OCTAL_ESC : 16,
+    T__27 : 27,
+    T__28 : 28,
+    T__29 : 29,
+    DOC : 4,
+    XML : 5,
+    STR : 6,
+    ID : 7,
+    OP : 8,
+    INT : 9,
+    FLOAT : 10,
+    CHAR : 11,
+    COMMENT : 12,
+    WS : 13,
+    EXPONENT : 14,
+    HEX_DIGIT : 15,
     getGrammarFileName: function() { return "/Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g"; }
 });
 org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
+    // $ANTLR start T__16
+    mT__16: function()  {
+        try {
+            var _type = this.T__16;
+            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:7:7: ( '.' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:7:9: '.'
+            this.match('.'); 
+
+
+
+            this.state.type = _type;
+            this.state.channel = _channel;
+        }
+        finally {
+        }
+    },
+    // $ANTLR end "T__16",
+
     // $ANTLR start T__17
     mT__17: function()  {
         try {
             var _type = this.T__17;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:7:7: ( '{' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:7:9: '{'
-            this.match('{'); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:8:7: ( '@' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:8:9: '@'
+            this.match('@'); 
 
 
 
@@ -100,9 +126,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__18;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:8:7: ( '}' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:8:9: '}'
-            this.match('}'); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:9:7: ( '\\\\' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:9:9: '\\\\'
+            this.match('\\'); 
 
 
 
@@ -119,9 +145,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__19;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:9:7: ( '[' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:9:9: '['
-            this.match('['); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:10:7: ( '{' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:10:9: '{'
+            this.match('{'); 
 
 
 
@@ -138,9 +164,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__20;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:10:7: ( ']' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:10:9: ']'
-            this.match(']'); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:11:7: ( '}' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:11:9: '}'
+            this.match('}'); 
 
 
 
@@ -157,9 +183,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__21;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:11:7: ( '(' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:11:9: '('
-            this.match('('); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:12:7: ( ':' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:12:9: ':'
+            this.match(':'); 
 
 
 
@@ -176,9 +202,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__22;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:12:7: ( ')' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:12:9: ')'
-            this.match(')'); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:13:7: ( ';' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:13:9: ';'
+            this.match(';'); 
 
 
 
@@ -195,9 +221,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__23;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:13:7: ( ':' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:13:9: ':'
-            this.match(':'); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:14:7: ( '!' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:14:9: '!'
+            this.match('!'); 
 
 
 
@@ -214,9 +240,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__24;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:14:7: ( '.' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:14:9: '.'
-            this.match('.'); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:15:7: ( '#' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:15:9: '#'
+            this.match('#'); 
 
 
 
@@ -233,9 +259,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__25;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:15:7: ( ';' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:15:9: ';'
-            this.match(';'); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:16:7: ( ',' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:16:9: ','
+            this.match(','); 
 
 
 
@@ -252,9 +278,9 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.T__26;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:16:7: ( ',' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:16:9: ','
-            this.match(','); 
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:17:7: ( '(' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:17:9: '('
+            this.match('('); 
 
 
 
@@ -266,53 +292,216 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
     },
     // $ANTLR end "T__26",
 
-    // $ANTLR start ID
-    mID: function()  {
+    // $ANTLR start T__27
+    mT__27: function()  {
         try {
-            var _type = this.ID;
+            var _type = this.T__27;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:41:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:41:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
-            if ( (this.input.LA(1)>='A' && this.input.LA(1)<='Z')||this.input.LA(1)=='_'||(this.input.LA(1)>='a' && this.input.LA(1)<='z') ) {
-                this.input.consume();
-
-            }
-            else {
-                var mse = new org.antlr.runtime.MismatchedSetException(null,this.input);
-                this.recover(mse);
-                throw mse;}
-
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:41:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
-            loop1:
-            do {
-                var alt1=2;
-                var LA1_0 = this.input.LA(1);
-
-                if ( ((LA1_0>='0' && LA1_0<='9')||(LA1_0>='A' && LA1_0<='Z')||LA1_0=='_'||(LA1_0>='a' && LA1_0<='z')) ) {
-                    alt1=1;
-                }
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:18:7: ( ')' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:18:9: ')'
+            this.match(')'); 
 
 
-                switch (alt1) {
+
+            this.state.type = _type;
+            this.state.channel = _channel;
+        }
+        finally {
+        }
+    },
+    // $ANTLR end "T__27",
+
+    // $ANTLR start T__28
+    mT__28: function()  {
+        try {
+            var _type = this.T__28;
+            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:19:7: ( '[' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:19:9: '['
+            this.match('['); 
+
+
+
+            this.state.type = _type;
+            this.state.channel = _channel;
+        }
+        finally {
+        }
+    },
+    // $ANTLR end "T__28",
+
+    // $ANTLR start T__29
+    mT__29: function()  {
+        try {
+            var _type = this.T__29;
+            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:20:7: ( ']' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:20:9: ']'
+            this.match(']'); 
+
+
+
+            this.state.type = _type;
+            this.state.channel = _channel;
+        }
+        finally {
+        }
+    },
+    // $ANTLR end "T__29",
+
+    // $ANTLR start OP
+    mOP: function()  {
+        try {
+            var _type = this.OP;
+            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:5: ( ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
+            var alt1=22;
+            alt1 = this.dfa1.predict(this.input);
+            switch (alt1) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:
-                    if ( (this.input.LA(1)>='0' && this.input.LA(1)<='9')||(this.input.LA(1)>='A' && this.input.LA(1)<='Z')||this.input.LA(1)=='_'||(this.input.LA(1)>='a' && this.input.LA(1)<='z') ) {
-                        this.input.consume();
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:8: '<'
+                    this.match('<'); 
 
-                    }
-                    else {
-                        var mse = new org.antlr.runtime.MismatchedSetException(null,this.input);
-                        this.recover(mse);
-                        throw mse;}
+
+                    break;
+                case 2 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:14: '<<'
+                    this.match("<<"); 
 
 
 
                     break;
+                case 3 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:21: '<-'
+                    this.match("<-"); 
 
-                default :
-                    break loop1;
-                }
-            } while (true);
+
+
+                    break;
+                case 4 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:28: '<->'
+                    this.match("<->"); 
+
+
+
+                    break;
+                case 5 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:36: '->'
+                    this.match("->"); 
+
+
+
+                    break;
+                case 6 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:43: '>>'
+                    this.match(">>"); 
+
+
+
+                    break;
+                case 7 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:50: '>'
+                    this.match('>'); 
+
+
+                    break;
+                case 8 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:56: '~'
+                    this.match('~'); 
+
+
+                    break;
+                case 9 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:62: '$'
+                    this.match('$'); 
+
+
+                    break;
+                case 10 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:68: '%'
+                    this.match('%'); 
+
+
+                    break;
+                case 11 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:74: '^'
+                    this.match('^'); 
+
+
+                    break;
+                case 12 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:80: '&'
+                    this.match('&'); 
+
+
+                    break;
+                case 13 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:86: '&&'
+                    this.match("&&"); 
+
+
+
+                    break;
+                case 14 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:7: '*'
+                    this.match('*'); 
+
+
+                    break;
+                case 15 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:13: '**'
+                    this.match("**"); 
+
+
+
+                    break;
+                case 16 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:20: '-'
+                    this.match('-'); 
+
+
+                    break;
+                case 17 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:26: '+'
+                    this.match('+'); 
+
+
+                    break;
+                case 18 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:32: '='
+                    this.match('='); 
+
+
+                    break;
+                case 19 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:38: '|'
+                    this.match('|'); 
+
+
+                    break;
+                case 20 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:44: '||'
+                    this.match("||"); 
+
+
+
+                    break;
+                case 21 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:51: '/'
+                    this.match('/'); 
+
+
+                    break;
+                case 22 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:55:57: '?'
+                    this.match('?'); 
+
+
+                    break;
+
+            }
 
 
 
@@ -323,31 +512,39 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         finally {
         }
     },
-    // $ANTLR end "ID",
+    // $ANTLR end "OP",
 
-    // $ANTLR start STR
-    mSTR: function()  {
+    // $ANTLR start ID
+    mID: function()  {
         try {
-            var _type = this.STR;
+            var _type = this.ID;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:45:5: ( '\"' (~ ( '\"' ) )* '\"' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:45:8: '\"' (~ ( '\"' ) )* '\"'
-            this.match('\"'); 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:45:12: (~ ( '\"' ) )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:59:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )* )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:59:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
+            if ( (this.input.LA(1)>='A' && this.input.LA(1)<='Z')||this.input.LA(1)=='_'||(this.input.LA(1)>='a' && this.input.LA(1)<='z') ) {
+                this.input.consume();
+
+            }
+            else {
+                var mse = new org.antlr.runtime.MismatchedSetException(null,this.input);
+                this.recover(mse);
+                throw mse;}
+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:59:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
             loop2:
             do {
                 var alt2=2;
                 var LA2_0 = this.input.LA(1);
 
-                if ( ((LA2_0>='\u0000' && LA2_0<='!')||(LA2_0>='#' && LA2_0<='\uFFFF')) ) {
+                if ( (LA2_0=='-'||(LA2_0>='0' && LA2_0<='9')||(LA2_0>='A' && LA2_0<='Z')||LA2_0=='_'||(LA2_0>='a' && LA2_0<='z')) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:45:12: ~ ( '\"' )
-                    if ( (this.input.LA(1)>='\u0000' && this.input.LA(1)<='!')||(this.input.LA(1)>='#' && this.input.LA(1)<='\uFFFF') ) {
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:
+                    if ( this.input.LA(1)=='-'||(this.input.LA(1)>='0' && this.input.LA(1)<='9')||(this.input.LA(1)>='A' && this.input.LA(1)<='Z')||this.input.LA(1)=='_'||(this.input.LA(1)>='a' && this.input.LA(1)<='z') ) {
                         this.input.consume();
 
                     }
@@ -365,10 +562,300 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
                 }
             } while (true);
 
-            this.match('\"'); 
 
 
 
+            this.state.type = _type;
+            this.state.channel = _channel;
+        }
+        finally {
+        }
+    },
+    // $ANTLR end "ID",
+
+    // $ANTLR start XML
+    mXML: function()  {
+        try {
+            var _type = this.XML;
+            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:63:5: ( '?xml' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:63:7: '?xml'
+            this.match("?xml"); 
+
+
+
+
+            this.state.type = _type;
+            this.state.channel = _channel;
+        }
+        finally {
+        }
+    },
+    // $ANTLR end "XML",
+
+    // $ANTLR start DOC
+    mDOC: function()  {
+        try {
+            var _type = this.DOC;
+            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:67:5: ( '!!!' ( options {greedy=false; } : . )+ '!!!' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:67:7: '!!!' ( options {greedy=false; } : . )+ '!!!'
+            this.match("!!!"); 
+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:67:13: ( options {greedy=false; } : . )+
+            var cnt3=0;
+            loop3:
+            do {
+                var alt3=2;
+                var LA3_0 = this.input.LA(1);
+
+                if ( (LA3_0=='!') ) {
+                    var LA3_1 = this.input.LA(2);
+
+                    if ( (LA3_1=='!') ) {
+                        var LA3_3 = this.input.LA(3);
+
+                        if ( (LA3_3=='!') ) {
+                            alt3=2;
+                        }
+                        else if ( ((LA3_3>='\u0000' && LA3_3<=' ')||(LA3_3>='\"' && LA3_3<='\uFFFF')) ) {
+                            alt3=1;
+                        }
+
+
+                    }
+                    else if ( ((LA3_1>='\u0000' && LA3_1<=' ')||(LA3_1>='\"' && LA3_1<='\uFFFF')) ) {
+                        alt3=1;
+                    }
+
+
+                }
+                else if ( ((LA3_0>='\u0000' && LA3_0<=' ')||(LA3_0>='\"' && LA3_0<='\uFFFF')) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+                case 1 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:67:38: .
+                    this.matchAny(); 
+
+
+                    break;
+
+                default :
+                    if ( cnt3 >= 1 ) {
+                        break loop3;
+                    }
+                        var eee = new org.antlr.runtime.EarlyExitException(3, this.input);
+                        throw eee;
+                }
+                cnt3++;
+            } while (true);
+
+            this.match("!!!"); 
+
+
+
+
+            this.state.type = _type;
+            this.state.channel = _channel;
+        }
+        finally {
+        }
+    },
+    // $ANTLR end "DOC",
+
+    // $ANTLR start STR
+    mSTR: function()  {
+        try {
+            var _type = this.STR;
+            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:71:5: ( '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"' | '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\'' | '\"' (~ ( '\"' ) )* '\"' )
+            var alt7=3;
+            var LA7_0 = this.input.LA(1);
+
+            if ( (LA7_0=='\"') ) {
+                var LA7_1 = this.input.LA(2);
+
+                if ( (LA7_1=='\"') ) {
+                    var LA7_3 = this.input.LA(3);
+
+                    if ( (LA7_3=='\"') ) {
+                        alt7=1;
+                    }
+                    else {
+                        alt7=3;}
+                }
+                else if ( ((LA7_1>='\u0000' && LA7_1<='!')||(LA7_1>='#' && LA7_1<='\uFFFF')) ) {
+                    alt7=3;
+                }
+                else {
+                    var nvae =
+                        new org.antlr.runtime.NoViableAltException("", 7, 1, this.input);
+
+                    throw nvae;
+                }
+            }
+            else if ( (LA7_0=='\'') ) {
+                alt7=2;
+            }
+            else {
+                var nvae =
+                    new org.antlr.runtime.NoViableAltException("", 7, 0, this.input);
+
+                throw nvae;
+            }
+            switch (alt7) {
+                case 1 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:71:7: '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"'
+                    this.match("\"\"\""); 
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:71:13: ( options {greedy=false; } : . )*
+                    loop4:
+                    do {
+                        var alt4=2;
+                        var LA4_0 = this.input.LA(1);
+
+                        if ( (LA4_0=='\"') ) {
+                            var LA4_1 = this.input.LA(2);
+
+                            if ( (LA4_1=='\"') ) {
+                                var LA4_3 = this.input.LA(3);
+
+                                if ( (LA4_3=='\"') ) {
+                                    alt4=2;
+                                }
+                                else if ( ((LA4_3>='\u0000' && LA4_3<='!')||(LA4_3>='#' && LA4_3<='\uFFFF')) ) {
+                                    alt4=1;
+                                }
+
+
+                            }
+                            else if ( ((LA4_1>='\u0000' && LA4_1<='!')||(LA4_1>='#' && LA4_1<='\uFFFF')) ) {
+                                alt4=1;
+                            }
+
+
+                        }
+                        else if ( ((LA4_0>='\u0000' && LA4_0<='!')||(LA4_0>='#' && LA4_0<='\uFFFF')) ) {
+                            alt4=1;
+                        }
+
+
+                        switch (alt4) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:71:38: .
+                            this.matchAny(); 
+
+
+                            break;
+
+                        default :
+                            break loop4;
+                        }
+                    } while (true);
+
+                    this.match("\"\"\""); 
+
+
+
+                    break;
+                case 2 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:72:7: '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\''
+                    this.match("'''"); 
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:72:16: ( options {greedy=false; } : . )*
+                    loop5:
+                    do {
+                        var alt5=2;
+                        var LA5_0 = this.input.LA(1);
+
+                        if ( (LA5_0=='\'') ) {
+                            var LA5_1 = this.input.LA(2);
+
+                            if ( (LA5_1=='\'') ) {
+                                var LA5_3 = this.input.LA(3);
+
+                                if ( (LA5_3=='\'') ) {
+                                    alt5=2;
+                                }
+                                else if ( ((LA5_3>='\u0000' && LA5_3<='&')||(LA5_3>='(' && LA5_3<='\uFFFF')) ) {
+                                    alt5=1;
+                                }
+
+
+                            }
+                            else if ( ((LA5_1>='\u0000' && LA5_1<='&')||(LA5_1>='(' && LA5_1<='\uFFFF')) ) {
+                                alt5=1;
+                            }
+
+
+                        }
+                        else if ( ((LA5_0>='\u0000' && LA5_0<='&')||(LA5_0>='(' && LA5_0<='\uFFFF')) ) {
+                            alt5=1;
+                        }
+
+
+                        switch (alt5) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:72:41: .
+                            this.matchAny(); 
+
+
+                            break;
+
+                        default :
+                            break loop5;
+                        }
+                    } while (true);
+
+                    this.match("'''"); 
+
+
+
+                    break;
+                case 3 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:73:6: '\"' (~ ( '\"' ) )* '\"'
+                    this.match('\"'); 
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:73:10: (~ ( '\"' ) )*
+                    loop6:
+                    do {
+                        var alt6=2;
+                        var LA6_0 = this.input.LA(1);
+
+                        if ( ((LA6_0>='\u0000' && LA6_0<='!')||(LA6_0>='#' && LA6_0<='\uFFFF')) ) {
+                            alt6=1;
+                        }
+
+
+                        switch (alt6) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:73:10: ~ ( '\"' )
+                            if ( (this.input.LA(1)>='\u0000' && this.input.LA(1)<='!')||(this.input.LA(1)>='#' && this.input.LA(1)<='\uFFFF') ) {
+                                this.input.consume();
+
+                            }
+                            else {
+                                var mse = new org.antlr.runtime.MismatchedSetException(null,this.input);
+                                this.recover(mse);
+                                throw mse;}
+
+
+
+                            break;
+
+                        default :
+                            break loop6;
+                        }
+                    } while (true);
+
+                    this.match('\"'); 
+
+
+                    break;
+
+            }
             this.state.type = _type;
             this.state.channel = _channel;
         }
@@ -382,51 +869,51 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.COMMENT;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:49:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
-            var alt6=2;
-            var LA6_0 = this.input.LA(1);
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:77:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            var alt11=2;
+            var LA11_0 = this.input.LA(1);
 
-            if ( (LA6_0=='/') ) {
-                var LA6_1 = this.input.LA(2);
+            if ( (LA11_0=='/') ) {
+                var LA11_1 = this.input.LA(2);
 
-                if ( (LA6_1=='/') ) {
-                    alt6=1;
+                if ( (LA11_1=='/') ) {
+                    alt11=1;
                 }
-                else if ( (LA6_1=='*') ) {
-                    alt6=2;
+                else if ( (LA11_1=='*') ) {
+                    alt11=2;
                 }
                 else {
                     var nvae =
-                        new org.antlr.runtime.NoViableAltException("", 6, 1, this.input);
+                        new org.antlr.runtime.NoViableAltException("", 11, 1, this.input);
 
                     throw nvae;
                 }
             }
             else {
                 var nvae =
-                    new org.antlr.runtime.NoViableAltException("", 6, 0, this.input);
+                    new org.antlr.runtime.NoViableAltException("", 11, 0, this.input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt11) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:49:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:77:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     this.match("//"); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:49:14: (~ ( '\\n' | '\\r' ) )*
-                    loop3:
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:77:14: (~ ( '\\n' | '\\r' ) )*
+                    loop8:
                     do {
-                        var alt3=2;
-                        var LA3_0 = this.input.LA(1);
+                        var alt8=2;
+                        var LA8_0 = this.input.LA(1);
 
-                        if ( ((LA3_0>='\u0000' && LA3_0<='\t')||(LA3_0>='\u000B' && LA3_0<='\f')||(LA3_0>='\u000E' && LA3_0<='\uFFFF')) ) {
-                            alt3=1;
+                        if ( ((LA8_0>='\u0000' && LA8_0<='\t')||(LA8_0>='\u000B' && LA8_0<='\f')||(LA8_0>='\u000E' && LA8_0<='\uFFFF')) ) {
+                            alt8=1;
                         }
 
 
-                        switch (alt3) {
+                        switch (alt8) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:49:14: ~ ( '\\n' | '\\r' )
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:77:14: ~ ( '\\n' | '\\r' )
                             if ( (this.input.LA(1)>='\u0000' && this.input.LA(1)<='\t')||(this.input.LA(1)>='\u000B' && this.input.LA(1)<='\f')||(this.input.LA(1)>='\u000E' && this.input.LA(1)<='\uFFFF') ) {
                                 this.input.consume();
 
@@ -441,20 +928,20 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
                             break;
 
                         default :
-                            break loop3;
+                            break loop8;
                         }
                     } while (true);
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:49:28: ( '\\r' )?
-                    var alt4=2;
-                    var LA4_0 = this.input.LA(1);
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:77:28: ( '\\r' )?
+                    var alt9=2;
+                    var LA9_0 = this.input.LA(1);
 
-                    if ( (LA4_0=='\r') ) {
-                        alt4=1;
+                    if ( (LA9_0=='\r') ) {
+                        alt9=1;
                     }
-                    switch (alt4) {
+                    switch (alt9) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:49:28: '\\r'
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:77:28: '\\r'
                             this.match('\r'); 
 
 
@@ -468,42 +955,42 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
 
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:50:9: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:78:9: '/*' ( options {greedy=false; } : . )* '*/'
                     this.match("/*"); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:50:14: ( options {greedy=false; } : . )*
-                    loop5:
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:78:14: ( options {greedy=false; } : . )*
+                    loop10:
                     do {
-                        var alt5=2;
-                        var LA5_0 = this.input.LA(1);
+                        var alt10=2;
+                        var LA10_0 = this.input.LA(1);
 
-                        if ( (LA5_0=='*') ) {
-                            var LA5_1 = this.input.LA(2);
+                        if ( (LA10_0=='*') ) {
+                            var LA10_1 = this.input.LA(2);
 
-                            if ( (LA5_1=='/') ) {
-                                alt5=2;
+                            if ( (LA10_1=='/') ) {
+                                alt10=2;
                             }
-                            else if ( ((LA5_1>='\u0000' && LA5_1<='.')||(LA5_1>='0' && LA5_1<='\uFFFF')) ) {
-                                alt5=1;
+                            else if ( ((LA10_1>='\u0000' && LA10_1<='.')||(LA10_1>='0' && LA10_1<='\uFFFF')) ) {
+                                alt10=1;
                             }
 
 
                         }
-                        else if ( ((LA5_0>='\u0000' && LA5_0<=')')||(LA5_0>='+' && LA5_0<='\uFFFF')) ) {
-                            alt5=1;
+                        else if ( ((LA10_0>='\u0000' && LA10_0<=')')||(LA10_0>='+' && LA10_0<='\uFFFF')) ) {
+                            alt10=1;
                         }
 
 
-                        switch (alt5) {
+                        switch (alt10) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:50:42: .
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:78:42: .
                             this.matchAny(); 
 
 
                             break;
 
                         default :
-                            break loop5;
+                            break loop10;
                         }
                     } while (true);
 
@@ -528,8 +1015,8 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.WS;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:54:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:82:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:82:9: ( ' ' | '\\t' | '\\r' | '\\n' )
             if ( (this.input.LA(1)>='\t' && this.input.LA(1)<='\n')||this.input.LA(1)=='\r'||this.input.LA(1)==' ' ) {
                 this.input.consume();
 
@@ -551,102 +1038,41 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
     },
     // $ANTLR end "WS",
 
-    // $ANTLR start STRING
-    mSTRING: function()  {
-        try {
-            var _type = this.STRING;
-            var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:62:5: ( '\"' ( ESC_SEQ | ~ ( '\\\\' | '\"' ) )* '\"' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:62:8: '\"' ( ESC_SEQ | ~ ( '\\\\' | '\"' ) )* '\"'
-            this.match('\"'); 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:62:12: ( ESC_SEQ | ~ ( '\\\\' | '\"' ) )*
-            loop7:
-            do {
-                var alt7=3;
-                var LA7_0 = this.input.LA(1);
-
-                if ( (LA7_0=='\\') ) {
-                    alt7=1;
-                }
-                else if ( ((LA7_0>='\u0000' && LA7_0<='!')||(LA7_0>='#' && LA7_0<='[')||(LA7_0>=']' && LA7_0<='\uFFFF')) ) {
-                    alt7=2;
-                }
-
-
-                switch (alt7) {
-                case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:62:14: ESC_SEQ
-                    this.mESC_SEQ(); 
-
-
-                    break;
-                case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:62:24: ~ ( '\\\\' | '\"' )
-                    if ( (this.input.LA(1)>='\u0000' && this.input.LA(1)<='!')||(this.input.LA(1)>='#' && this.input.LA(1)<='[')||(this.input.LA(1)>=']' && this.input.LA(1)<='\uFFFF') ) {
-                        this.input.consume();
-
-                    }
-                    else {
-                        var mse = new org.antlr.runtime.MismatchedSetException(null,this.input);
-                        this.recover(mse);
-                        throw mse;}
-
-
-
-                    break;
-
-                default :
-                    break loop7;
-                }
-            } while (true);
-
-            this.match('\"'); 
-
-
-
-            this.state.type = _type;
-            this.state.channel = _channel;
-        }
-        finally {
-        }
-    },
-    // $ANTLR end "STRING",
-
     // $ANTLR start INT
     mINT: function()  {
         try {
             var _type = this.INT;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:65:5: ( ( '0' .. '9' )+ )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:65:7: ( '0' .. '9' )+
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:65:7: ( '0' .. '9' )+
-            var cnt8=0;
-            loop8:
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:89:5: ( ( '0' .. '9' )+ )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:89:7: ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:89:7: ( '0' .. '9' )+
+            var cnt12=0;
+            loop12:
             do {
-                var alt8=2;
-                var LA8_0 = this.input.LA(1);
+                var alt12=2;
+                var LA12_0 = this.input.LA(1);
 
-                if ( ((LA8_0>='0' && LA8_0<='9')) ) {
-                    alt8=1;
+                if ( ((LA12_0>='0' && LA12_0<='9')) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt12) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:65:7: '0' .. '9'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:89:7: '0' .. '9'
                     this.matchRange('0','9'); 
 
 
                     break;
 
                 default :
-                    if ( cnt8 >= 1 ) {
-                        break loop8;
+                    if ( cnt12 >= 1 ) {
+                        break loop12;
                     }
-                        var eee = new org.antlr.runtime.EarlyExitException(8, this.input);
+                        var eee = new org.antlr.runtime.EarlyExitException(12, this.input);
                         throw eee;
                 }
-                cnt8++;
+                cnt12++;
             } while (true);
 
 
@@ -665,144 +1091,44 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.FLOAT;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
-            var alt15=3;
-            alt15 = this.dfa15.predict(this.input);
-            switch (alt15) {
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
+            var alt19=3;
+            alt19 = this.dfa19.predict(this.input);
+            switch (alt19) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:9: ( '0' .. '9' )+
-                    var cnt9=0;
-                    loop9:
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:9: ( '0' .. '9' )+
+                    var cnt13=0;
+                    loop13:
                     do {
-                        var alt9=2;
-                        var LA9_0 = this.input.LA(1);
+                        var alt13=2;
+                        var LA13_0 = this.input.LA(1);
 
-                        if ( ((LA9_0>='0' && LA9_0<='9')) ) {
-                            alt9=1;
+                        if ( ((LA13_0>='0' && LA13_0<='9')) ) {
+                            alt13=1;
                         }
 
 
-                        switch (alt9) {
+                        switch (alt13) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:10: '0' .. '9'
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:10: '0' .. '9'
                             this.matchRange('0','9'); 
 
 
                             break;
 
                         default :
-                            if ( cnt9 >= 1 ) {
-                                break loop9;
+                            if ( cnt13 >= 1 ) {
+                                break loop13;
                             }
-                                var eee = new org.antlr.runtime.EarlyExitException(9, this.input);
+                                var eee = new org.antlr.runtime.EarlyExitException(13, this.input);
                                 throw eee;
                         }
-                        cnt9++;
+                        cnt13++;
                     } while (true);
 
                     this.match('.'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:25: ( '0' .. '9' )*
-                    loop10:
-                    do {
-                        var alt10=2;
-                        var LA10_0 = this.input.LA(1);
-
-                        if ( ((LA10_0>='0' && LA10_0<='9')) ) {
-                            alt10=1;
-                        }
-
-
-                        switch (alt10) {
-                        case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:26: '0' .. '9'
-                            this.matchRange('0','9'); 
-
-
-                            break;
-
-                        default :
-                            break loop10;
-                        }
-                    } while (true);
-
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:37: ( EXPONENT )?
-                    var alt11=2;
-                    var LA11_0 = this.input.LA(1);
-
-                    if ( (LA11_0=='E'||LA11_0=='e') ) {
-                        alt11=1;
-                    }
-                    switch (alt11) {
-                        case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:69:37: EXPONENT
-                            this.mEXPONENT(); 
-
-
-                            break;
-
-                    }
-
-
-
-                    break;
-                case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:70:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
-                    this.match('.'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:70:13: ( '0' .. '9' )+
-                    var cnt12=0;
-                    loop12:
-                    do {
-                        var alt12=2;
-                        var LA12_0 = this.input.LA(1);
-
-                        if ( ((LA12_0>='0' && LA12_0<='9')) ) {
-                            alt12=1;
-                        }
-
-
-                        switch (alt12) {
-                        case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:70:14: '0' .. '9'
-                            this.matchRange('0','9'); 
-
-
-                            break;
-
-                        default :
-                            if ( cnt12 >= 1 ) {
-                                break loop12;
-                            }
-                                var eee = new org.antlr.runtime.EarlyExitException(12, this.input);
-                                throw eee;
-                        }
-                        cnt12++;
-                    } while (true);
-
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:70:25: ( EXPONENT )?
-                    var alt13=2;
-                    var LA13_0 = this.input.LA(1);
-
-                    if ( (LA13_0=='E'||LA13_0=='e') ) {
-                        alt13=1;
-                    }
-                    switch (alt13) {
-                        case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:70:25: EXPONENT
-                            this.mEXPONENT(); 
-
-
-                            break;
-
-                    }
-
-
-
-                    break;
-                case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:71:9: ( '0' .. '9' )+ EXPONENT
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:71:9: ( '0' .. '9' )+
-                    var cnt14=0;
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:25: ( '0' .. '9' )*
                     loop14:
                     do {
                         var alt14=2;
@@ -815,20 +1141,120 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
 
                         switch (alt14) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:71:10: '0' .. '9'
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:26: '0' .. '9'
                             this.matchRange('0','9'); 
 
 
                             break;
 
                         default :
-                            if ( cnt14 >= 1 ) {
-                                break loop14;
+                            break loop14;
+                        }
+                    } while (true);
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:37: ( EXPONENT )?
+                    var alt15=2;
+                    var LA15_0 = this.input.LA(1);
+
+                    if ( (LA15_0=='E'||LA15_0=='e') ) {
+                        alt15=1;
+                    }
+                    switch (alt15) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:93:37: EXPONENT
+                            this.mEXPONENT(); 
+
+
+                            break;
+
+                    }
+
+
+
+                    break;
+                case 2 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:94:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
+                    this.match('.'); 
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:94:13: ( '0' .. '9' )+
+                    var cnt16=0;
+                    loop16:
+                    do {
+                        var alt16=2;
+                        var LA16_0 = this.input.LA(1);
+
+                        if ( ((LA16_0>='0' && LA16_0<='9')) ) {
+                            alt16=1;
+                        }
+
+
+                        switch (alt16) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:94:14: '0' .. '9'
+                            this.matchRange('0','9'); 
+
+
+                            break;
+
+                        default :
+                            if ( cnt16 >= 1 ) {
+                                break loop16;
                             }
-                                var eee = new org.antlr.runtime.EarlyExitException(14, this.input);
+                                var eee = new org.antlr.runtime.EarlyExitException(16, this.input);
                                 throw eee;
                         }
-                        cnt14++;
+                        cnt16++;
+                    } while (true);
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:94:25: ( EXPONENT )?
+                    var alt17=2;
+                    var LA17_0 = this.input.LA(1);
+
+                    if ( (LA17_0=='E'||LA17_0=='e') ) {
+                        alt17=1;
+                    }
+                    switch (alt17) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:94:25: EXPONENT
+                            this.mEXPONENT(); 
+
+
+                            break;
+
+                    }
+
+
+
+                    break;
+                case 3 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:95:9: ( '0' .. '9' )+ EXPONENT
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:95:9: ( '0' .. '9' )+
+                    var cnt18=0;
+                    loop18:
+                    do {
+                        var alt18=2;
+                        var LA18_0 = this.input.LA(1);
+
+                        if ( ((LA18_0>='0' && LA18_0<='9')) ) {
+                            alt18=1;
+                        }
+
+
+                        switch (alt18) {
+                        case 1 :
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:95:10: '0' .. '9'
+                            this.matchRange('0','9'); 
+
+
+                            break;
+
+                        default :
+                            if ( cnt18 >= 1 ) {
+                                break loop18;
+                            }
+                                var eee = new org.antlr.runtime.EarlyExitException(18, this.input);
+                                throw eee;
+                        }
+                        cnt18++;
                     } while (true);
 
                     this.mEXPONENT(); 
@@ -850,35 +1276,25 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
         try {
             var _type = this.CHAR;
             var _channel = org.antlr.runtime.BaseRecognizer.DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:75:5: ( '\\'' ( ESC_SEQ | ~ ( '\\'' | '\\\\' ) ) '\\'' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:75:8: '\\'' ( ESC_SEQ | ~ ( '\\'' | '\\\\' ) ) '\\''
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:99:5: ( '\\'' (~ ( '\\'' ) )+ '\\'' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:99:8: '\\'' (~ ( '\\'' ) )+ '\\''
             this.match('\''); 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:75:13: ( ESC_SEQ | ~ ( '\\'' | '\\\\' ) )
-            var alt16=2;
-            var LA16_0 = this.input.LA(1);
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:99:13: (~ ( '\\'' ) )+
+            var cnt20=0;
+            loop20:
+            do {
+                var alt20=2;
+                var LA20_0 = this.input.LA(1);
 
-            if ( (LA16_0=='\\') ) {
-                alt16=1;
-            }
-            else if ( ((LA16_0>='\u0000' && LA16_0<='&')||(LA16_0>='(' && LA16_0<='[')||(LA16_0>=']' && LA16_0<='\uFFFF')) ) {
-                alt16=2;
-            }
-            else {
-                var nvae =
-                    new org.antlr.runtime.NoViableAltException("", 16, 0, this.input);
+                if ( ((LA20_0>='\u0000' && LA20_0<='&')||(LA20_0>='(' && LA20_0<='\uFFFF')) ) {
+                    alt20=1;
+                }
 
-                throw nvae;
-            }
-            switch (alt16) {
+
+                switch (alt20) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:75:15: ESC_SEQ
-                    this.mESC_SEQ(); 
-
-
-                    break;
-                case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:75:25: ~ ( '\\'' | '\\\\' )
-                    if ( (this.input.LA(1)>='\u0000' && this.input.LA(1)<='&')||(this.input.LA(1)>='(' && this.input.LA(1)<='[')||(this.input.LA(1)>=']' && this.input.LA(1)<='\uFFFF') ) {
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:99:13: ~ ( '\\'' )
+                    if ( (this.input.LA(1)>='\u0000' && this.input.LA(1)<='&')||(this.input.LA(1)>='(' && this.input.LA(1)<='\uFFFF') ) {
                         this.input.consume();
 
                     }
@@ -891,7 +1307,15 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
 
                     break;
 
-            }
+                default :
+                    if ( cnt20 >= 1 ) {
+                        break loop20;
+                    }
+                        var eee = new org.antlr.runtime.EarlyExitException(20, this.input);
+                        throw eee;
+                }
+                cnt20++;
+            } while (true);
 
             this.match('\''); 
 
@@ -908,8 +1332,8 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
     // $ANTLR start EXPONENT
     mEXPONENT: function()  {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:80:5: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:80:7: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:104:5: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:104:7: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             if ( this.input.LA(1)=='E'||this.input.LA(1)=='e' ) {
                 this.input.consume();
 
@@ -919,14 +1343,14 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
                 this.recover(mse);
                 throw mse;}
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:80:17: ( '+' | '-' )?
-            var alt17=2;
-            var LA17_0 = this.input.LA(1);
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:104:17: ( '+' | '-' )?
+            var alt21=2;
+            var LA21_0 = this.input.LA(1);
 
-            if ( (LA17_0=='+'||LA17_0=='-') ) {
-                alt17=1;
+            if ( (LA21_0=='+'||LA21_0=='-') ) {
+                alt21=1;
             }
-            switch (alt17) {
+            switch (alt21) {
                 case 1 :
                     // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:
                     if ( this.input.LA(1)=='+'||this.input.LA(1)=='-' ) {
@@ -944,34 +1368,34 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
 
             }
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:80:28: ( '0' .. '9' )+
-            var cnt18=0;
-            loop18:
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:104:28: ( '0' .. '9' )+
+            var cnt22=0;
+            loop22:
             do {
-                var alt18=2;
-                var LA18_0 = this.input.LA(1);
+                var alt22=2;
+                var LA22_0 = this.input.LA(1);
 
-                if ( ((LA18_0>='0' && LA18_0<='9')) ) {
-                    alt18=1;
+                if ( ((LA22_0>='0' && LA22_0<='9')) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt22) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:80:29: '0' .. '9'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:104:29: '0' .. '9'
                     this.matchRange('0','9'); 
 
 
                     break;
 
                 default :
-                    if ( cnt18 >= 1 ) {
-                        break loop18;
+                    if ( cnt22 >= 1 ) {
+                        break loop22;
                     }
-                        var eee = new org.antlr.runtime.EarlyExitException(18, this.input);
+                        var eee = new org.antlr.runtime.EarlyExitException(22, this.input);
                         throw eee;
                 }
-                cnt18++;
+                cnt22++;
             } while (true);
 
 
@@ -986,8 +1410,8 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
     // $ANTLR start HEX_DIGIT
     mHEX_DIGIT: function()  {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:85:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:85:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:109:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:109:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             if ( (this.input.LA(1)>='0' && this.input.LA(1)<='9')||(this.input.LA(1)>='A' && this.input.LA(1)<='F')||(this.input.LA(1)>='a' && this.input.LA(1)<='f') ) {
                 this.input.consume();
 
@@ -1006,327 +1430,151 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
     },
     // $ANTLR end "HEX_DIGIT",
 
-    // $ANTLR start ESC_SEQ
-    mESC_SEQ: function()  {
-        try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:90:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
-            var alt19=3;
-            var LA19_0 = this.input.LA(1);
-
-            if ( (LA19_0=='\\') ) {
-                switch ( this.input.LA(2) ) {
-                case '\"':
-                case '\'':
-                case '\\':
-                case 'b':
-                case 'f':
-                case 'n':
-                case 'r':
-                case 't':
-                    alt19=1;
-                    break;
-                case 'u':
-                    alt19=2;
-                    break;
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                    alt19=3;
-                    break;
-                default:
-                    var nvae =
-                        new org.antlr.runtime.NoViableAltException("", 19, 1, this.input);
-
-                    throw nvae;
-                }
-
-            }
-            else {
-                var nvae =
-                    new org.antlr.runtime.NoViableAltException("", 19, 0, this.input);
-
-                throw nvae;
-            }
-            switch (alt19) {
-                case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:90:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
-                    this.match('\\'); 
-                    if ( this.input.LA(1)=='\"'||this.input.LA(1)=='\''||this.input.LA(1)=='\\'||this.input.LA(1)=='b'||this.input.LA(1)=='f'||this.input.LA(1)=='n'||this.input.LA(1)=='r'||this.input.LA(1)=='t' ) {
-                        this.input.consume();
-
-                    }
-                    else {
-                        var mse = new org.antlr.runtime.MismatchedSetException(null,this.input);
-                        this.recover(mse);
-                        throw mse;}
-
-
-
-                    break;
-                case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:91:9: UNICODE_ESC
-                    this.mUNICODE_ESC(); 
-
-
-                    break;
-                case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:92:9: OCTAL_ESC
-                    this.mOCTAL_ESC(); 
-
-
-                    break;
-
-            }
-        }
-        finally {
-        }
-    },
-    // $ANTLR end "ESC_SEQ",
-
-    // $ANTLR start OCTAL_ESC
-    mOCTAL_ESC: function()  {
-        try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
-            var alt20=3;
-            var LA20_0 = this.input.LA(1);
-
-            if ( (LA20_0=='\\') ) {
-                var LA20_1 = this.input.LA(2);
-
-                if ( ((LA20_1>='0' && LA20_1<='3')) ) {
-                    var LA20_2 = this.input.LA(3);
-
-                    if ( ((LA20_2>='0' && LA20_2<='7')) ) {
-                        var LA20_4 = this.input.LA(4);
-
-                        if ( ((LA20_4>='0' && LA20_4<='7')) ) {
-                            alt20=1;
-                        }
-                        else {
-                            alt20=2;}
-                    }
-                    else {
-                        alt20=3;}
-                }
-                else if ( ((LA20_1>='4' && LA20_1<='7')) ) {
-                    var LA20_3 = this.input.LA(3);
-
-                    if ( ((LA20_3>='0' && LA20_3<='7')) ) {
-                        alt20=2;
-                    }
-                    else {
-                        alt20=3;}
-                }
-                else {
-                    var nvae =
-                        new org.antlr.runtime.NoViableAltException("", 20, 1, this.input);
-
-                    throw nvae;
-                }
-            }
-            else {
-                var nvae =
-                    new org.antlr.runtime.NoViableAltException("", 20, 0, this.input);
-
-                throw nvae;
-            }
-            switch (alt20) {
-                case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
-                    this.match('\\'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:14: ( '0' .. '3' )
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:15: '0' .. '3'
-                    this.matchRange('0','3'); 
-
-
-
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:25: ( '0' .. '7' )
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:26: '0' .. '7'
-                    this.matchRange('0','7'); 
-
-
-
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:36: ( '0' .. '7' )
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:97:37: '0' .. '7'
-                    this.matchRange('0','7'); 
-
-
-
-
-
-                    break;
-                case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:98:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
-                    this.match('\\'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:98:14: ( '0' .. '7' )
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:98:15: '0' .. '7'
-                    this.matchRange('0','7'); 
-
-
-
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:98:25: ( '0' .. '7' )
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:98:26: '0' .. '7'
-                    this.matchRange('0','7'); 
-
-
-
-
-
-                    break;
-                case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:99:9: '\\\\' ( '0' .. '7' )
-                    this.match('\\'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:99:14: ( '0' .. '7' )
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:99:15: '0' .. '7'
-                    this.matchRange('0','7'); 
-
-
-
-
-
-                    break;
-
-            }
-        }
-        finally {
-        }
-    },
-    // $ANTLR end "OCTAL_ESC",
-
-    // $ANTLR start UNICODE_ESC
-    mUNICODE_ESC: function()  {
-        try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:104:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:104:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
-            this.match('\\'); 
-            this.match('u'); 
-            this.mHEX_DIGIT(); 
-            this.mHEX_DIGIT(); 
-            this.mHEX_DIGIT(); 
-            this.mHEX_DIGIT(); 
-
-
-
-        }
-        finally {
-        }
-    },
-    // $ANTLR end "UNICODE_ESC",
-
     mTokens: function() {
-        // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | ID | STR | COMMENT | WS | STRING | INT | FLOAT | CHAR )
-        var alt21=18;
-        alt21 = this.dfa21.predict(this.input);
-        switch (alt21) {
+        // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:8: ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | OP | ID | XML | DOC | STR | COMMENT | WS | INT | FLOAT | CHAR )
+        var alt23=24;
+        alt23 = this.dfa23.predict(this.input);
+        switch (alt23) {
             case 1 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:10: T__17
-                this.mT__17(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:10: T__16
+                this.mT__16(); 
 
 
                 break;
             case 2 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:16: T__18
-                this.mT__18(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:16: T__17
+                this.mT__17(); 
 
 
                 break;
             case 3 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:22: T__19
-                this.mT__19(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:22: T__18
+                this.mT__18(); 
 
 
                 break;
             case 4 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:28: T__20
-                this.mT__20(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:28: T__19
+                this.mT__19(); 
 
 
                 break;
             case 5 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:34: T__21
-                this.mT__21(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:34: T__20
+                this.mT__20(); 
 
 
                 break;
             case 6 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:40: T__22
-                this.mT__22(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:40: T__21
+                this.mT__21(); 
 
 
                 break;
             case 7 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:46: T__23
-                this.mT__23(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:46: T__22
+                this.mT__22(); 
 
 
                 break;
             case 8 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:52: T__24
-                this.mT__24(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:52: T__23
+                this.mT__23(); 
 
 
                 break;
             case 9 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:58: T__25
-                this.mT__25(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:58: T__24
+                this.mT__24(); 
 
 
                 break;
             case 10 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:64: T__26
-                this.mT__26(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:64: T__25
+                this.mT__25(); 
 
 
                 break;
             case 11 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:70: ID
-                this.mID(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:70: T__26
+                this.mT__26(); 
 
 
                 break;
             case 12 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:73: STR
-                this.mSTR(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:76: T__27
+                this.mT__27(); 
 
 
                 break;
             case 13 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:77: COMMENT
-                this.mCOMMENT(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:82: T__28
+                this.mT__28(); 
 
 
                 break;
             case 14 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:85: WS
-                this.mWS(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:88: T__29
+                this.mT__29(); 
 
 
                 break;
             case 15 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:88: STRING
-                this.mSTRING(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:94: OP
+                this.mOP(); 
 
 
                 break;
             case 16 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:95: INT
-                this.mINT(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:97: ID
+                this.mID(); 
 
 
                 break;
             case 17 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:99: FLOAT
-                this.mFLOAT(); 
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:100: XML
+                this.mXML(); 
 
 
                 break;
             case 18 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:105: CHAR
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:104: DOC
+                this.mDOC(); 
+
+
+                break;
+            case 19 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:108: STR
+                this.mSTR(); 
+
+
+                break;
+            case 20 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:112: COMMENT
+                this.mCOMMENT(); 
+
+
+                break;
+            case 21 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:120: WS
+                this.mWS(); 
+
+
+                break;
+            case 22 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:123: INT
+                this.mINT(); 
+
+
+                break;
+            case 23 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:127: FLOAT
+                this.mFLOAT(); 
+
+
+                break;
+            case 24 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJS.g:1:133: CHAR
                 this.mCHAR(); 
 
 
@@ -1339,19 +1587,120 @@ org.antlr.lang.augmentObject(StruxtJSLexer.prototype, {
 }, true); // important to pass true to overwrite default implementations
 
 org.antlr.lang.augmentObject(StruxtJSLexer, {
-    DFA15_eotS:
+    DFA1_eotS:
+        "\u0001\uffff\u0001\u0011\u0001\u0013\u0001\u0015\u0004\uffff\u0001"+
+    "\u0017\u0001\u0019\u0002\uffff\u0001\u001b\u0003\uffff\u0001\u001d\u000d"+
+    "\uffff",
+    DFA1_eofS:
+        "\u001e\uffff",
+    DFA1_minS:
+        "\u0001\u0024\u0001\u002d\u0002\u003e\u0004\uffff\u0001\u0026\u0001"+
+    "\u002a\u0002\uffff\u0001\u007c\u0003\uffff\u0001\u003e\u000d\uffff",
+    DFA1_maxS:
+        "\u0001\u007e\u0001\u003c\u0002\u003e\u0004\uffff\u0001\u0026\u0001"+
+    "\u002a\u0002\uffff\u0001\u007c\u0003\uffff\u0001\u003e\u000d\uffff",
+    DFA1_acceptS:
+        "\u0004\uffff\u0001\u0008\u0001\u0009\u0001\u000a\u0001\u000b\u0002"+
+    "\uffff\u0001\u0011\u0001\u0012\u0001\uffff\u0001\u0015\u0001\u0016\u0001"+
+    "\u0002\u0001\uffff\u0001\u0001\u0001\u0005\u0001\u0010\u0001\u0006\u0001"+
+    "\u0007\u0001\u000d\u0001\u000c\u0001\u000f\u0001\u000e\u0001\u0014\u0001"+
+    "\u0013\u0001\u0004\u0001\u0003",
+    DFA1_specialS:
+        "\u001e\uffff}>",
+    DFA1_transitionS: [
+            "\u0001\u0005\u0001\u0006\u0001\u0008\u0003\uffff\u0001\u0009"+
+            "\u0001\u000a\u0001\uffff\u0001\u0002\u0001\uffff\u0001\u000d"+
+            "\u000c\uffff\u0001\u0001\u0001\u000b\u0001\u0003\u0001\u000e"+
+            "\u001e\uffff\u0001\u0007\u001d\uffff\u0001\u000c\u0001\uffff"+
+            "\u0001\u0004",
+            "\u0001\u0010\u000e\uffff\u0001\u000f",
+            "\u0001\u0012",
+            "\u0001\u0014",
+            "",
+            "",
+            "",
+            "",
+            "\u0001\u0016",
+            "\u0001\u0018",
+            "",
+            "",
+            "\u0001\u001a",
+            "",
+            "",
+            "",
+            "\u0001\u001c",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    ]
+});
+
+org.antlr.lang.augmentObject(StruxtJSLexer, {
+    DFA1_eot:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA1_eotS),
+    DFA1_eof:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA1_eofS),
+    DFA1_min:
+        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA1_minS),
+    DFA1_max:
+        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA1_maxS),
+    DFA1_accept:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA1_acceptS),
+    DFA1_special:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA1_specialS),
+    DFA1_transition: (function() {
+        var a = [],
+            i,
+            numStates = StruxtJSLexer.DFA1_transitionS.length;
+        for (i=0; i<numStates; i++) {
+            a.push(org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA1_transitionS[i]));
+        }
+        return a;
+    })()
+});
+
+StruxtJSLexer.DFA1 = function(recognizer) {
+    this.recognizer = recognizer;
+    this.decisionNumber = 1;
+    this.eot = StruxtJSLexer.DFA1_eot;
+    this.eof = StruxtJSLexer.DFA1_eof;
+    this.min = StruxtJSLexer.DFA1_min;
+    this.max = StruxtJSLexer.DFA1_max;
+    this.accept = StruxtJSLexer.DFA1_accept;
+    this.special = StruxtJSLexer.DFA1_special;
+    this.transition = StruxtJSLexer.DFA1_transition;
+};
+
+org.antlr.lang.extend(StruxtJSLexer.DFA1, org.antlr.runtime.DFA, {
+    getDescription: function() {
+        return "54:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )";
+    },
+    dummy: null
+});
+org.antlr.lang.augmentObject(StruxtJSLexer, {
+    DFA19_eotS:
         "\u0005\uffff",
-    DFA15_eofS:
+    DFA19_eofS:
         "\u0005\uffff",
-    DFA15_minS:
+    DFA19_minS:
         "\u0002\u002e\u0003\uffff",
-    DFA15_maxS:
+    DFA19_maxS:
         "\u0001\u0039\u0001\u0065\u0003\uffff",
-    DFA15_acceptS:
+    DFA19_acceptS:
         "\u0002\uffff\u0001\u0002\u0001\u0001\u0001\u0003",
-    DFA15_specialS:
+    DFA19_specialS:
         "\u0005\uffff}>",
-    DFA15_transitionS: [
+    DFA19_transitionS: [
             "\u0001\u0002\u0001\uffff\u000a\u0001",
             "\u0001\u0003\u0001\uffff\u000a\u0001\u000b\uffff\u0001\u0004"+
             "\u001f\uffff\u0001\u0004",
@@ -1362,80 +1711,85 @@ org.antlr.lang.augmentObject(StruxtJSLexer, {
 });
 
 org.antlr.lang.augmentObject(StruxtJSLexer, {
-    DFA15_eot:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA15_eotS),
-    DFA15_eof:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA15_eofS),
-    DFA15_min:
-        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA15_minS),
-    DFA15_max:
-        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA15_maxS),
-    DFA15_accept:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA15_acceptS),
-    DFA15_special:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA15_specialS),
-    DFA15_transition: (function() {
+    DFA19_eot:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA19_eotS),
+    DFA19_eof:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA19_eofS),
+    DFA19_min:
+        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA19_minS),
+    DFA19_max:
+        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA19_maxS),
+    DFA19_accept:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA19_acceptS),
+    DFA19_special:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA19_specialS),
+    DFA19_transition: (function() {
         var a = [],
             i,
-            numStates = StruxtJSLexer.DFA15_transitionS.length;
+            numStates = StruxtJSLexer.DFA19_transitionS.length;
         for (i=0; i<numStates; i++) {
-            a.push(org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA15_transitionS[i]));
+            a.push(org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA19_transitionS[i]));
         }
         return a;
     })()
 });
 
-StruxtJSLexer.DFA15 = function(recognizer) {
+StruxtJSLexer.DFA19 = function(recognizer) {
     this.recognizer = recognizer;
-    this.decisionNumber = 15;
-    this.eot = StruxtJSLexer.DFA15_eot;
-    this.eof = StruxtJSLexer.DFA15_eof;
-    this.min = StruxtJSLexer.DFA15_min;
-    this.max = StruxtJSLexer.DFA15_max;
-    this.accept = StruxtJSLexer.DFA15_accept;
-    this.special = StruxtJSLexer.DFA15_special;
-    this.transition = StruxtJSLexer.DFA15_transition;
+    this.decisionNumber = 19;
+    this.eot = StruxtJSLexer.DFA19_eot;
+    this.eof = StruxtJSLexer.DFA19_eof;
+    this.min = StruxtJSLexer.DFA19_min;
+    this.max = StruxtJSLexer.DFA19_max;
+    this.accept = StruxtJSLexer.DFA19_accept;
+    this.special = StruxtJSLexer.DFA19_special;
+    this.transition = StruxtJSLexer.DFA19_transition;
 };
 
-org.antlr.lang.extend(StruxtJSLexer.DFA15, org.antlr.runtime.DFA, {
+org.antlr.lang.extend(StruxtJSLexer.DFA19, org.antlr.runtime.DFA, {
     getDescription: function() {
-        return "68:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
+        return "92:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
     },
     dummy: null
 });
 org.antlr.lang.augmentObject(StruxtJSLexer, {
-    DFA21_eotS:
-        "\u0008\uffff\u0001\u0011\u0006\uffff\u0001\u0016\u0007\uffff\u0001"+
-    "\u001c\u000d\uffff",
-    DFA21_eofS:
-        "\u0025\uffff",
-    DFA21_minS:
-        "\u0001\u0009\u0007\uffff\u0001\u0030\u0003\uffff\u0001\u0000\u0002"+
-    "\uffff\u0001\u002e\u0003\uffff\u0001\u0000\u0001\uffff\u0001\u0000\u0001"+
-    "\uffff\u0005\u0000\u0002\uffff\u0007\u0000",
-    DFA21_maxS:
-        "\u0001\u007d\u0007\uffff\u0001\u0039\u0003\uffff\u0001\uffff\u0002"+
-    "\uffff\u0001\u0065\u0003\uffff\u0001\uffff\u0001\uffff\u0001\uffff\u0001"+
-    "\uffff\u0005\uffff\u0002\uffff\u0007\uffff",
-    DFA21_acceptS:
-        "\u0001\uffff\u0001\u0001\u0001\u0002\u0001\u0003\u0001\u0004\u0001"+
-    "\u0005\u0001\u0006\u0001\u0007\u0001\uffff\u0001\u0009\u0001\u000a\u0001"+
-    "\u000b\u0001\uffff\u0001\u000d\u0001\u000e\u0001\uffff\u0001\u0012\u0001"+
-    "\u0008\u0001\u0011\u0001\uffff\u0001\u000c\u0001\uffff\u0001\u0010\u0005"+
-    "\uffff\u0001\u000c\u0001\u000f\u0007\uffff",
-    DFA21_specialS:
-        "\u000c\uffff\u0001\u000a\u0006\uffff\u0001\u0001\u0001\uffff\u0001"+
-    "\u000d\u0001\uffff\u0001\u0008\u0001\u000e\u0001\u000b\u0001\u0009\u0001"+
-    "\u000c\u0002\uffff\u0001\u0004\u0001\u0000\u0001\u0007\u0001\u0003\u0001"+
-    "\u0006\u0001\u0002\u0001\u0005}>",
-    DFA21_transitionS: [
-            "\u0002\u000e\u0002\uffff\u0001\u000e\u0012\uffff\u0001\u000e"+
-            "\u0001\uffff\u0001\u000c\u0004\uffff\u0001\u0010\u0001\u0005"+
-            "\u0001\u0006\u0002\uffff\u0001\u000a\u0001\uffff\u0001\u0008"+
-            "\u0001\u000d\u000a\u000f\u0001\u0007\u0001\u0009\u0005\uffff"+
-            "\u001a\u000b\u0001\u0003\u0001\uffff\u0001\u0004\u0001\uffff"+
-            "\u0001\u000b\u0001\uffff\u001a\u000b\u0001\u0001\u0001\uffff"+
-            "\u0001\u0002",
+    DFA23_eotS:
+        "\u0001\uffff\u0001\u0017\u0006\uffff\u0001\u001a\u0007\uffff\u0002"+
+    "\u000f\u0004\uffff\u0001\u001e\u0008\uffff",
+    DFA23_eofS:
+        "\u001f\uffff",
+    DFA23_minS:
+        "\u0001\u0009\u0001\u0030\u0006\uffff\u0001\u0021\u0007\uffff\u0001"+
+    "\u002a\u0001\u0078\u0002\uffff\u0001\u0000\u0001\uffff\u0001\u002e\u0008"+
+    "\uffff",
+    DFA23_maxS:
+        "\u0001\u007e\u0001\u0039\u0006\uffff\u0001\u0021\u0007\uffff\u0001"+
+    "\u002f\u0001\u0078\u0002\uffff\u0001\uffff\u0001\uffff\u0001\u0065\u0008"+
+    "\uffff",
+    DFA23_acceptS:
+        "\u0002\uffff\u0001\u0002\u0001\u0003\u0001\u0004\u0001\u0005\u0001"+
+    "\u0006\u0001\u0007\u0001\uffff\u0001\u0009\u0001\u000a\u0001\u000b\u0001"+
+    "\u000c\u0001\u000d\u0001\u000e\u0001\u000f\u0002\uffff\u0001\u0010\u0001"+
+    "\u0013\u0001\uffff\u0001\u0015\u0001\uffff\u0001\u0001\u0001\u0017\u0001"+
+    "\u0012\u0001\u0008\u0001\u0014\u0001\u0011\u0001\u0018\u0001\u0016",
+    DFA23_specialS:
+        "\u0014\uffff\u0001\u0000\u000a\uffff}>",
+    DFA23_transitionS: [
+            "\u0002\u0015\u0002\uffff\u0001\u0015\u0012\uffff\u0001\u0015"+
+            "\u0001\u0008\u0001\u0013\u0001\u0009\u0003\u000f\u0001\u0014"+
+            "\u0001\u000b\u0001\u000c\u0002\u000f\u0001\u000a\u0001\u000f"+
+            "\u0001\u0001\u0001\u0010\u000a\u0016\u0001\u0006\u0001\u0007"+
+            "\u0003\u000f\u0001\u0011\u0001\u0002\u001a\u0012\u0001\u000d"+
+            "\u0001\u0003\u0001\u000e\u0001\u000f\u0001\u0012\u0001\uffff"+
+            "\u001a\u0012\u0001\u0004\u0001\u000f\u0001\u0005\u0001\u000f",
+            "\u000a\u0018",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\u0001\u0019",
             "",
             "",
             "",
@@ -1443,89 +1797,64 @@ org.antlr.lang.augmentObject(StruxtJSLexer, {
             "",
             "",
             "",
-            "\u000a\u0012",
+            "\u0001\u001b\u0004\uffff\u0001\u001b",
+            "\u0001\u001c",
+            "",
+            "",
+            "\u0027\u001d\u0001\u0013\uffd8\u001d",
+            "",
+            "\u0001\u0018\u0001\uffff\u000a\u0016\u000b\uffff\u0001\u0018"+
+            "\u001f\uffff\u0001\u0018",
             "",
             "",
             "",
-            "\u0022\u0015\u0001\u0014\u0039\u0015\u0001\u0013\uffa3\u0015",
-            "",
-            "",
-            "\u0001\u0012\u0001\uffff\u000a\u000f\u000b\uffff\u0001\u0012"+
-            "\u001f\uffff\u0001\u0012",
             "",
             "",
             "",
-            "\u0022\u001c\u0001\u0017\u0004\u001c\u0001\u0019\u0008\u001c"+
-            "\u0004\u001a\u0004\u001b\u0024\u001c\u0001\u0019\u0005\u001c"+
-            "\u0001\u0019\u0003\u001c\u0001\u0019\u0007\u001c\u0001\u0019"+
-            "\u0003\u001c\u0001\u0019\u0001\u001c\u0001\u0019\u0001\u0018"+
-            "\uff8a\u001c",
             "",
-            "\u0022\u0015\u0001\u0014\u0039\u0015\u0001\u0013\uffa3\u0015",
-            "",
-            "\u0000\u001d",
-            "\u0030\u001c\u000a\u001e\u0007\u001c\u0006\u001e\u001a\u001c"+
-            "\u0006\u001e\uff99\u001c",
-            "\u0022\u0015\u0001\u0014\u0039\u0015\u0001\u0013\uffa3\u0015",
-            "\u0022\u0015\u0001\u0014\u000d\u0015\u0008\u001f\u0024\u0015"+
-            "\u0001\u0013\uffa3\u0015",
-            "\u0022\u0015\u0001\u0014\u000d\u0015\u0008\u0020\u0024\u0015"+
-            "\u0001\u0013\uffa3\u0015",
-            "",
-            "",
-            "\u0030\u001c\u000a\u0021\u0007\u001c\u0006\u0021\u001a\u001c"+
-            "\u0006\u0021\uff99\u001c",
-            "\u0022\u0015\u0001\u0014\u000d\u0015\u0008\u0022\u0024\u0015"+
-            "\u0001\u0013\uffa3\u0015",
-            "\u0022\u0015\u0001\u0014\u0039\u0015\u0001\u0013\uffa3\u0015",
-            "\u0030\u001c\u000a\u0023\u0007\u001c\u0006\u0023\u001a\u001c"+
-            "\u0006\u0023\uff99\u001c",
-            "\u0022\u0015\u0001\u0014\u0039\u0015\u0001\u0013\uffa3\u0015",
-            "\u0030\u001c\u000a\u0024\u0007\u001c\u0006\u0024\u001a\u001c"+
-            "\u0006\u0024\uff99\u001c",
-            "\u0022\u0015\u0001\u0014\u0039\u0015\u0001\u0013\uffa3\u0015"
+            ""
     ]
 });
 
 org.antlr.lang.augmentObject(StruxtJSLexer, {
-    DFA21_eot:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA21_eotS),
-    DFA21_eof:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA21_eofS),
-    DFA21_min:
-        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA21_minS),
-    DFA21_max:
-        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA21_maxS),
-    DFA21_accept:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA21_acceptS),
-    DFA21_special:
-        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA21_specialS),
-    DFA21_transition: (function() {
+    DFA23_eot:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA23_eotS),
+    DFA23_eof:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA23_eofS),
+    DFA23_min:
+        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA23_minS),
+    DFA23_max:
+        org.antlr.runtime.DFA.unpackEncodedStringToUnsignedChars(StruxtJSLexer.DFA23_maxS),
+    DFA23_accept:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA23_acceptS),
+    DFA23_special:
+        org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA23_specialS),
+    DFA23_transition: (function() {
         var a = [],
             i,
-            numStates = StruxtJSLexer.DFA21_transitionS.length;
+            numStates = StruxtJSLexer.DFA23_transitionS.length;
         for (i=0; i<numStates; i++) {
-            a.push(org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA21_transitionS[i]));
+            a.push(org.antlr.runtime.DFA.unpackEncodedString(StruxtJSLexer.DFA23_transitionS[i]));
         }
         return a;
     })()
 });
 
-StruxtJSLexer.DFA21 = function(recognizer) {
+StruxtJSLexer.DFA23 = function(recognizer) {
     this.recognizer = recognizer;
-    this.decisionNumber = 21;
-    this.eot = StruxtJSLexer.DFA21_eot;
-    this.eof = StruxtJSLexer.DFA21_eof;
-    this.min = StruxtJSLexer.DFA21_min;
-    this.max = StruxtJSLexer.DFA21_max;
-    this.accept = StruxtJSLexer.DFA21_accept;
-    this.special = StruxtJSLexer.DFA21_special;
-    this.transition = StruxtJSLexer.DFA21_transition;
+    this.decisionNumber = 23;
+    this.eot = StruxtJSLexer.DFA23_eot;
+    this.eof = StruxtJSLexer.DFA23_eof;
+    this.min = StruxtJSLexer.DFA23_min;
+    this.max = StruxtJSLexer.DFA23_max;
+    this.accept = StruxtJSLexer.DFA23_accept;
+    this.special = StruxtJSLexer.DFA23_special;
+    this.transition = StruxtJSLexer.DFA23_transition;
 };
 
-org.antlr.lang.extend(StruxtJSLexer.DFA21, org.antlr.runtime.DFA, {
+org.antlr.lang.extend(StruxtJSLexer.DFA23, org.antlr.runtime.DFA, {
     getDescription: function() {
-        return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | ID | STR | COMMENT | WS | STRING | INT | FLOAT | CHAR );";
+        return "1:1: Tokens : ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | OP | ID | XML | DOC | STR | COMMENT | WS | INT | FLOAT | CHAR );";
     },
     specialStateTransition: function(s, input) {
         var _s = s;
@@ -1533,184 +1862,12 @@ org.antlr.lang.extend(StruxtJSLexer.DFA21, org.antlr.runtime.DFA, {
         var retval = (function(s, input) {
             switch ( s ) {
                         case 0 : 
-                            var LA21_31 = input.LA(1);
+                            var LA23_20 = input.LA(1);
 
                             s = -1;
-                            if ( (LA21_31=='\"') ) {s = 20;}
+                            if ( (LA23_20=='\'') ) {s = 19;}
 
-                            else if ( ((LA21_31>='0' && LA21_31<='7')) ) {s = 34;}
-
-                            else if ( (LA21_31=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_31>='\u0000' && LA21_31<='!')||(LA21_31>='#' && LA21_31<='/')||(LA21_31>='8' && LA21_31<='[')||(LA21_31>=']' && LA21_31<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 1 : 
-                            var LA21_19 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_19=='\"') ) {s = 23;}
-
-                            else if ( (LA21_19=='u') ) {s = 24;}
-
-                            else if ( (LA21_19=='\''||LA21_19=='\\'||LA21_19=='b'||LA21_19=='f'||LA21_19=='n'||LA21_19=='r'||LA21_19=='t') ) {s = 25;}
-
-                            else if ( ((LA21_19>='0' && LA21_19<='3')) ) {s = 26;}
-
-                            else if ( ((LA21_19>='4' && LA21_19<='7')) ) {s = 27;}
-
-                            else if ( ((LA21_19>='\u0000' && LA21_19<='!')||(LA21_19>='#' && LA21_19<='&')||(LA21_19>='(' && LA21_19<='/')||(LA21_19>='8' && LA21_19<='[')||(LA21_19>=']' && LA21_19<='a')||(LA21_19>='c' && LA21_19<='e')||(LA21_19>='g' && LA21_19<='m')||(LA21_19>='o' && LA21_19<='q')||LA21_19=='s'||(LA21_19>='v' && LA21_19<='\uFFFF')) ) {s = 28;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 2 : 
-                            var LA21_35 = input.LA(1);
-
-                            s = -1;
-                            if ( ((LA21_35>='0' && LA21_35<='9')||(LA21_35>='A' && LA21_35<='F')||(LA21_35>='a' && LA21_35<='f')) ) {s = 36;}
-
-                            else if ( ((LA21_35>='\u0000' && LA21_35<='/')||(LA21_35>=':' && LA21_35<='@')||(LA21_35>='G' && LA21_35<='`')||(LA21_35>='g' && LA21_35<='\uFFFF')) ) {s = 28;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 3 : 
-                            var LA21_33 = input.LA(1);
-
-                            s = -1;
-                            if ( ((LA21_33>='0' && LA21_33<='9')||(LA21_33>='A' && LA21_33<='F')||(LA21_33>='a' && LA21_33<='f')) ) {s = 35;}
-
-                            else if ( ((LA21_33>='\u0000' && LA21_33<='/')||(LA21_33>=':' && LA21_33<='@')||(LA21_33>='G' && LA21_33<='`')||(LA21_33>='g' && LA21_33<='\uFFFF')) ) {s = 28;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 4 : 
-                            var LA21_30 = input.LA(1);
-
-                            s = -1;
-                            if ( ((LA21_30>='0' && LA21_30<='9')||(LA21_30>='A' && LA21_30<='F')||(LA21_30>='a' && LA21_30<='f')) ) {s = 33;}
-
-                            else if ( ((LA21_30>='\u0000' && LA21_30<='/')||(LA21_30>=':' && LA21_30<='@')||(LA21_30>='G' && LA21_30<='`')||(LA21_30>='g' && LA21_30<='\uFFFF')) ) {s = 28;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 5 : 
-                            var LA21_36 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_36=='\"') ) {s = 20;}
-
-                            else if ( (LA21_36=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_36>='\u0000' && LA21_36<='!')||(LA21_36>='#' && LA21_36<='[')||(LA21_36>=']' && LA21_36<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 6 : 
-                            var LA21_34 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_34=='\"') ) {s = 20;}
-
-                            else if ( (LA21_34=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_34>='\u0000' && LA21_34<='!')||(LA21_34>='#' && LA21_34<='[')||(LA21_34>=']' && LA21_34<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 7 : 
-                            var LA21_32 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_32=='\"') ) {s = 20;}
-
-                            else if ( (LA21_32=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_32>='\u0000' && LA21_32<='!')||(LA21_32>='#' && LA21_32<='[')||(LA21_32>=']' && LA21_32<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 8 : 
-                            var LA21_23 = input.LA(1);
-
-                            s = -1;
-                            if ( ((LA21_23>='\u0000' && LA21_23<='\uFFFF')) ) {s = 29;}
-
-                            else s = 28;
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 9 : 
-                            var LA21_26 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_26=='\"') ) {s = 20;}
-
-                            else if ( ((LA21_26>='0' && LA21_26<='7')) ) {s = 31;}
-
-                            else if ( (LA21_26=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_26>='\u0000' && LA21_26<='!')||(LA21_26>='#' && LA21_26<='/')||(LA21_26>='8' && LA21_26<='[')||(LA21_26>=']' && LA21_26<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 10 : 
-                            var LA21_12 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_12=='\\') ) {s = 19;}
-
-                            else if ( (LA21_12=='\"') ) {s = 20;}
-
-                            else if ( ((LA21_12>='\u0000' && LA21_12<='!')||(LA21_12>='#' && LA21_12<='[')||(LA21_12>=']' && LA21_12<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 11 : 
-                            var LA21_25 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_25=='\"') ) {s = 20;}
-
-                            else if ( (LA21_25=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_25>='\u0000' && LA21_25<='!')||(LA21_25>='#' && LA21_25<='[')||(LA21_25>=']' && LA21_25<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 12 : 
-                            var LA21_27 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_27=='\"') ) {s = 20;}
-
-                            else if ( ((LA21_27>='0' && LA21_27<='7')) ) {s = 32;}
-
-                            else if ( (LA21_27=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_27>='\u0000' && LA21_27<='!')||(LA21_27>='#' && LA21_27<='/')||(LA21_27>='8' && LA21_27<='[')||(LA21_27>=']' && LA21_27<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 13 : 
-                            var LA21_21 = input.LA(1);
-
-                            s = -1;
-                            if ( (LA21_21=='\"') ) {s = 20;}
-
-                            else if ( (LA21_21=='\\') ) {s = 19;}
-
-                            else if ( ((LA21_21>='\u0000' && LA21_21<='!')||(LA21_21>='#' && LA21_21<='[')||(LA21_21>=']' && LA21_21<='\uFFFF')) ) {s = 21;}
-
-                            if ( s>=0 ) return s;
-                            break;
-                        case 14 : 
-                            var LA21_24 = input.LA(1);
-
-                            s = -1;
-                            if ( ((LA21_24>='0' && LA21_24<='9')||(LA21_24>='A' && LA21_24<='F')||(LA21_24>='a' && LA21_24<='f')) ) {s = 30;}
-
-                            else if ( ((LA21_24>='\u0000' && LA21_24<='/')||(LA21_24>=':' && LA21_24<='@')||(LA21_24>='G' && LA21_24<='`')||(LA21_24>='g' && LA21_24<='\uFFFF')) ) {s = 28;}
+                            else if ( ((LA23_20>='\u0000' && LA23_20<='&')||(LA23_20>='(' && LA23_20<='\uFFFF')) ) {s = 29;}
 
                             if ( s>=0 ) return s;
                             break;
@@ -1720,7 +1877,7 @@ org.antlr.lang.extend(StruxtJSLexer.DFA21, org.antlr.runtime.DFA, {
             return retval;
         }
         var nvae =
-            new org.antlr.runtime.NoViableAltException(this.getDescription(), 21, _s, input);
+            new org.antlr.runtime.NoViableAltException(this.getDescription(), 23, _s, input);
         this.error(nvae);
         throw nvae;
     },

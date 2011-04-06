@@ -6,14 +6,14 @@ As readable and writable as plain text.
 
 ## The Goal ##
 
-If you can write XML, you can write Struxt.
+If you can write XML, you already know Struxt.
 
-The goal is to facilitate creating Domain Specific Languages (DSLs) that readily transform into XML,
+Intended to facilitate creating Domain Specific Languages (DSLs) that readily transform into XML,
 to provide an easy, more natural, less verbose means of manually creating structured documents.
 
 In other words, do away with all the `< / >` marks and replace them with human-friendly spaces and punctuation.
 
-**This is especially apparent when namespaces are involved in the markup.**
+**This is especially apparent when namespaces are involved in the markup (see below).**
 
 ## For example ##
 
@@ -91,6 +91,28 @@ equivalently produce:
         <a href="/nicerobot/text-plain/tree/master/struxt">Struxt</a>
       </body>
     </html>
+
+---
+
+### A [Metal](/nicerobot/metal) Control ([Flickr Query #cat](http://xmetal.googlecode.com/svn/trunk/metal-common/src/test/html/flickrquery.xhtml#cat)) ###
+
+    control@metal "flickrquery" name {
+      form@metal "http://query.yahooapis.com/v1/public/yql" action, "get" method {
+        input@metal "q" name,
+          "select * from flickr.photos.search where text='${queryText}' limit 10" value.
+        input@metal "format" name, "json" value.
+        input@metal "env" name,
+          "http://datatables.org/alltables.env" value.
+      }
+      control@metal "photo" name, "this.query.results.photo" data {
+        a "photo-${parent.index}.${index}" id, "http://flickr.com/photo.gne?id=${this.id}" href {
+          img "20%" width, "20%" height, src
+            "http://farm${this.farm}.static.flickr.com/${this.server}/${this.id}_${this.secret}.jpg".
+        }
+      }
+    }
+
+Produces [this Metal Control](/nicerobot/metal/blob/master/metal-common/src/test/resources/controls/flickrquery.xmtl).
 
 ---
 

@@ -145,7 +145,7 @@
     <xsl:param name="name" />
     <xsl:value-of select="$local-name"/>
     <xsl:if test="$local-name!=$name">
-      <xsl:text>/</xsl:text>
+      <xsl:text>@</xsl:text>
       <xsl:value-of select="substring-before($name, ':')"/>
     </xsl:if>
   </xsl:template>
