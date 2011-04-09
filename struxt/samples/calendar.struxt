@@ -1,5 +1,7 @@
 ?xml version "1.0", encoding "UTF-8".
-control@metal "calendar" name {
+control@metal "calendar" name,
+  "http://www.xmtl.org/version/2010/04" metal@xmlns,
+  "http://www.w3.org/1999/xhtml" xmlns {
 
   div "previous-month${index}" id, "navigator previous-month" class: " ← ".
   div "month" class: "${this.now.getMonth() + 1}/${this.now.getYear() + 1900}".

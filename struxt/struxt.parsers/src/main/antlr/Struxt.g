@@ -6,32 +6,201 @@ options {
 
 @header {
 package org.nicerobot.struxt.parser;
+
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Stack;
+
+import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.runtime.ANTLRInputStream;
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.BaseRecognizer;
+import org.antlr.runtime.BitSet;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.DFA;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.Parser;
+import org.antlr.runtime.ParserRuleReturnScope;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.TokenStream;
+import org.jdom.Comment;
+import org.jdom.Content;
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.Namespace;
+import org.jdom.ProcessingInstruction;
+import org.jdom.Text;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
+}
+
+@members {
+
+  public static final Document document = new Document();
+
+  private static final Stack<Content> stack = new Stack<Content>();
+  private static final HashMap<String,Namespace> namespaces = new HashMap<String,Namespace>();
+
+  public static Content getCurrent () {
+    if (!stack.empty()) {
+      return stack.peek();
+    }
+    return null;
+  }
+
+  public static Namespace getNS (String name) {
+    Namespace ns = null;
+    if (null != name) {
+      ns = namespaces.get(name);
+      if (null == ns) {
+        ns = Namespace.getNamespace(name,name);
+      }
+    }
+    return ns;
+  }
+
+  public Content addPI (String name) {
+    // TODO: Handle PIs
+    final Content child = new Element(name);
+    stack.push(child);
+    return child;
+  }
+
+  public Content addText (String text) {
+    final Content node = getCurrent();
+    ((Element)node).addContent(new Text(unquote(text)));
+    return node;
+  }
+
+  public Content addNode (Token ns, Token name) {
+    final String s = null!=ns?ns.getText():"";
+    final String n = name.getText();
+    Content child = new Element(n,getNS(s));
+    final Element parent = (Element) getCurrent();
+    if (null != parent) {
+      parent.addContent(child);
+    } else {
+      document.addContent(child);
+    }
+    stack.push(child);
+    return child;
+  }
+
+  public Content closeNode () {
+    return stack.pop();
+  }
+
+  public Content addAttribute (StruxtParser.name_return name, StruxtParser.name_return name1) {
+    String v = null;
+    if (null != name1) {
+      String n1 = null!=name1.nodename?name1.nodename.getText():"id";
+      v = null!=name1.namespace?name1.namespace.getText()+":"+n1:n1;
+    }
+    return addAttribute(name,v);
+  }
+
+  public Content addAttribute (StruxtParser.name_return name, String value) {
+    final Content node = getCurrent();
+    String s = (null!=name && null!=name.namespace)?name.namespace.getText():null;
+    // TODO: Make "value" configurable ... per namespace?
+    String n = (null!=name && null!=name.nodename)?name.nodename.getText():"id";
+    final String v = unquote(singleline(null!=value?value:"true"));
+    Element el = ((Element)node);
+
+    Namespace jns = null;
+    Namespace ens = null;
+    
+    if ("xmlns".equals(n) || "xmlns".equals(s)) {
+      ens = el.getNamespace();
+      
+      String ns = "xmlns".equals(n) ? "" : n;
+      jns = Namespace.getNamespace(ns,v);
+      namespaces.put(ns,jns);
+
+      if (ns.equals(ens.getPrefix())) {
+        if (!v.equals(ens.getURI())) {
+           el.setNamespace(jns);
+         }
+      } else {
+        el.addNamespaceDeclaration(jns);
+      }
+      return node;
+    }
+    
+    if (null == s) {
+      jns=Namespace.NO_NAMESPACE;
+    } else {
+      jns=getNS(s);
+    }
+    el.setAttribute(n,v,jns);
+    return node;
+  }
+
+  public Content addComment (String comment) {
+    final Content node = getCurrent();
+    ((Element)node).addContent(new Comment(comment));
+    return node;
+  }
+
+  @Override
+  public String toString () {
+    return new XMLOutputter(Format.getPrettyFormat()).outputString(document);
+  }
+  
+  public static void main(String... args) throws IOException {
+    ANTLRStringStream st = null;
+    if (0 == args.length) {
+      st = new ANTLRInputStream(System.in);
+    } else {
+      st = new ANTLRFileStream(args[0]);
+    }
+    try {
+      System.out.println(new StruxtParser(new CommonTokenStream(new StruxtLexer(st))).struxt());
+    } catch (RecognitionException e)  {
+      e.printStackTrace();
+    }
+  }
+
+  public static String singleline(String s) {
+    return s.replaceAll("\\r?\\n","");
+  }
+
+  public static String unquote(String s) {
+    int q=0;
+    if (s.startsWith("'''")) q+=3;
+    if (s.startsWith("!!!")) q+=3;
+    if (s.startsWith("\"\"\"")) q+=2;
+    if (s.startsWith("\"")) q+=1;
+    if (0==q) return s;
+    return s.substring(q,s.length()-q);
+  }
+  
 }
 
 @lexer::header {
 package org.nicerobot.struxt.parser;
 }
 
-struxt
+struxt returns [StruxtParser self]
     : xml=xmldecl?
       doctype=DOC?
-      node EOF
+      node EOF {self=this;}
     ;
 
 xmldecl
-    : XML attributes '.'
+    : XML {addPI("xml");} attributes '.' {closeNode();}
     ;
 
 node
-    : tagname=tag
-      /* TODO: If there are no children, close the open tag. */
-      children
-    | text=STR
+    : tag children {closeNode();}
+    | text=value {addText($text);}
     ;
 
 tag
-    : name attributes?
+    : n=name {addNode(n.namespace, n.nodename);} attributes?
 	  ;
 
 fragment children
@@ -44,21 +213,22 @@ fragment childs
     ;
 
 fragment attribute
-    : n=name o=OP? v=value?
-    | v=value o=OP? n=name?
-    | n=name o=OP v=name
+    : n=name o=OP? v=value? {addAttribute(n,v);}
+    | v=value o=OP? n=name? {addAttribute(n,v);}
+    | n=name o=OP n1=name {addAttribute(n, n1);}
+    | o=OP (n=name|v=value) {addAttribute(n,v);}
     ;
 
-fragment name
-    : (ns PRENS ID | ID ( POSTNS ns)?)
+fragment name returns [Token namespace, Token nodename]
+    : (s=ns PRENS n=ID | n=ID ( POSTNS s=ns)?) {$namespace=s; $nodename=n;}
     ;
 
-fragment ns
-    : ID
+fragment ns returns [Token namespace]
+    : s=ID {$namespace=$s;}
     ;
 
-fragment value
-    : (STR | INT | FLOAT | CHAR)
+fragment value returns [String s]
+    : v=(STR | INT | FLOAT | CHAR) {s=$v.text;}
     ;
 
 fragment attributes
@@ -68,7 +238,7 @@ fragment attributes
     ;
 
 PRENS
-    : ('!'|'#')
+    : ('!'|'#'|'::')
     ;
 
 POSTNS

@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g 2011-04-05 10:37:36
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g 2011-04-09 17:01:52
 
 package org.nicerobot.struxt.parser;
 
@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class StruxtLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__16=16;
-    public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__19=19;
     public static final int T__20=20;
@@ -22,20 +20,20 @@ public class StruxtLexer extends Lexer {
     public static final int T__25=25;
     public static final int T__26=26;
     public static final int T__27=27;
-    public static final int T__28=28;
-    public static final int T__29=29;
     public static final int DOC=4;
     public static final int XML=5;
-    public static final int STR=6;
-    public static final int ID=7;
-    public static final int OP=8;
-    public static final int INT=9;
-    public static final int FLOAT=10;
-    public static final int CHAR=11;
-    public static final int COMMENT=12;
-    public static final int WS=13;
-    public static final int EXPONENT=14;
-    public static final int HEX_DIGIT=15;
+    public static final int OP=6;
+    public static final int PRENS=7;
+    public static final int ID=8;
+    public static final int POSTNS=9;
+    public static final int STR=10;
+    public static final int INT=11;
+    public static final int FLOAT=12;
+    public static final int CHAR=13;
+    public static final int COMMENT=14;
+    public static final int WS=15;
+    public static final int EXPONENT=16;
+    public static final int HEX_DIGIT=17;
 
     // delegates
     // delegators
@@ -50,55 +48,15 @@ public class StruxtLexer extends Lexer {
     }
     public String getGrammarFileName() { return "/Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g"; }
 
-    // $ANTLR start "T__16"
-    public final void mT__16() throws RecognitionException {
-        try {
-            int _type = T__16;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:11:7: ( '.' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:11:9: '.'
-            {
-            match('.'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__16"
-
-    // $ANTLR start "T__17"
-    public final void mT__17() throws RecognitionException {
-        try {
-            int _type = T__17;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:12:7: ( '@' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:12:9: '@'
-            {
-            match('@'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__17"
-
     // $ANTLR start "T__18"
     public final void mT__18() throws RecognitionException {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:13:7: ( '\\\\' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:13:9: '\\\\'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:11:7: ( '.' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:11:9: '.'
             {
-            match('\\'); 
+            match('.'); 
 
             }
 
@@ -115,8 +73,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:14:7: ( '{' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:14:9: '{'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:12:7: ( '{' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:12:9: '{'
             {
             match('{'); 
 
@@ -135,8 +93,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:15:7: ( '}' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:15:9: '}'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:13:7: ( '}' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:13:9: '}'
             {
             match('}'); 
 
@@ -155,8 +113,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:16:7: ( ':' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:16:9: ':'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:14:7: ( ':' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:14:9: ':'
             {
             match(':'); 
 
@@ -175,8 +133,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:17:7: ( ';' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:17:9: ';'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:15:7: ( ';' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:15:9: ';'
             {
             match(';'); 
 
@@ -195,10 +153,10 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:18:7: ( '!' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:18:9: '!'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:16:7: ( ',' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:16:9: ','
             {
-            match('!'); 
+            match(','); 
 
             }
 
@@ -215,10 +173,10 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:19:7: ( '#' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:19:9: '#'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:17:7: ( '(' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:17:9: '('
             {
-            match('#'); 
+            match('('); 
 
             }
 
@@ -235,10 +193,10 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:20:7: ( ',' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:20:9: ','
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:18:7: ( ')' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:18:9: ')'
             {
-            match(','); 
+            match(')'); 
 
             }
 
@@ -255,10 +213,10 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:21:7: ( '(' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:21:9: '('
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:19:7: ( '[' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:19:9: '['
             {
-            match('('); 
+            match('['); 
 
             }
 
@@ -275,48 +233,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:22:7: ( ')' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:22:9: ')'
-            {
-            match(')'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__27"
-
-    // $ANTLR start "T__28"
-    public final void mT__28() throws RecognitionException {
-        try {
-            int _type = T__28;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:23:7: ( '[' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:23:9: '['
-            {
-            match('['); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__28"
-
-    // $ANTLR start "T__29"
-    public final void mT__29() throws RecognitionException {
-        try {
-            int _type = T__29;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:24:7: ( ']' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:24:9: ']'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:20:7: ( ']' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:20:9: ']'
             {
             match(']'); 
 
@@ -328,29 +246,127 @@ public class StruxtLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__29"
+    // $ANTLR end "T__27"
+
+    // $ANTLR start "PRENS"
+    public final void mPRENS() throws RecognitionException {
+        try {
+            int _type = PRENS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:5: ( ( '!' | '#' | '::' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:7: ( '!' | '#' | '::' )
+            {
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:7: ( '!' | '#' | '::' )
+            int alt1=3;
+            switch ( input.LA(1) ) {
+            case '!':
+                {
+                alt1=1;
+                }
+                break;
+            case '#':
+                {
+                alt1=2;
+                }
+                break;
+            case ':':
+                {
+                alt1=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 1, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt1) {
+                case 1 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:8: '!'
+                    {
+                    match('!'); 
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:12: '#'
+                    {
+                    match('#'); 
+
+                    }
+                    break;
+                case 3 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:16: '::'
+                    {
+                    match("::"); 
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "PRENS"
+
+    // $ANTLR start "POSTNS"
+    public final void mPOSTNS() throws RecognitionException {
+        try {
+            int _type = POSTNS;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:245:5: ( ( '@' | '\\\\' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:245:7: ( '@' | '\\\\' )
+            {
+            if ( input.LA(1)=='@'||input.LA(1)=='\\' ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "POSTNS"
 
     // $ANTLR start "OP"
     public final void mOP() throws RecognitionException {
         try {
             int _type = OP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:5: ( ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:5: ( ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
-            int alt1=22;
-            alt1 = dfa1.predict(input);
-            switch (alt1) {
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
+            int alt2=22;
+            alt2 = dfa2.predict(input);
+            switch (alt2) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:8: '<'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:8: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:14: '<<'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:14: '<<'
                     {
                     match("<<"); 
 
@@ -358,7 +374,7 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:21: '<-'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:21: '<-'
                     {
                     match("<-"); 
 
@@ -366,7 +382,7 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:28: '<->'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:28: '<->'
                     {
                     match("<->"); 
 
@@ -374,7 +390,7 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:36: '->'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:36: '->'
                     {
                     match("->"); 
 
@@ -382,7 +398,7 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:43: '>>'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:43: '>>'
                     {
                     match(">>"); 
 
@@ -390,49 +406,49 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 7 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:50: '>'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:50: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 8 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:56: '~'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:56: '~'
                     {
                     match('~'); 
 
                     }
                     break;
                 case 9 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:62: '$'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:62: '$'
                     {
                     match('$'); 
 
                     }
                     break;
                 case 10 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:68: '%'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:68: '%'
                     {
                     match('%'); 
 
                     }
                     break;
                 case 11 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:74: '^'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:74: '^'
                     {
                     match('^'); 
 
                     }
                     break;
                 case 12 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:80: '&'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:80: '&'
                     {
                     match('&'); 
 
                     }
                     break;
                 case 13 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:115:86: '&&'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:249:86: '&&'
                     {
                     match("&&"); 
 
@@ -440,14 +456,14 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 14 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:7: '*'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:7: '*'
                     {
                     match('*'); 
 
                     }
                     break;
                 case 15 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:13: '**'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:13: '**'
                     {
                     match("**"); 
 
@@ -455,35 +471,35 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 16 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:20: '-'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:20: '-'
                     {
                     match('-'); 
 
                     }
                     break;
                 case 17 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:26: '+'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:26: '+'
                     {
                     match('+'); 
 
                     }
                     break;
                 case 18 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:32: '='
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:32: '='
                     {
                     match('='); 
 
                     }
                     break;
                 case 19 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:38: '|'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:38: '|'
                     {
                     match('|'); 
 
                     }
                     break;
                 case 20 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:44: '||'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:44: '||'
                     {
                     match("||"); 
 
@@ -491,14 +507,14 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 21 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:51: '/'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:51: '/'
                     {
                     match('/'); 
 
                     }
                     break;
                 case 22 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:116:57: '?'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:57: '?'
                     {
                     match('?'); 
 
@@ -523,8 +539,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:120:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )* )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:120:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:254:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )* )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:254:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -535,18 +551,18 @@ public class StruxtLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:120:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
-            loop2:
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:254:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
+            loop3:
             do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-                if ( (LA2_0=='-'||(LA2_0>='0' && LA2_0<='9')||(LA2_0>='A' && LA2_0<='Z')||LA2_0=='_'||(LA2_0>='a' && LA2_0<='z')) ) {
-                    alt2=1;
+                if ( (LA3_0=='-'||(LA3_0>='0' && LA3_0<='9')||(LA3_0>='A' && LA3_0<='Z')||LA3_0=='_'||(LA3_0>='a' && LA3_0<='z')) ) {
+                    alt3=1;
                 }
 
 
-                switch (alt2) {
+                switch (alt3) {
             	case 1 :
             	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:
             	    {
@@ -564,7 +580,7 @@ public class StruxtLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop2;
+            	    break loop3;
                 }
             } while (true);
 
@@ -584,8 +600,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = XML;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:124:5: ( '?xml' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:124:7: '?xml'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:258:5: ( '?xml' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:258:7: '?xml'
             {
             match("?xml"); 
 
@@ -605,47 +621,47 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = DOC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:128:5: ( '!!!' ( options {greedy=false; } : . )+ '!!!' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:128:7: '!!!' ( options {greedy=false; } : . )+ '!!!'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:262:5: ( '!!!' ( options {greedy=false; } : . )+ '!!!' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:262:7: '!!!' ( options {greedy=false; } : . )+ '!!!'
             {
             match("!!!"); 
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:128:13: ( options {greedy=false; } : . )+
-            int cnt3=0;
-            loop3:
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:262:13: ( options {greedy=false; } : . )+
+            int cnt4=0;
+            loop4:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA3_0=='!') ) {
-                    int LA3_1 = input.LA(2);
+                if ( (LA4_0=='!') ) {
+                    int LA4_1 = input.LA(2);
 
-                    if ( (LA3_1=='!') ) {
-                        int LA3_3 = input.LA(3);
+                    if ( (LA4_1=='!') ) {
+                        int LA4_3 = input.LA(3);
 
-                        if ( (LA3_3=='!') ) {
-                            alt3=2;
+                        if ( (LA4_3=='!') ) {
+                            alt4=2;
                         }
-                        else if ( ((LA3_3>='\u0000' && LA3_3<=' ')||(LA3_3>='\"' && LA3_3<='\uFFFF')) ) {
-                            alt3=1;
+                        else if ( ((LA4_3>='\u0000' && LA4_3<=' ')||(LA4_3>='\"' && LA4_3<='\uFFFF')) ) {
+                            alt4=1;
                         }
 
 
                     }
-                    else if ( ((LA3_1>='\u0000' && LA3_1<=' ')||(LA3_1>='\"' && LA3_1<='\uFFFF')) ) {
-                        alt3=1;
+                    else if ( ((LA4_1>='\u0000' && LA4_1<=' ')||(LA4_1>='\"' && LA4_1<='\uFFFF')) ) {
+                        alt4=1;
                     }
 
 
                 }
-                else if ( ((LA3_0>='\u0000' && LA3_0<=' ')||(LA3_0>='\"' && LA3_0<='\uFFFF')) ) {
-                    alt3=1;
+                else if ( ((LA4_0>='\u0000' && LA4_0<=' ')||(LA4_0>='\"' && LA4_0<='\uFFFF')) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt4) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:128:38: .
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:262:38: .
             	    {
             	    matchAny(); 
 
@@ -653,12 +669,12 @@ public class StruxtLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt3 >= 1 ) break loop3;
+            	    if ( cnt4 >= 1 ) break loop4;
                         EarlyExitException eee =
-                            new EarlyExitException(3, input);
+                            new EarlyExitException(4, input);
                         throw eee;
                 }
-                cnt3++;
+                cnt4++;
             } while (true);
 
             match("!!!"); 
@@ -679,138 +695,82 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = STR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:132:5: ( '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"' | '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\'' | '\"' (~ ( '\"' ) )* '\"' )
-            int alt7=3;
-            int LA7_0 = input.LA(1);
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:266:5: ( '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"' | '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\'' | '\"' (~ ( '\"' ) )* '\"' )
+            int alt8=3;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0=='\"') ) {
-                int LA7_1 = input.LA(2);
+            if ( (LA8_0=='\"') ) {
+                int LA8_1 = input.LA(2);
 
-                if ( (LA7_1=='\"') ) {
-                    int LA7_3 = input.LA(3);
+                if ( (LA8_1=='\"') ) {
+                    int LA8_3 = input.LA(3);
 
-                    if ( (LA7_3=='\"') ) {
-                        alt7=1;
+                    if ( (LA8_3=='\"') ) {
+                        alt8=1;
                     }
                     else {
-                        alt7=3;}
+                        alt8=3;}
                 }
-                else if ( ((LA7_1>='\u0000' && LA7_1<='!')||(LA7_1>='#' && LA7_1<='\uFFFF')) ) {
-                    alt7=3;
+                else if ( ((LA8_1>='\u0000' && LA8_1<='!')||(LA8_1>='#' && LA8_1<='\uFFFF')) ) {
+                    alt8=3;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 7, 1, input);
+                        new NoViableAltException("", 8, 1, input);
 
                     throw nvae;
                 }
             }
-            else if ( (LA7_0=='\'') ) {
-                alt7=2;
+            else if ( (LA8_0=='\'') ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:132:7: '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:266:7: '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"'
                     {
                     match("\"\"\""); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:132:13: ( options {greedy=false; } : . )*
-                    loop4:
-                    do {
-                        int alt4=2;
-                        int LA4_0 = input.LA(1);
-
-                        if ( (LA4_0=='\"') ) {
-                            int LA4_1 = input.LA(2);
-
-                            if ( (LA4_1=='\"') ) {
-                                int LA4_3 = input.LA(3);
-
-                                if ( (LA4_3=='\"') ) {
-                                    alt4=2;
-                                }
-                                else if ( ((LA4_3>='\u0000' && LA4_3<='!')||(LA4_3>='#' && LA4_3<='\uFFFF')) ) {
-                                    alt4=1;
-                                }
-
-
-                            }
-                            else if ( ((LA4_1>='\u0000' && LA4_1<='!')||(LA4_1>='#' && LA4_1<='\uFFFF')) ) {
-                                alt4=1;
-                            }
-
-
-                        }
-                        else if ( ((LA4_0>='\u0000' && LA4_0<='!')||(LA4_0>='#' && LA4_0<='\uFFFF')) ) {
-                            alt4=1;
-                        }
-
-
-                        switch (alt4) {
-                    	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:132:38: .
-                    	    {
-                    	    matchAny(); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop4;
-                        }
-                    } while (true);
-
-                    match("\"\"\""); 
-
-
-                    }
-                    break;
-                case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:133:7: '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\''
-                    {
-                    match("'''"); 
-
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:133:16: ( options {greedy=false; } : . )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:266:13: ( options {greedy=false; } : . )*
                     loop5:
                     do {
                         int alt5=2;
                         int LA5_0 = input.LA(1);
 
-                        if ( (LA5_0=='\'') ) {
+                        if ( (LA5_0=='\"') ) {
                             int LA5_1 = input.LA(2);
 
-                            if ( (LA5_1=='\'') ) {
+                            if ( (LA5_1=='\"') ) {
                                 int LA5_3 = input.LA(3);
 
-                                if ( (LA5_3=='\'') ) {
+                                if ( (LA5_3=='\"') ) {
                                     alt5=2;
                                 }
-                                else if ( ((LA5_3>='\u0000' && LA5_3<='&')||(LA5_3>='(' && LA5_3<='\uFFFF')) ) {
+                                else if ( ((LA5_3>='\u0000' && LA5_3<='!')||(LA5_3>='#' && LA5_3<='\uFFFF')) ) {
                                     alt5=1;
                                 }
 
 
                             }
-                            else if ( ((LA5_1>='\u0000' && LA5_1<='&')||(LA5_1>='(' && LA5_1<='\uFFFF')) ) {
+                            else if ( ((LA5_1>='\u0000' && LA5_1<='!')||(LA5_1>='#' && LA5_1<='\uFFFF')) ) {
                                 alt5=1;
                             }
 
 
                         }
-                        else if ( ((LA5_0>='\u0000' && LA5_0<='&')||(LA5_0>='(' && LA5_0<='\uFFFF')) ) {
+                        else if ( ((LA5_0>='\u0000' && LA5_0<='!')||(LA5_0>='#' && LA5_0<='\uFFFF')) ) {
                             alt5=1;
                         }
 
 
                         switch (alt5) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:133:41: .
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:266:38: .
                     	    {
                     	    matchAny(); 
 
@@ -822,29 +782,85 @@ public class StruxtLexer extends Lexer {
                         }
                     } while (true);
 
-                    match("'''"); 
+                    match("\"\"\""); 
 
 
                     }
                     break;
-                case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:134:6: '\"' (~ ( '\"' ) )* '\"'
+                case 2 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:267:7: '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\''
                     {
-                    match('\"'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:134:10: (~ ( '\"' ) )*
+                    match("'''"); 
+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:267:16: ( options {greedy=false; } : . )*
                     loop6:
                     do {
                         int alt6=2;
                         int LA6_0 = input.LA(1);
 
-                        if ( ((LA6_0>='\u0000' && LA6_0<='!')||(LA6_0>='#' && LA6_0<='\uFFFF')) ) {
+                        if ( (LA6_0=='\'') ) {
+                            int LA6_1 = input.LA(2);
+
+                            if ( (LA6_1=='\'') ) {
+                                int LA6_3 = input.LA(3);
+
+                                if ( (LA6_3=='\'') ) {
+                                    alt6=2;
+                                }
+                                else if ( ((LA6_3>='\u0000' && LA6_3<='&')||(LA6_3>='(' && LA6_3<='\uFFFF')) ) {
+                                    alt6=1;
+                                }
+
+
+                            }
+                            else if ( ((LA6_1>='\u0000' && LA6_1<='&')||(LA6_1>='(' && LA6_1<='\uFFFF')) ) {
+                                alt6=1;
+                            }
+
+
+                        }
+                        else if ( ((LA6_0>='\u0000' && LA6_0<='&')||(LA6_0>='(' && LA6_0<='\uFFFF')) ) {
                             alt6=1;
                         }
 
 
                         switch (alt6) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:134:10: ~ ( '\"' )
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:267:41: .
+                    	    {
+                    	    matchAny(); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop6;
+                        }
+                    } while (true);
+
+                    match("'''"); 
+
+
+                    }
+                    break;
+                case 3 :
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:268:6: '\"' (~ ( '\"' ) )* '\"'
+                    {
+                    match('\"'); 
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:268:10: (~ ( '\"' ) )*
+                    loop7:
+                    do {
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
+
+                        if ( ((LA7_0>='\u0000' && LA7_0<='!')||(LA7_0>='#' && LA7_0<='\uFFFF')) ) {
+                            alt7=1;
+                        }
+
+
+                        switch (alt7) {
+                    	case 1 :
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:268:10: ~ ( '\"' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -860,7 +876,7 @@ public class StruxtLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop6;
+                    	    break loop7;
                         }
                     } while (true);
 
@@ -883,52 +899,52 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:138:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:272:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0=='/') ) {
-                int LA11_1 = input.LA(2);
+            if ( (LA12_0=='/') ) {
+                int LA12_1 = input.LA(2);
 
-                if ( (LA11_1=='/') ) {
-                    alt11=1;
+                if ( (LA12_1=='/') ) {
+                    alt12=1;
                 }
-                else if ( (LA11_1=='*') ) {
-                    alt11=2;
+                else if ( (LA12_1=='*') ) {
+                    alt12=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 11, 1, input);
+                        new NoViableAltException("", 12, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:138:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:272:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     {
                     match("//"); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:138:14: (~ ( '\\n' | '\\r' ) )*
-                    loop8:
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:272:14: (~ ( '\\n' | '\\r' ) )*
+                    loop9:
                     do {
-                        int alt8=2;
-                        int LA8_0 = input.LA(1);
+                        int alt9=2;
+                        int LA9_0 = input.LA(1);
 
-                        if ( ((LA8_0>='\u0000' && LA8_0<='\t')||(LA8_0>='\u000B' && LA8_0<='\f')||(LA8_0>='\u000E' && LA8_0<='\uFFFF')) ) {
-                            alt8=1;
+                        if ( ((LA9_0>='\u0000' && LA9_0<='\t')||(LA9_0>='\u000B' && LA9_0<='\f')||(LA9_0>='\u000E' && LA9_0<='\uFFFF')) ) {
+                            alt9=1;
                         }
 
 
-                        switch (alt8) {
+                        switch (alt9) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:138:14: ~ ( '\\n' | '\\r' )
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:272:14: ~ ( '\\n' | '\\r' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -944,20 +960,20 @@ public class StruxtLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop8;
+                    	    break loop9;
                         }
                     } while (true);
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:138:28: ( '\\r' )?
-                    int alt9=2;
-                    int LA9_0 = input.LA(1);
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:272:28: ( '\\r' )?
+                    int alt10=2;
+                    int LA10_0 = input.LA(1);
 
-                    if ( (LA9_0=='\r') ) {
-                        alt9=1;
+                    if ( (LA10_0=='\r') ) {
+                        alt10=1;
                     }
-                    switch (alt9) {
+                    switch (alt10) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:138:28: '\\r'
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:272:28: '\\r'
                             {
                             match('\r'); 
 
@@ -972,36 +988,36 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:139:9: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:273:9: '/*' ( options {greedy=false; } : . )* '*/'
                     {
                     match("/*"); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:139:14: ( options {greedy=false; } : . )*
-                    loop10:
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:273:14: ( options {greedy=false; } : . )*
+                    loop11:
                     do {
-                        int alt10=2;
-                        int LA10_0 = input.LA(1);
+                        int alt11=2;
+                        int LA11_0 = input.LA(1);
 
-                        if ( (LA10_0=='*') ) {
-                            int LA10_1 = input.LA(2);
+                        if ( (LA11_0=='*') ) {
+                            int LA11_1 = input.LA(2);
 
-                            if ( (LA10_1=='/') ) {
-                                alt10=2;
+                            if ( (LA11_1=='/') ) {
+                                alt11=2;
                             }
-                            else if ( ((LA10_1>='\u0000' && LA10_1<='.')||(LA10_1>='0' && LA10_1<='\uFFFF')) ) {
-                                alt10=1;
+                            else if ( ((LA11_1>='\u0000' && LA11_1<='.')||(LA11_1>='0' && LA11_1<='\uFFFF')) ) {
+                                alt11=1;
                             }
 
 
                         }
-                        else if ( ((LA10_0>='\u0000' && LA10_0<=')')||(LA10_0>='+' && LA10_0<='\uFFFF')) ) {
-                            alt10=1;
+                        else if ( ((LA11_0>='\u0000' && LA11_0<=')')||(LA11_0>='+' && LA11_0<='\uFFFF')) ) {
+                            alt11=1;
                         }
 
 
-                        switch (alt10) {
+                        switch (alt11) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:139:42: .
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:273:42: .
                     	    {
                     	    matchAny(); 
 
@@ -1009,7 +1025,7 @@ public class StruxtLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop10;
+                    	    break loop11;
                         }
                     } while (true);
 
@@ -1034,8 +1050,8 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:143:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:143:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:277:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:277:9: ( ' ' | '\\t' | '\\r' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1063,24 +1079,24 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:150:5: ( ( '0' .. '9' )+ )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:150:7: ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:284:5: ( ( '0' .. '9' )+ )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:284:7: ( '0' .. '9' )+
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:150:7: ( '0' .. '9' )+
-            int cnt12=0;
-            loop12:
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:284:7: ( '0' .. '9' )+
+            int cnt13=0;
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( ((LA12_0>='0' && LA12_0<='9')) ) {
-                    alt12=1;
+                if ( ((LA13_0>='0' && LA13_0<='9')) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:150:7: '0' .. '9'
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:284:7: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1088,12 +1104,12 @@ public class StruxtLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt12 >= 1 ) break loop12;
+            	    if ( cnt13 >= 1 ) break loop13;
                         EarlyExitException eee =
-                            new EarlyExitException(12, input);
+                            new EarlyExitException(13, input);
                         throw eee;
                 }
-                cnt12++;
+                cnt13++;
             } while (true);
 
 
@@ -1112,45 +1128,15 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
-            int alt19=3;
-            alt19 = dfa19.predict(input);
-            switch (alt19) {
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
+            int alt20=3;
+            alt20 = dfa20.predict(input);
+            switch (alt20) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
                     {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:9: ( '0' .. '9' )+
-                    int cnt13=0;
-                    loop13:
-                    do {
-                        int alt13=2;
-                        int LA13_0 = input.LA(1);
-
-                        if ( ((LA13_0>='0' && LA13_0<='9')) ) {
-                            alt13=1;
-                        }
-
-
-                        switch (alt13) {
-                    	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:10: '0' .. '9'
-                    	    {
-                    	    matchRange('0','9'); 
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt13 >= 1 ) break loop13;
-                                EarlyExitException eee =
-                                    new EarlyExitException(13, input);
-                                throw eee;
-                        }
-                        cnt13++;
-                    } while (true);
-
-                    match('.'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:25: ( '0' .. '9' )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:9: ( '0' .. '9' )+
+                    int cnt14=0;
                     loop14:
                     do {
                         int alt14=2;
@@ -1163,7 +1149,7 @@ public class StruxtLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:26: '0' .. '9'
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1171,20 +1157,50 @@ public class StruxtLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop14;
+                    	    if ( cnt14 >= 1 ) break loop14;
+                                EarlyExitException eee =
+                                    new EarlyExitException(14, input);
+                                throw eee;
+                        }
+                        cnt14++;
+                    } while (true);
+
+                    match('.'); 
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:25: ( '0' .. '9' )*
+                    loop15:
+                    do {
+                        int alt15=2;
+                        int LA15_0 = input.LA(1);
+
+                        if ( ((LA15_0>='0' && LA15_0<='9')) ) {
+                            alt15=1;
+                        }
+
+
+                        switch (alt15) {
+                    	case 1 :
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:26: '0' .. '9'
+                    	    {
+                    	    matchRange('0','9'); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop15;
                         }
                     } while (true);
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:37: ( EXPONENT )?
-                    int alt15=2;
-                    int LA15_0 = input.LA(1);
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:37: ( EXPONENT )?
+                    int alt16=2;
+                    int LA16_0 = input.LA(1);
 
-                    if ( (LA15_0=='E'||LA15_0=='e') ) {
-                        alt15=1;
+                    if ( (LA16_0=='E'||LA16_0=='e') ) {
+                        alt16=1;
                     }
-                    switch (alt15) {
+                    switch (alt16) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:154:37: EXPONENT
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:288:37: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -1197,24 +1213,24 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:155:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:289:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
                     {
                     match('.'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:155:13: ( '0' .. '9' )+
-                    int cnt16=0;
-                    loop16:
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:289:13: ( '0' .. '9' )+
+                    int cnt17=0;
+                    loop17:
                     do {
-                        int alt16=2;
-                        int LA16_0 = input.LA(1);
+                        int alt17=2;
+                        int LA17_0 = input.LA(1);
 
-                        if ( ((LA16_0>='0' && LA16_0<='9')) ) {
-                            alt16=1;
+                        if ( ((LA17_0>='0' && LA17_0<='9')) ) {
+                            alt17=1;
                         }
 
 
-                        switch (alt16) {
+                        switch (alt17) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:155:14: '0' .. '9'
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:289:14: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1222,24 +1238,24 @@ public class StruxtLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt16 >= 1 ) break loop16;
+                    	    if ( cnt17 >= 1 ) break loop17;
                                 EarlyExitException eee =
-                                    new EarlyExitException(16, input);
+                                    new EarlyExitException(17, input);
                                 throw eee;
                         }
-                        cnt16++;
+                        cnt17++;
                     } while (true);
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:155:25: ( EXPONENT )?
-                    int alt17=2;
-                    int LA17_0 = input.LA(1);
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:289:25: ( EXPONENT )?
+                    int alt18=2;
+                    int LA18_0 = input.LA(1);
 
-                    if ( (LA17_0=='E'||LA17_0=='e') ) {
-                        alt17=1;
+                    if ( (LA18_0=='E'||LA18_0=='e') ) {
+                        alt18=1;
                     }
-                    switch (alt17) {
+                    switch (alt18) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:155:25: EXPONENT
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:289:25: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -1252,23 +1268,23 @@ public class StruxtLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:156:9: ( '0' .. '9' )+ EXPONENT
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:290:9: ( '0' .. '9' )+ EXPONENT
                     {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:156:9: ( '0' .. '9' )+
-                    int cnt18=0;
-                    loop18:
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:290:9: ( '0' .. '9' )+
+                    int cnt19=0;
+                    loop19:
                     do {
-                        int alt18=2;
-                        int LA18_0 = input.LA(1);
+                        int alt19=2;
+                        int LA19_0 = input.LA(1);
 
-                        if ( ((LA18_0>='0' && LA18_0<='9')) ) {
-                            alt18=1;
+                        if ( ((LA19_0>='0' && LA19_0<='9')) ) {
+                            alt19=1;
                         }
 
 
-                        switch (alt18) {
+                        switch (alt19) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:156:10: '0' .. '9'
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:290:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1276,12 +1292,12 @@ public class StruxtLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    if ( cnt18 >= 1 ) break loop18;
+                    	    if ( cnt19 >= 1 ) break loop19;
                                 EarlyExitException eee =
-                                    new EarlyExitException(18, input);
+                                    new EarlyExitException(19, input);
                                 throw eee;
                         }
-                        cnt18++;
+                        cnt19++;
                     } while (true);
 
                     mEXPONENT(); 
@@ -1303,25 +1319,25 @@ public class StruxtLexer extends Lexer {
         try {
             int _type = CHAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:160:5: ( '\\'' (~ ( '\\'' ) )+ '\\'' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:160:8: '\\'' (~ ( '\\'' ) )+ '\\''
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:294:5: ( '\\'' (~ ( '\\'' ) )+ '\\'' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:294:8: '\\'' (~ ( '\\'' ) )+ '\\''
             {
             match('\''); 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:160:13: (~ ( '\\'' ) )+
-            int cnt20=0;
-            loop20:
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:294:13: (~ ( '\\'' ) )+
+            int cnt21=0;
+            loop21:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( ((LA20_0>='\u0000' && LA20_0<='&')||(LA20_0>='(' && LA20_0<='\uFFFF')) ) {
-                    alt20=1;
+                if ( ((LA21_0>='\u0000' && LA21_0<='&')||(LA21_0>='(' && LA21_0<='\uFFFF')) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt21) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:160:13: ~ ( '\\'' )
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:294:13: ~ ( '\\'' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1337,12 +1353,12 @@ public class StruxtLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt20 >= 1 ) break loop20;
+            	    if ( cnt21 >= 1 ) break loop21;
                         EarlyExitException eee =
-                            new EarlyExitException(20, input);
+                            new EarlyExitException(21, input);
                         throw eee;
                 }
-                cnt20++;
+                cnt21++;
             } while (true);
 
             match('\''); 
@@ -1360,8 +1376,8 @@ public class StruxtLexer extends Lexer {
     // $ANTLR start "EXPONENT"
     public final void mEXPONENT() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:165:5: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:165:7: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:299:5: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:299:7: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -1372,14 +1388,14 @@ public class StruxtLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:165:17: ( '+' | '-' )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:299:17: ( '+' | '-' )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0=='+'||LA21_0=='-') ) {
-                alt21=1;
+            if ( (LA22_0=='+'||LA22_0=='-') ) {
+                alt22=1;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
                     // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:
                     {
@@ -1398,21 +1414,21 @@ public class StruxtLexer extends Lexer {
 
             }
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:165:28: ( '0' .. '9' )+
-            int cnt22=0;
-            loop22:
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:299:28: ( '0' .. '9' )+
+            int cnt23=0;
+            loop23:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( ((LA22_0>='0' && LA22_0<='9')) ) {
-                    alt22=1;
+                if ( ((LA23_0>='0' && LA23_0<='9')) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt23) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:165:29: '0' .. '9'
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:299:29: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1420,12 +1436,12 @@ public class StruxtLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt22 >= 1 ) break loop22;
+            	    if ( cnt23 >= 1 ) break loop23;
                         EarlyExitException eee =
-                            new EarlyExitException(22, input);
+                            new EarlyExitException(23, input);
                         throw eee;
                 }
-                cnt22++;
+                cnt23++;
             } while (true);
 
 
@@ -1440,8 +1456,8 @@ public class StruxtLexer extends Lexer {
     // $ANTLR start "HEX_DIGIT"
     public final void mHEX_DIGIT() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:170:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:170:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:304:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:304:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -1462,173 +1478,159 @@ public class StruxtLexer extends Lexer {
     // $ANTLR end "HEX_DIGIT"
 
     public void mTokens() throws RecognitionException {
-        // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:8: ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | OP | ID | XML | DOC | STR | COMMENT | WS | INT | FLOAT | CHAR )
-        int alt23=24;
-        alt23 = dfa23.predict(input);
-        switch (alt23) {
+        // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:8: ( T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | PRENS | POSTNS | OP | ID | XML | DOC | STR | COMMENT | WS | INT | FLOAT | CHAR )
+        int alt24=22;
+        alt24 = dfa24.predict(input);
+        switch (alt24) {
             case 1 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:10: T__16
-                {
-                mT__16(); 
-
-                }
-                break;
-            case 2 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:16: T__17
-                {
-                mT__17(); 
-
-                }
-                break;
-            case 3 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:22: T__18
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:10: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
-            case 4 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:28: T__19
+            case 2 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:16: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
-            case 5 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:34: T__20
+            case 3 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:22: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
-            case 6 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:40: T__21
+            case 4 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:28: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
-            case 7 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:46: T__22
+            case 5 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:34: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
-            case 8 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:52: T__23
+            case 6 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:40: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
-            case 9 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:58: T__24
+            case 7 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:46: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
-            case 10 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:64: T__25
+            case 8 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:52: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
-            case 11 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:70: T__26
+            case 9 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:58: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
-            case 12 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:76: T__27
+            case 10 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:64: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
+            case 11 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:70: PRENS
+                {
+                mPRENS(); 
+
+                }
+                break;
+            case 12 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:76: POSTNS
+                {
+                mPOSTNS(); 
+
+                }
+                break;
             case 13 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:82: T__28
-                {
-                mT__28(); 
-
-                }
-                break;
-            case 14 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:88: T__29
-                {
-                mT__29(); 
-
-                }
-                break;
-            case 15 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:94: OP
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:83: OP
                 {
                 mOP(); 
 
                 }
                 break;
-            case 16 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:97: ID
+            case 14 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:86: ID
                 {
                 mID(); 
 
                 }
                 break;
-            case 17 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:100: XML
+            case 15 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:89: XML
                 {
                 mXML(); 
 
                 }
                 break;
-            case 18 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:104: DOC
+            case 16 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:93: DOC
                 {
                 mDOC(); 
 
                 }
                 break;
-            case 19 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:108: STR
+            case 17 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:97: STR
                 {
                 mSTR(); 
 
                 }
                 break;
-            case 20 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:112: COMMENT
+            case 18 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:101: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
-            case 21 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:120: WS
+            case 19 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:109: WS
                 {
                 mWS(); 
 
                 }
                 break;
-            case 22 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:123: INT
+            case 20 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:112: INT
                 {
                 mINT(); 
 
                 }
                 break;
-            case 23 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:127: FLOAT
+            case 21 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:116: FLOAT
                 {
                 mFLOAT(); 
 
                 }
                 break;
-            case 24 :
-                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:133: CHAR
+            case 22 :
+                // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:1:122: CHAR
                 {
                 mCHAR(); 
 
@@ -1640,27 +1642,27 @@ public class StruxtLexer extends Lexer {
     }
 
 
-    protected DFA1 dfa1 = new DFA1(this);
-    protected DFA19 dfa19 = new DFA19(this);
-    protected DFA23 dfa23 = new DFA23(this);
-    static final String DFA1_eotS =
+    protected DFA2 dfa2 = new DFA2(this);
+    protected DFA20 dfa20 = new DFA20(this);
+    protected DFA24 dfa24 = new DFA24(this);
+    static final String DFA2_eotS =
         "\1\uffff\1\21\1\23\1\25\4\uffff\1\27\1\31\2\uffff\1\33\3\uffff\1"+
         "\35\15\uffff";
-    static final String DFA1_eofS =
+    static final String DFA2_eofS =
         "\36\uffff";
-    static final String DFA1_minS =
+    static final String DFA2_minS =
         "\1\44\1\55\2\76\4\uffff\1\46\1\52\2\uffff\1\174\3\uffff\1\76\15"+
         "\uffff";
-    static final String DFA1_maxS =
+    static final String DFA2_maxS =
         "\1\176\1\74\2\76\4\uffff\1\46\1\52\2\uffff\1\174\3\uffff\1\76\15"+
         "\uffff";
-    static final String DFA1_acceptS =
+    static final String DFA2_acceptS =
         "\4\uffff\1\10\1\11\1\12\1\13\2\uffff\1\21\1\22\1\uffff\1\25\1\26"+
         "\1\2\1\uffff\1\1\1\5\1\20\1\6\1\7\1\15\1\14\1\17\1\16\1\24\1\23"+
         "\1\4\1\3";
-    static final String DFA1_specialS =
+    static final String DFA2_specialS =
         "\36\uffff}>";
-    static final String[] DFA1_transitionS = {
+    static final String[] DFA2_transitionS = {
             "\1\5\1\6\1\10\3\uffff\1\11\1\12\1\uffff\1\2\1\uffff\1\15\14"+
             "\uffff\1\1\1\13\1\3\1\16\36\uffff\1\7\35\uffff\1\14\1\uffff"+
             "\1\4",
@@ -1695,52 +1697,52 @@ public class StruxtLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA1_eot = DFA.unpackEncodedString(DFA1_eotS);
-    static final short[] DFA1_eof = DFA.unpackEncodedString(DFA1_eofS);
-    static final char[] DFA1_min = DFA.unpackEncodedStringToUnsignedChars(DFA1_minS);
-    static final char[] DFA1_max = DFA.unpackEncodedStringToUnsignedChars(DFA1_maxS);
-    static final short[] DFA1_accept = DFA.unpackEncodedString(DFA1_acceptS);
-    static final short[] DFA1_special = DFA.unpackEncodedString(DFA1_specialS);
-    static final short[][] DFA1_transition;
+    static final short[] DFA2_eot = DFA.unpackEncodedString(DFA2_eotS);
+    static final short[] DFA2_eof = DFA.unpackEncodedString(DFA2_eofS);
+    static final char[] DFA2_min = DFA.unpackEncodedStringToUnsignedChars(DFA2_minS);
+    static final char[] DFA2_max = DFA.unpackEncodedStringToUnsignedChars(DFA2_maxS);
+    static final short[] DFA2_accept = DFA.unpackEncodedString(DFA2_acceptS);
+    static final short[] DFA2_special = DFA.unpackEncodedString(DFA2_specialS);
+    static final short[][] DFA2_transition;
 
     static {
-        int numStates = DFA1_transitionS.length;
-        DFA1_transition = new short[numStates][];
+        int numStates = DFA2_transitionS.length;
+        DFA2_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA1_transition[i] = DFA.unpackEncodedString(DFA1_transitionS[i]);
+            DFA2_transition[i] = DFA.unpackEncodedString(DFA2_transitionS[i]);
         }
     }
 
-    class DFA1 extends DFA {
+    class DFA2 extends DFA {
 
-        public DFA1(BaseRecognizer recognizer) {
+        public DFA2(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 1;
-            this.eot = DFA1_eot;
-            this.eof = DFA1_eof;
-            this.min = DFA1_min;
-            this.max = DFA1_max;
-            this.accept = DFA1_accept;
-            this.special = DFA1_special;
-            this.transition = DFA1_transition;
+            this.decisionNumber = 2;
+            this.eot = DFA2_eot;
+            this.eof = DFA2_eof;
+            this.min = DFA2_min;
+            this.max = DFA2_max;
+            this.accept = DFA2_accept;
+            this.special = DFA2_special;
+            this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "115:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )";
+            return "249:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )";
         }
     }
-    static final String DFA19_eotS =
+    static final String DFA20_eotS =
         "\5\uffff";
-    static final String DFA19_eofS =
+    static final String DFA20_eofS =
         "\5\uffff";
-    static final String DFA19_minS =
+    static final String DFA20_minS =
         "\2\56\3\uffff";
-    static final String DFA19_maxS =
+    static final String DFA20_maxS =
         "\1\71\1\145\3\uffff";
-    static final String DFA19_acceptS =
+    static final String DFA20_acceptS =
         "\2\uffff\1\2\1\1\1\3";
-    static final String DFA19_specialS =
+    static final String DFA20_specialS =
         "\5\uffff}>";
-    static final String[] DFA19_transitionS = {
+    static final String[] DFA20_transitionS = {
             "\1\2\1\uffff\12\1",
             "\1\3\1\uffff\12\1\13\uffff\1\4\37\uffff\1\4",
             "",
@@ -1748,61 +1750,65 @@ public class StruxtLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA19_eot = DFA.unpackEncodedString(DFA19_eotS);
-    static final short[] DFA19_eof = DFA.unpackEncodedString(DFA19_eofS);
-    static final char[] DFA19_min = DFA.unpackEncodedStringToUnsignedChars(DFA19_minS);
-    static final char[] DFA19_max = DFA.unpackEncodedStringToUnsignedChars(DFA19_maxS);
-    static final short[] DFA19_accept = DFA.unpackEncodedString(DFA19_acceptS);
-    static final short[] DFA19_special = DFA.unpackEncodedString(DFA19_specialS);
-    static final short[][] DFA19_transition;
+    static final short[] DFA20_eot = DFA.unpackEncodedString(DFA20_eotS);
+    static final short[] DFA20_eof = DFA.unpackEncodedString(DFA20_eofS);
+    static final char[] DFA20_min = DFA.unpackEncodedStringToUnsignedChars(DFA20_minS);
+    static final char[] DFA20_max = DFA.unpackEncodedStringToUnsignedChars(DFA20_maxS);
+    static final short[] DFA20_accept = DFA.unpackEncodedString(DFA20_acceptS);
+    static final short[] DFA20_special = DFA.unpackEncodedString(DFA20_specialS);
+    static final short[][] DFA20_transition;
 
     static {
-        int numStates = DFA19_transitionS.length;
-        DFA19_transition = new short[numStates][];
+        int numStates = DFA20_transitionS.length;
+        DFA20_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA19_transition[i] = DFA.unpackEncodedString(DFA19_transitionS[i]);
+            DFA20_transition[i] = DFA.unpackEncodedString(DFA20_transitionS[i]);
         }
     }
 
-    class DFA19 extends DFA {
+    class DFA20 extends DFA {
 
-        public DFA19(BaseRecognizer recognizer) {
+        public DFA20(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 19;
-            this.eot = DFA19_eot;
-            this.eof = DFA19_eof;
-            this.min = DFA19_min;
-            this.max = DFA19_max;
-            this.accept = DFA19_accept;
-            this.special = DFA19_special;
-            this.transition = DFA19_transition;
+            this.decisionNumber = 20;
+            this.eot = DFA20_eot;
+            this.eof = DFA20_eof;
+            this.min = DFA20_min;
+            this.max = DFA20_max;
+            this.accept = DFA20_accept;
+            this.special = DFA20_special;
+            this.transition = DFA20_transition;
         }
         public String getDescription() {
-            return "153:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
+            return "287:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
         }
     }
-    static final String DFA23_eotS =
-        "\1\uffff\1\27\6\uffff\1\32\7\uffff\2\17\4\uffff\1\36\10\uffff";
-    static final String DFA23_eofS =
-        "\37\uffff";
-    static final String DFA23_minS =
-        "\1\11\1\60\6\uffff\1\41\7\uffff\1\52\1\170\2\uffff\1\0\1\uffff\1"+
-        "\56\10\uffff";
-    static final String DFA23_maxS =
-        "\1\176\1\71\6\uffff\1\41\7\uffff\1\57\1\170\2\uffff\1\uffff\1\uffff"+
-        "\1\145\10\uffff";
-    static final String DFA23_acceptS =
-        "\2\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\uffff\1\11\1\12\1\13\1\14\1\15"+
-        "\1\16\1\17\2\uffff\1\20\1\23\1\uffff\1\25\1\uffff\1\1\1\27\1\22"+
-        "\1\10\1\24\1\21\1\30\1\26";
-    static final String DFA23_specialS =
-        "\24\uffff\1\0\12\uffff}>";
-    static final String[] DFA23_transitionS = {
-            "\2\25\2\uffff\1\25\22\uffff\1\25\1\10\1\23\1\11\3\17\1\24\1"+
-            "\13\1\14\2\17\1\12\1\17\1\1\1\20\12\26\1\6\1\7\3\17\1\21\1\2"+
-            "\32\22\1\15\1\3\1\16\1\17\1\22\1\uffff\32\22\1\4\1\17\1\5\1"+
-            "\17",
-            "\12\30",
+    static final String DFA24_eotS =
+        "\1\uffff\1\26\2\uffff\1\30\6\uffff\1\14\3\uffff\2\16\4\uffff\1\35"+
+        "\10\uffff";
+    static final String DFA24_eofS =
+        "\36\uffff";
+    static final String DFA24_minS =
+        "\1\11\1\60\2\uffff\1\72\6\uffff\1\41\3\uffff\1\52\1\170\2\uffff"+
+        "\1\0\1\uffff\1\56\10\uffff";
+    static final String DFA24_maxS =
+        "\1\176\1\71\2\uffff\1\72\6\uffff\1\41\3\uffff\1\57\1\170\2\uffff"+
+        "\1\uffff\1\uffff\1\145\10\uffff";
+    static final String DFA24_acceptS =
+        "\2\uffff\1\2\1\3\1\uffff\1\5\1\6\1\7\1\10\1\11\1\12\1\uffff\1\13"+
+        "\1\14\1\15\2\uffff\1\16\1\21\1\uffff\1\23\1\uffff\1\1\1\25\1\4\1"+
+        "\20\1\22\1\17\1\26\1\24";
+    static final String DFA24_specialS =
+        "\23\uffff\1\0\12\uffff}>";
+    static final String[] DFA24_transitionS = {
+            "\2\24\2\uffff\1\24\22\uffff\1\24\1\13\1\22\1\14\3\16\1\23\1"+
+            "\7\1\10\2\16\1\6\1\16\1\1\1\17\12\25\1\4\1\5\3\16\1\20\1\15"+
+            "\32\21\1\11\1\15\1\12\1\16\1\21\1\uffff\32\21\1\2\1\16\1\3\1"+
+            "\16",
+            "\12\27",
+            "",
+            "",
+            "\1\14",
             "",
             "",
             "",
@@ -1813,17 +1819,13 @@ public class StruxtLexer extends Lexer {
             "",
             "",
             "",
+            "\1\32\4\uffff\1\32",
+            "\1\33",
             "",
             "",
+            "\47\34\1\22\uffd8\34",
             "",
-            "",
-            "\1\33\4\uffff\1\33",
-            "\1\34",
-            "",
-            "",
-            "\47\35\1\23\uffd8\35",
-            "",
-            "\1\30\1\uffff\12\26\13\uffff\1\30\37\uffff\1\30",
+            "\1\27\1\uffff\12\25\13\uffff\1\27\37\uffff\1\27",
             "",
             "",
             "",
@@ -1834,55 +1836,55 @@ public class StruxtLexer extends Lexer {
             ""
     };
 
-    static final short[] DFA23_eot = DFA.unpackEncodedString(DFA23_eotS);
-    static final short[] DFA23_eof = DFA.unpackEncodedString(DFA23_eofS);
-    static final char[] DFA23_min = DFA.unpackEncodedStringToUnsignedChars(DFA23_minS);
-    static final char[] DFA23_max = DFA.unpackEncodedStringToUnsignedChars(DFA23_maxS);
-    static final short[] DFA23_accept = DFA.unpackEncodedString(DFA23_acceptS);
-    static final short[] DFA23_special = DFA.unpackEncodedString(DFA23_specialS);
-    static final short[][] DFA23_transition;
+    static final short[] DFA24_eot = DFA.unpackEncodedString(DFA24_eotS);
+    static final short[] DFA24_eof = DFA.unpackEncodedString(DFA24_eofS);
+    static final char[] DFA24_min = DFA.unpackEncodedStringToUnsignedChars(DFA24_minS);
+    static final char[] DFA24_max = DFA.unpackEncodedStringToUnsignedChars(DFA24_maxS);
+    static final short[] DFA24_accept = DFA.unpackEncodedString(DFA24_acceptS);
+    static final short[] DFA24_special = DFA.unpackEncodedString(DFA24_specialS);
+    static final short[][] DFA24_transition;
 
     static {
-        int numStates = DFA23_transitionS.length;
-        DFA23_transition = new short[numStates][];
+        int numStates = DFA24_transitionS.length;
+        DFA24_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA23_transition[i] = DFA.unpackEncodedString(DFA23_transitionS[i]);
+            DFA24_transition[i] = DFA.unpackEncodedString(DFA24_transitionS[i]);
         }
     }
 
-    class DFA23 extends DFA {
+    class DFA24 extends DFA {
 
-        public DFA23(BaseRecognizer recognizer) {
+        public DFA24(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 23;
-            this.eot = DFA23_eot;
-            this.eof = DFA23_eof;
-            this.min = DFA23_min;
-            this.max = DFA23_max;
-            this.accept = DFA23_accept;
-            this.special = DFA23_special;
-            this.transition = DFA23_transition;
+            this.decisionNumber = 24;
+            this.eot = DFA24_eot;
+            this.eof = DFA24_eof;
+            this.min = DFA24_min;
+            this.max = DFA24_max;
+            this.accept = DFA24_accept;
+            this.special = DFA24_special;
+            this.transition = DFA24_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | OP | ID | XML | DOC | STR | COMMENT | WS | INT | FLOAT | CHAR );";
+            return "1:1: Tokens : ( T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | PRENS | POSTNS | OP | ID | XML | DOC | STR | COMMENT | WS | INT | FLOAT | CHAR );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA23_20 = input.LA(1);
+                        int LA24_19 = input.LA(1);
 
                         s = -1;
-                        if ( (LA23_20=='\'') ) {s = 19;}
+                        if ( (LA24_19=='\'') ) {s = 18;}
 
-                        else if ( ((LA23_20>='\u0000' && LA23_20<='&')||(LA23_20>='(' && LA23_20<='\uFFFF')) ) {s = 29;}
+                        else if ( ((LA24_19>='\u0000' && LA24_19<='&')||(LA24_19>='(' && LA24_19<='\uFFFF')) ) {s = 28;}
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 23, _s, input);
+                new NoViableAltException(getDescription(), 24, _s, input);
             error(nvae);
             throw nvae;
         }
