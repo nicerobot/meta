@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g 2011-04-09 17:01:52
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g 2011-04-09 23:35:03
 
 package org.nicerobot.struxt.parser;
 
@@ -151,8 +151,32 @@ public class StruxtParser extends Parser {
       public Content addAttribute (StruxtParser.name_return name, String value) {
         final Content node = getCurrent();
         String s = (null!=name && null!=name.namespace)?name.namespace.getText():null;
-        // TODO: Make "value" configurable ... per namespace?
-        String n = (null!=name && null!=name.nodename)?name.nodename.getText():"id";
+
+        String n = null;
+        if (null!=name && null!=name.nodename) {
+          n = name.nodename.getText();
+        } else {
+          if (null == node) {
+            n = "id";
+          } else {
+            Element ne = (Element)node;
+            String ns = ne.getNamespaceURI();
+            String na = ne.getName();
+            // TODO: Implement struxt-config support to make these defaults
+            // user-customizable and namespace sensitive.
+            if ("a".equals(na)) {
+              n = "href";
+            } else if ("value-of".equals(na)) {
+              n = "select";
+            } else if ("control".equals(na)) {
+              n = "name";
+            } else {
+              // TODO: provide support to add multiple unqualified values.
+              // That is, a "b", "c", "d". => <a id="b" id1="c" id2="d"/>
+              n = "id";
+            }
+          }
+        }
         final String v = unquote(singleline(null!=value?value:"true"));
         Element el = ((Element)node);
 
@@ -204,7 +228,7 @@ public class StruxtParser extends Parser {
           st = new ANTLRFileStream(args[0]);
         }
         try {
-          System.out.println(new StruxtParser(new CommonTokenStream(new StruxtLexer(st))).struxt());
+          System.out.print(new StruxtParser(new CommonTokenStream(new StruxtLexer(st))).struxt());
         } catch (RecognitionException e)  {
           e.printStackTrace();
         }
@@ -228,17 +252,17 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "struxt"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:187:1: struxt returns [StruxtParser self] : (xml= xmldecl )? (doctype= DOC )? node EOF ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:211:1: struxt returns [StruxtParser self] : (xml= xmldecl )? (doctype= DOC )? node EOF ;
     public final StruxtParser struxt() throws RecognitionException {
         StruxtParser self = null;
 
         Token doctype=null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:188:5: ( (xml= xmldecl )? (doctype= DOC )? node EOF )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:188:7: (xml= xmldecl )? (doctype= DOC )? node EOF
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:5: ( (xml= xmldecl )? (doctype= DOC )? node EOF )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:7: (xml= xmldecl )? (doctype= DOC )? node EOF
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:188:10: (xml= xmldecl )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:10: (xml= xmldecl )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -247,7 +271,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt1) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:188:10: xml= xmldecl
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:10: xml= xmldecl
                     {
                     pushFollow(FOLLOW_xmldecl_in_struxt53);
                     xmldecl();
@@ -260,7 +284,7 @@ public class StruxtParser extends Parser {
 
             }
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:189:14: (doctype= DOC )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:213:14: (doctype= DOC )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -269,7 +293,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:189:14: doctype= DOC
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:213:14: doctype= DOC
                     {
                     doctype=(Token)match(input,DOC,FOLLOW_DOC_in_struxt64); 
 
@@ -301,11 +325,11 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "xmldecl"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:193:1: xmldecl : XML attributes '.' ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:217:1: xmldecl : XML attributes '.' ;
     public final void xmldecl() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:194:5: ( XML attributes '.' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:194:7: XML attributes '.'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:218:5: ( XML attributes '.' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:218:7: XML attributes '.'
             {
             match(input,XML,FOLLOW_XML_in_xmldecl94); 
             addPI("xml");
@@ -334,7 +358,7 @@ public class StruxtParser extends Parser {
     };
 
     // $ANTLR start "node"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:197:1: node : ( tag children | text= value );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:221:1: node : ( tag children | text= value );
     public final StruxtParser.node_return node() throws RecognitionException {
         StruxtParser.node_return retval = new StruxtParser.node_return();
         retval.start = input.LT(1);
@@ -343,7 +367,7 @@ public class StruxtParser extends Parser {
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:198:5: ( tag children | text= value )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:222:5: ( tag children | text= value )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -361,7 +385,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt3) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:198:7: tag children
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:222:7: tag children
                     {
                     pushFollow(FOLLOW_tag_in_node119);
                     tag();
@@ -378,7 +402,7 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:199:7: text= value
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:7: text= value
                     {
                     pushFollow(FOLLOW_value_in_node133);
                     text=value();
@@ -406,14 +430,14 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "tag"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:202:1: tag : n= name ( attributes )? ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:226:1: tag : n= name ( attributes )? ;
     public final void tag() throws RecognitionException {
         StruxtParser.name_return n = null;
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:203:5: (n= name ( attributes )? )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:203:7: n= name ( attributes )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:227:5: (n= name ( attributes )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:227:7: n= name ( attributes )?
             {
             pushFollow(FOLLOW_name_in_tag154);
             n=name();
@@ -421,7 +445,7 @@ public class StruxtParser extends Parser {
             state._fsp--;
 
             addNode(n.namespace, n.nodename);
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:203:50: ( attributes )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:227:50: ( attributes )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -430,7 +454,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt4) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:203:50: attributes
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:227:50: attributes
                     {
                     pushFollow(FOLLOW_attributes_in_tag158);
                     attributes();
@@ -459,10 +483,10 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "children"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:206:10: fragment children : ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' ) );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:230:10: fragment children : ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' ) );
     public final void children() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:207:5: ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:231:5: ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -480,7 +504,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt7) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:207:7: '{' childs '}'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:231:7: '{' childs '}'
                     {
                     match(input,19,FOLLOW_19_in_children177); 
                     pushFollow(FOLLOW_childs_in_children179);
@@ -493,9 +517,9 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:208:7: ( ':' ( node )* )? ( '.' | ';' )
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:232:7: ( ':' ( node )* )? ( '.' | ';' )
                     {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:208:7: ( ':' ( node )* )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:232:7: ( ':' ( node )* )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -504,10 +528,10 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt6) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:208:8: ':' ( node )*
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:232:8: ':' ( node )*
                             {
                             match(input,21,FOLLOW_21_in_children190); 
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:208:12: ( node )*
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:232:12: ( node )*
                             loop5:
                             do {
                                 int alt5=2;
@@ -520,7 +544,7 @@ public class StruxtParser extends Parser {
 
                                 switch (alt5) {
                             	case 1 :
-                            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:208:12: node
+                            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:232:12: node
                             	    {
                             	    pushFollow(FOLLOW_node_in_children192);
                             	    node();
@@ -569,20 +593,20 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "childs"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:211:10: fragment childs : ( node )* (nodename= tag )? ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:235:10: fragment childs : ( node )* (nodename= tag )? ;
     public final void childs() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:5: ( ( node )* (nodename= tag )? )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:7: ( node )* (nodename= tag )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:5: ( ( node )* (nodename= tag )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:7: ( node )* (nodename= tag )?
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:7: ( node )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:7: ( node )*
             loop8:
             do {
                 int alt8=2;
                 alt8 = dfa8.predict(input);
                 switch (alt8) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:7: node
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:7: node
             	    {
             	    pushFollow(FOLLOW_node_in_childs220);
             	    node();
@@ -598,7 +622,7 @@ public class StruxtParser extends Parser {
                 }
             } while (true);
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:21: (nodename= tag )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:21: (nodename= tag )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -607,7 +631,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt9) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:212:21: nodename= tag
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:21: nodename= tag
                     {
                     pushFollow(FOLLOW_tag_in_childs225);
                     tag();
@@ -636,7 +660,7 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "attribute"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:215:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:239:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );
     public final void attribute() throws RecognitionException {
         Token o=null;
         StruxtParser.name_return n = null;
@@ -647,19 +671,19 @@ public class StruxtParser extends Parser {
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:216:5: (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:240:5: (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) )
             int alt15=4;
             alt15 = dfa15.predict(input);
             switch (alt15) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:216:7: n= name (o= OP )? (v= value )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:240:7: n= name (o= OP )? (v= value )?
                     {
                     pushFollow(FOLLOW_name_in_attribute247);
                     n=name();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:216:15: (o= OP )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:240:15: (o= OP )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -668,7 +692,7 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt10) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:216:15: o= OP
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:240:15: o= OP
                             {
                             o=(Token)match(input,OP,FOLLOW_OP_in_attribute251); 
 
@@ -677,7 +701,7 @@ public class StruxtParser extends Parser {
 
                     }
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:216:21: (v= value )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:240:21: (v= value )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -686,7 +710,7 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt11) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:216:21: v= value
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:240:21: v= value
                             {
                             pushFollow(FOLLOW_value_in_attribute256);
                             v=value();
@@ -704,14 +728,14 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:217:7: v= value (o= OP )? (n= name )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:7: v= value (o= OP )? (n= name )?
                     {
                     pushFollow(FOLLOW_value_in_attribute269);
                     v=value();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:217:16: (o= OP )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:16: (o= OP )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -720,7 +744,7 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt12) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:217:16: o= OP
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:16: o= OP
                             {
                             o=(Token)match(input,OP,FOLLOW_OP_in_attribute273); 
 
@@ -729,7 +753,7 @@ public class StruxtParser extends Parser {
 
                     }
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:217:22: (n= name )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:22: (n= name )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -738,7 +762,7 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt13) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:217:22: n= name
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:241:22: n= name
                             {
                             pushFollow(FOLLOW_name_in_attribute278);
                             n=name();
@@ -756,7 +780,7 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:218:7: n= name o= OP n1= name
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:242:7: n= name o= OP n1= name
                     {
                     pushFollow(FOLLOW_name_in_attribute291);
                     n=name();
@@ -774,10 +798,10 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:219:7: o= OP (n= name | v= value )
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:243:7: o= OP (n= name | v= value )
                     {
                     o=(Token)match(input,OP,FOLLOW_OP_in_attribute311); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:219:12: (n= name | v= value )
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:243:12: (n= name | v= value )
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -795,7 +819,7 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt14) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:219:13: n= name
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:243:13: n= name
                             {
                             pushFollow(FOLLOW_name_in_attribute316);
                             n=name();
@@ -806,7 +830,7 @@ public class StruxtParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:219:20: v= value
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:243:20: v= value
                             {
                             pushFollow(FOLLOW_value_in_attribute320);
                             v=value();
@@ -842,7 +866,7 @@ public class StruxtParser extends Parser {
     };
 
     // $ANTLR start "name"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:222:10: fragment name returns [Token namespace, Token nodename] : (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:246:10: fragment name returns [Token namespace, Token nodename] : (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) ;
     public final StruxtParser.name_return name() throws RecognitionException {
         StruxtParser.name_return retval = new StruxtParser.name_return();
         retval.start = input.LT(1);
@@ -852,10 +876,10 @@ public class StruxtParser extends Parser {
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:5: ( (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:247:5: ( (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:247:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:247:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -883,7 +907,7 @@ public class StruxtParser extends Parser {
             }
             switch (alt17) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:8: s= ns PRENS n= ID
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:247:8: s= ns PRENS n= ID
                     {
                     pushFollow(FOLLOW_ns_in_name349);
                     s=ns();
@@ -896,10 +920,10 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:26: n= ID ( POSTNS s= ns )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:247:26: n= ID ( POSTNS s= ns )?
                     {
                     n=(Token)match(input,ID,FOLLOW_ID_in_name361); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:31: ( POSTNS s= ns )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:247:31: ( POSTNS s= ns )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -908,7 +932,7 @@ public class StruxtParser extends Parser {
                     }
                     switch (alt16) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:223:33: POSTNS s= ns
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:247:33: POSTNS s= ns
                             {
                             match(input,POSTNS,FOLLOW_POSTNS_in_name365); 
                             pushFollow(FOLLOW_ns_in_name369);
@@ -947,15 +971,15 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "ns"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:226:10: fragment ns returns [Token namespace] : s= ID ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:250:10: fragment ns returns [Token namespace] : s= ID ;
     public final Token ns() throws RecognitionException {
         Token namespace = null;
 
         Token s=null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:227:5: (s= ID )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:227:7: s= ID
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:251:5: (s= ID )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:251:7: s= ID
             {
             s=(Token)match(input,ID,FOLLOW_ID_in_ns399); 
             namespace =s;
@@ -975,15 +999,15 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "value"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:230:10: fragment value returns [String s] : v= ( STR | INT | FLOAT | CHAR ) ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:254:10: fragment value returns [String s] : v= ( STR | INT | FLOAT | CHAR ) ;
     public final String value() throws RecognitionException {
         String s = null;
 
         Token v=null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:231:5: (v= ( STR | INT | FLOAT | CHAR ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:231:7: v= ( STR | INT | FLOAT | CHAR )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:255:5: (v= ( STR | INT | FLOAT | CHAR ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:255:7: v= ( STR | INT | FLOAT | CHAR )
             {
             v=(Token)input.LT(1);
             if ( (input.LA(1)>=STR && input.LA(1)<=CHAR) ) {
@@ -1012,10 +1036,10 @@ public class StruxtParser extends Parser {
 
 
     // $ANTLR start "attributes"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:234:10: fragment attributes : ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:258:10: fragment attributes : ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' );
     public final void attributes() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:235:5: ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:259:5: ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' )
             int alt21=3;
             switch ( input.LA(1) ) {
             case OP:
@@ -1047,14 +1071,14 @@ public class StruxtParser extends Parser {
 
             switch (alt21) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:235:7: attribute ( ',' attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:259:7: attribute ( ',' attribute )*
                     {
                     pushFollow(FOLLOW_attribute_in_attributes461);
                     attribute();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:235:17: ( ',' attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:259:17: ( ',' attribute )*
                     loop18:
                     do {
                         int alt18=2;
@@ -1067,7 +1091,7 @@ public class StruxtParser extends Parser {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:235:19: ',' attribute
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:259:19: ',' attribute
                     	    {
                     	    match(input,23,FOLLOW_23_in_attributes465); 
                     	    pushFollow(FOLLOW_attribute_in_attributes467);
@@ -1088,7 +1112,7 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:7: '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:260:7: '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')'
                     {
                     match(input,24,FOLLOW_24_in_attributes477); 
                     pushFollow(FOLLOW_attribute_in_attributes479);
@@ -1096,7 +1120,7 @@ public class StruxtParser extends Parser {
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:21: ( ( ',' | ';' | '.' ) attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:260:21: ( ( ',' | ';' | '.' ) attribute )*
                     loop19:
                     do {
                         int alt19=2;
@@ -1109,7 +1133,7 @@ public class StruxtParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:236:23: ( ',' | ';' | '.' ) attribute
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:260:23: ( ',' | ';' | '.' ) attribute
                     	    {
                     	    if ( input.LA(1)==18||(input.LA(1)>=22 && input.LA(1)<=23) ) {
                     	        input.consume();
@@ -1139,7 +1163,7 @@ public class StruxtParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:237:7: '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:261:7: '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']'
                     {
                     match(input,26,FOLLOW_26_in_attributes503); 
                     pushFollow(FOLLOW_attribute_in_attributes505);
@@ -1147,7 +1171,7 @@ public class StruxtParser extends Parser {
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:237:21: ( ( ',' | ';' | '.' ) attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:261:21: ( ( ',' | ';' | '.' ) attribute )*
                     loop20:
                     do {
                         int alt20=2;
@@ -1160,7 +1184,7 @@ public class StruxtParser extends Parser {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:237:23: ( ',' | ';' | '.' ) attribute
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/Struxt.g:261:23: ( ',' | ';' | '.' ) attribute
                     	    {
                     	    if ( input.LA(1)==18||(input.LA(1)>=22 && input.LA(1)<=23) ) {
                     	        input.consume();
@@ -1447,7 +1471,7 @@ public class StruxtParser extends Parser {
             this.transition = DFA8_transition;
         }
         public String getDescription() {
-            return "()* loopback of 212:7: ( node )*";
+            return "()* loopback of 236:7: ( node )*";
         }
     }
     static final String DFA15_eotS =
@@ -1507,7 +1531,7 @@ public class StruxtParser extends Parser {
             this.transition = DFA15_transition;
         }
         public String getDescription() {
-            return "215:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );";
+            return "239:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );";
         }
     }
  

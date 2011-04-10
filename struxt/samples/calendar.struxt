@@ -3,13 +3,13 @@ control@metal "calendar" name,
   "http://www.xmtl.org/version/2010/04" metal@xmlns,
   "http://www.w3.org/1999/xhtml" xmlns {
 
-  div "previous-month${index}" id, "navigator previous-month" class: " ← ".
+  div "previous-month${index}", "navigator previous-month" class: " ← ".
   div "month" class: "${this.now.getMonth() + 1}/${this.now.getYear() + 1900}".
-  div "next-month${index}" id, "navigator net-month" class: " → ".
+  div "next-month${index}", "navigator net-month" class: " → ".
   
   control@metal "week" name {
     control@metal "days" name {
-      div "day${calendar.index}-${week.index}-${index}" id, "week${week.index} day${index} day" class: "${this.day}".
+      div "day${calendar.index}-${week.index}-${index}", "week${week.index} day${index} day" class: "${this.day}".
     }
   }
   

@@ -1,12 +1,12 @@
 component {
 
   package "Some Group" {
-    interface "HTTP" -> "First Component".
+    interface "HTTP": "First Component".
     component "Another Component".
   }
   package "Other Groups" {
     interface "FTP": "Second Component".
-    component "First Component" -> "FTP".
+    component "First Component":  "FTP".
   }
 
   note left, of "HTTP" : "Web Service only".
@@ -16,6 +16,6 @@ component {
   be on several lines
   """.
 
-  component "Component" left, right, up, down.
+  component "Component", left, right, up, down.
 
 }

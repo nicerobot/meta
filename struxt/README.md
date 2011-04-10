@@ -2,7 +2,7 @@
 
 Equivalent structure to XML.
 
-As readable and writable as plain text.
+Looks like a programming language.
 
 ## The Goal ##
 

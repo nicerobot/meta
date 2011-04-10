@@ -105,8 +105,32 @@ import org.jdom.output.XMLOutputter;
   public Content addAttribute (StruxtParser.name_return name, String value) {
     final Content node = getCurrent();
     String s = (null!=name && null!=name.namespace)?name.namespace.getText():null;
-    // TODO: Make "value" configurable ... per namespace?
-    String n = (null!=name && null!=name.nodename)?name.nodename.getText():"id";
+
+    String n = null;
+    if (null!=name && null!=name.nodename) {
+      n = name.nodename.getText();
+    } else {
+      if (null == node) {
+        n = "id";
+      } else {
+        Element ne = (Element)node;
+        String ns = ne.getNamespaceURI();
+        String na = ne.getName();
+        // TODO: Implement struxt-config support to make these defaults
+        // user-customizable and namespace sensitive.
+        if ("a".equals(na)) {
+          n = "href";
+        } else if ("value-of".equals(na)) {
+          n = "select";
+        } else if ("control".equals(na)) {
+          n = "name";
+        } else {
+          // TODO: provide support to add multiple unqualified values.
+          // That is, a "b", "c", "d". => <a id="b" id1="c" id2="d"/>
+          n = "id";
+        }
+      }
+    }
     final String v = unquote(singleline(null!=value?value:"true"));
     Element el = ((Element)node);
 
@@ -158,7 +182,7 @@ import org.jdom.output.XMLOutputter;
       st = new ANTLRFileStream(args[0]);
     }
     try {
-      System.out.println(new StruxtParser(new CommonTokenStream(new StruxtLexer(st))).struxt());
+      System.out.print(new StruxtParser(new CommonTokenStream(new StruxtLexer(st))).struxt());
     } catch (RecognitionException e)  {
       e.printStackTrace();
     }
