@@ -38,8 +38,7 @@ Not only is the Struxt far less verbose, it's simply easier to read.
       to: "Tove".
       from: "Jani".
       heading: "Reminder".
-      body: "Don't forget me this weekend!".
-    .
+      body: "Don't forget me this weekend!"
 
 ### Alternately, {} can replace :. ###
 
@@ -76,12 +75,15 @@ equivalently produce:
 
 ### HTML Example ###
 
-    html{
+    html:
       head{title:"My Struxt".}
-      body{
-        a href "/nicerobot/text-plain/tree/master/struxt":"Struxt".
-      }
-    }
+      body:
+        a "/nicerobot/text-plain/tree/master/struxt":"Struxt".
+
+This example demonstrates a couple points.
+
+1. When using `tag:` syntax, EOF will close all open tags.
+1. Certain tags have default attribute names. e.g. `a` tag's default attribute name is `href`.
 
 ### HTML Output ###
 
@@ -178,7 +180,7 @@ Produces [this Metal Control](/nicerobot/metal/blob/master/metal-common/src/test
 
 ### For [this XML](/nicerobot/text-plain/tree/master/language/src/test/resources/ical.xml) ###
 
-    <?xml version="1.0"?>
+    <?xml version="1.1"?>
     <iCalendar xmlns="urn:ietf:params:xml:ns:xcal">
       <vcalendar>
         <version>2.0</version>
@@ -221,8 +223,8 @@ Produces [this Metal Control](/nicerobot/metal/blob/master/metal-common/src/test
 ### The Struxt ###
 
     stylesheet/xsl 2.0 version,
-      "http://www.w3.org/1999/xhtml" xhtml/xmlns,
-      "http://www.w3.org/1999/XSL/Transform" xsl/xmlns
+      "http://www.w3.org/1999/xhtml" xhtml@xmlns,
+      "http://www.w3.org/1999/XSL/Transform" xsl@xmlns
     {
       template/xsl match "*": "[" value-of/xsl select ".". "]".
     }

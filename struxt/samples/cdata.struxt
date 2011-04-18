@@ -1,0 +1,15 @@
+cdata-test {
+[["
+
+this'll be verbatim.
+
+"]]
+
+  xmldecl {
+    one XML.
+    execute {[["addPI("xml");"]]}
+    one attributes.
+    one '.'.
+    execute {[["closeNode();"]]}
+  }
+}

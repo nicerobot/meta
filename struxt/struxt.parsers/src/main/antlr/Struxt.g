@@ -30,6 +30,7 @@ import org.jdom.Comment;
 import org.jdom.Content;
 import org.jdom.Document;
 import org.jdom.Element;
+import org.jdom.CDATA;
 import org.jdom.Namespace;
 import org.jdom.ProcessingInstruction;
 import org.jdom.Text;
@@ -72,6 +73,12 @@ import org.jdom.output.XMLOutputter;
   public Content addText (String text) {
     final Content node = getCurrent();
     ((Element)node).addContent(new Text(unquote(text)));
+    return node;
+  }
+
+  public Content addCDATA (String text) {
+    final Content node = getCurrent();
+    ((Element)node).addContent(new CDATA(unquote(text)));
     return node;
   }
 
@@ -120,10 +127,21 @@ import org.jdom.output.XMLOutputter;
         // user-customizable and namespace sensitive.
         if ("a".equals(na)) {
           n = "href";
+        } else if ("control".equals(na)
+          || "input".equals(na)
+          || "param".equals(na)) {
+          n = "name";
+        } else if ("img".equals(na)
+          || "frame".equals(na)
+          || "iframe".equals(na)
+          || "script".equals(na)) {
+          n = "src";
+        } else if ("option".equals(na)) {
+          n = "value";
+        } else if ("form".equals(na)) {
+          n = "action";
         } else if ("value-of".equals(na)) {
           n = "select";
-        } else if ("control".equals(na)) {
-          n = "name";
         } else {
           // TODO: provide support to add multiple unqualified values.
           // That is, a "b", "c", "d". => <a id="b" id1="c" id2="d"/>
@@ -195,8 +213,9 @@ import org.jdom.output.XMLOutputter;
   public static String unquote(String s) {
     int q=0;
     if (s.startsWith("'''")) q+=3;
-    if (s.startsWith("!!!")) q+=3;
-    if (s.startsWith("\"\"\"")) q+=2;
+    else if (s.startsWith("[[\"")) q+=3;
+    else if (s.startsWith("!!!")) q+=3;
+    else if (s.startsWith("\"\"\"")) q+=2;
     if (s.startsWith("\"")) q+=1;
     if (0==q) return s;
     return s.substring(q,s.length()-q);
@@ -221,6 +240,7 @@ xmldecl
 node
     : tag children {closeNode();}
     | text=value {addText($text);}
+    | cdata=CDATA {addCDATA($cdata.text);}
     ;
 
 tag
@@ -229,7 +249,7 @@ tag
 
 fragment children
     : '{' childs '}'
-    | (':' node*)? ('.'|';')
+    | (':' node*)? ('.'|';'|EOF)
     ;
 
 fragment childs
@@ -284,6 +304,10 @@ XML
 
 DOC
     : '!!!' (options {greedy=false;}:.)+ '!!!'
+    ;
+
+CDATA
+    : '[["' (options {greedy=false;}:.)+ '"]]'
     ;
 
 STR
