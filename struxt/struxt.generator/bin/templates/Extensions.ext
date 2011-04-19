@@ -1,4 +1,0 @@
-import Struxt::struxt;
-
-sortedGreetings(Model this) :
-	this.greetings.sortBy(g|g.name.toLowerCase());
