@@ -1,10 +1,10 @@
-grammar StruxtPy;
+grammar StruxtPHP;
 
 options {
-  language=Python;
+  language=PHP;
 }
 
-struxt returns [StruxtPyParser self]
+struxt returns [StruxtPHPParser self]
     : xml=xmldecl?
       doctype=DOC?
       node EOF

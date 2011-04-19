@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:45:30 /Users/rnix/Projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtObjC.g 2011-04-05 10:55:39
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtObjC.g 2011-04-19 00:05:01
 
 /* =============================================================================
  * Standard antlr3 OBJC runtime definitions
@@ -20,19 +20,23 @@ typedef enum {
     MIN
 } ANTLR3TokenType;
 
-#pragma mark Cyclic DFA interface start DFA9
-@interface DFA9 : ANTLRDFA {
+#pragma mark Cyclic DFA interface start DFA8
+@interface DFA8 : ANTLRDFA {
 }
-+ newDFA9WithRecognizer:(ANTLRBaseRecognizer *)theRecognizer;
++ newDFA8WithRecognizer:(ANTLRBaseRecognizer *)theRecognizer;
 - initWithRecognizer:(ANTLRBaseRecognizer *)recognizer;
-@end /* end of DFA9 interface  */
+@end /* end of DFA8 interface  */
 
-#pragma mark Cyclic DFA interface end DFA9
+#pragma mark Cyclic DFA interface end DFA8#pragma mark Cyclic DFA interface start DFA15
+@interface DFA15 : ANTLRDFA {
+}
++ newDFA15WithRecognizer:(ANTLRBaseRecognizer *)theRecognizer;
+- initWithRecognizer:(ANTLRBaseRecognizer *)recognizer;
+@end /* end of DFA15 interface  */
+
+#pragma mark Cyclic DFA interface end DFA15
 #pragma mark Tokens
 #define EOF -1
-#define T__16 16
-#define T__17 17
-#define T__18 18
 #define T__19 19
 #define T__20 20
 #define T__21 21
@@ -43,22 +47,52 @@ typedef enum {
 #define T__26 26
 #define T__27 27
 #define T__28 28
-#define T__29 29
 #define DOC 4
 #define XML 5
-#define STR 6
-#define ID 7
-#define OP 8
-#define INT 9
-#define FLOAT 10
-#define CHAR 11
-#define COMMENT 12
-#define WS 13
-#define EXPONENT 14
-#define HEX_DIGIT 15
+#define CDATA 6
+#define OP 7
+#define PRENS 8
+#define ID 9
+#define POSTNS 10
+#define STR 11
+#define INT 12
+#define FLOAT 13
+#define CHAR 14
+#define COMMENT 15
+#define WS 16
+#define EXPONENT 17
+#define HEX_DIGIT 18
 #pragma mark Dynamic Global Scopes
 #pragma mark Dynamic Rule Scopes
 #pragma mark Rule Return Scopes start
+/* returnScopeInterface */
+@interface StruxtObjCParser_name_return :ANTLRParserRuleReturnScope { /* returnScopeInterface line 1806 */
+ /* start of memVars() */
+Token namespace;
+Token nodename;
+}
+ /* start properties */
+@property (getter=getnamespace, setter=setnamespace:) Token namespace;
+@property (getter=getnodename, setter=setnodename:) Token nodename;
+
+/* end properties */
++ (StruxtObjCParser_name_return *)newStruxtObjCParser_name_return;
+/* this is start of set and get methods */
+  /* methodsDecl */
+/* start of iterated get and set functions */
+
+
+
+- (Token)getnamespace;
+- (void)setnamespace:(Token)aVal;
+
+
+- (Token)getnodename;
+- (void)setnodename:(Token)aVal;
+
+// End of iterated get and set functions
+@end /* end of returnScopeInterface interface */
+
 #pragma mark Rule return scopes end
 @interface StruxtObjCParser : ANTLRParser { /* line 572 */
 // start of globalAttributeScopeMemVar
@@ -70,20 +104,23 @@ typedef enum {
 
 // Start of memVars
 
-DFA9 *dfa9;
+DFA8 *dfa8;
+DFA15 *dfa15;
  }
 
 // start of action-actionScope-methodsDecl
 
 
-- (void)struxt; 
-- (String)xmldecl; 
+- (StruxtObjCParser)struxt; 
+- (void)xmldecl; 
 - (void)node; 
-- (String)tag; 
+- (void)tag; 
 - (void)children; 
 - (void)childs; 
 - (void)attribute; 
-- (Token)value; 
+- (StruxtObjCParser_name_return *)name; 
+- (Token)ns; 
+- (String)value; 
 - (void)attributes; 
 
 

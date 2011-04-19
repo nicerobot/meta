@@ -1,10 +1,10 @@
-grammar StruxtPy;
+grammar StruxtC;
 
 options {
-  language=Python;
+  language=C;
 }
 
-struxt returns [StruxtPyParser self]
+struxt returns [StruxtCParser self]
     : xml=xmldecl?
       doctype=DOC?
       node EOF

@@ -4,31 +4,29 @@ options {
   language=ObjC;
 }
 
-struxt
+struxt returns [StruxtObjCParser self]
     : xml=xmldecl?
       doctype=DOC?
       node EOF
     ;
 
-xmldecl returns [String attrs]
+xmldecl
     : XML attributes '.'
     ;
 
 node
-    : tagname=tag
-      /* TODO: If there are no children, close the open tag. */
-      children
-    | text=STR
-     
+    : tag children
+    | text=value
+    | cdata=CDATA
     ;
 
-tag returns [String tagname]
-    : nodename=ID (('@'|'\\') ns=ID)? attributes?
+tag
+    : n=name attributes?
 	  ;
 
 fragment children
     : '{' childs '}'
-    | (':' node*)? ('.'|';')
+    | (':' node*)? ('.'|';'|EOF)
     ;
 
 fragment childs
@@ -36,18 +34,36 @@ fragment childs
     ;
 
 fragment attribute
-    : (ns=ID ('!'|'#') name=ID | name=ID ( ('@'|'\\') ns=ID)?) o=OP? v=value?
-    | v=value o=OP? (ns=ID  ('!'|'#') name=ID | name=ID (('@'|'\\') ns=ID)?)?
+    : n=name o=OP? v=value?
+    | v=value o=OP? n=name?
+    | n=name o=OP n1=name
+    | o=OP (n=name|v=value)
     ;
 
-fragment value returns [Token value]
-    : (STR | INT | FLOAT | CHAR)
+fragment name returns [Token namespace, Token nodename]
+    : (s=ns PRENS n=ID | n=ID ( POSTNS s=ns)?)
+    ;
+
+fragment ns returns [Token namespace]
+    : s=ID
+    ;
+
+fragment value returns [String s]
+    : v=(STR | INT | FLOAT | CHAR)
     ;
 
 fragment attributes
     : attribute ( ',' attribute)*
     | '(' attribute ( (','|';'|'.') attribute)* ')'
     | '[' attribute ( (','|';'|'.') attribute)* ']'
+    ;
+
+PRENS
+    : ('!'|'#'|'::')
+    ;
+
+POSTNS
+    : ('@'|'\\')
     ;
 
 OP
@@ -65,6 +81,10 @@ XML
 
 DOC
     : '!!!' (options {greedy=false;}:.)+ '!!!'
+    ;
+
+CDATA
+    : '[["' (options {greedy=false;}:.)+ '"]]'
     ;
 
 STR
@@ -90,7 +110,7 @@ INT :	'0'..'9'+
     ;
 
 FLOAT
-    :   ('0'..'9')+ '.' ('0'..'9')* EXPONENT?
+    :   ('0'..'9')+ '.' ('0'..'9')* EXPONENT? 
     |   '.' ('0'..'9')+ EXPONENT?
     |   ('0'..'9')+ EXPONENT
     ;

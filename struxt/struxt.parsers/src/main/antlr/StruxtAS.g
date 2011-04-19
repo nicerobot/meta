@@ -1,10 +1,10 @@
-grammar StruxtPy;
+grammar StruxtAS;
 
 options {
-  language=Python;
+  language=ActionScript;
 }
 
-struxt returns [StruxtPyParser self]
+struxt returns [StruxtASParser self]
     : xml=xmldecl?
       doctype=DOC?
       node EOF

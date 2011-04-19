@@ -1,10 +1,10 @@
-grammar StruxtPy;
+grammar StruxtPerl6;
 
 options {
-  language=Python;
+  language=Perl6;
 }
 
-struxt returns [StruxtPyParser self]
+struxt returns [StruxtPerl6Parser self]
     : xml=xmldecl?
       doctype=DOC?
       node EOF
