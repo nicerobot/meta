@@ -6,6 +6,8 @@
   Modified: 2010-05-18-0800
   
   This transformation converts any XML document into text-plain.
+  
+  TODO: Fix the dropping of xmlns definitions on the root node.
 -->
 <xsl:stylesheet version="2.0"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"

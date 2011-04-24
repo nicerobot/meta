@@ -124,11 +124,20 @@ import org.jdom.output.XMLOutputter;
         String ns = ne.getNamespaceURI();
         String na = ne.getName();
         // TODO: Implement struxt-config support to make these defaults
-        // user-customizable and namespace sensitive.
+        // user-customizable and namespace sensitive. Additionally support
+        // multiple, orderd defaults. For example,
+        //   a "1", "2". 
+        // might default the first attribute name to "name" and the second
+        // attribute name to "value". Resulting in
+        //   <a name="1" value="2" />
+        // Further implying that quoted attributes and numbers can exclude
+        // the comma between attribute values.
         if ("a".equals(na)) {
           n = "href";
         } else if ("control".equals(na)
           || "input".equals(na)
+          || "property".equals(na)
+          || "target".equals(na)
           || "param".equals(na)) {
           n = "name";
         } else if ("img".equals(na)
@@ -138,6 +147,8 @@ import org.jdom.output.XMLOutputter;
           n = "src";
         } else if ("option".equals(na)) {
           n = "value";
+        } else if ("mkdir".equals(na)) {
+          n = "dir";
         } else if ("form".equals(na)) {
           n = "action";
         } else if ("value-of".equals(na)) {
@@ -264,6 +275,13 @@ fragment attribute
     ;
 
 fragment name returns [Token namespace, Token nodename]
+    // TODO: Allow default ns to be xmlns. So namespaces can be declared like
+    // tp@"http://text-plain.org/"
+    // or
+    // "http://text-plain.org/"!tp
+    // becomes xmlns:tp="http://text-plain.org/"
+    // This means, for namespaces, the grammar might be _something like_, but  not
+    // (s=ns? PRENS n=ID | n=ID ( POSTNS s=ns?)?)
     : (s=ns PRENS n=ID | n=ID ( POSTNS s=ns)?) {$namespace=s; $nodename=n;}
     ;
 
@@ -279,6 +297,7 @@ fragment attributes
     : attribute ( ',' attribute)*
     | '(' attribute ( (','|';'|'.') attribute)* ')'
     | '[' attribute ( (','|';'|'.') attribute)* ']'
+    // TODO: | value+
     ;
 
 PRENS

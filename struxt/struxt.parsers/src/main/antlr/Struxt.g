@@ -41,6 +41,13 @@ fragment attribute
     ;
 
 fragment name returns [Token namespace, Token nodename]
+    // TODO: Allow default ns to be xmlns. So namespaces can be declared like
+    // tp@"http://text-plain.org/"
+    // or
+    // "http://text-plain.org/"!tp
+    // becomes xmlns:tp="http://text-plain.org/"
+    // This means, for namespaces, the grammar might be _something like_, but  not
+    // (s=ns? PRENS n=ID | n=ID ( POSTNS s=ns?)?)
     : (s=ns PRENS n=ID | n=ID ( POSTNS s=ns)?)
     ;
 
@@ -56,6 +63,7 @@ fragment attributes
     : attribute ( ',' attribute)*
     | '(' attribute ( (','|';'|'.') attribute)* ')'
     | '[' attribute ( (','|';'|'.') attribute)* ']'
+    // TODO: | value+
     ;
 
 PRENS
