@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g 2011-04-19 00:09:41
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g 2011-04-24 20:29:15
 
 package org.nicerobot.struxt.parser;
 
@@ -171,11 +171,20 @@ public class StruxtJavaParser extends Parser {
             String ns = ne.getNamespaceURI();
             String na = ne.getName();
             // TODO: Implement struxt-config support to make these defaults
-            // user-customizable and namespace sensitive.
+            // user-customizable and namespace sensitive. Additionally support
+            // multiple, orderd defaults. For example,
+            //   a "1", "2". 
+            // might default the first attribute name to "name" and the second
+            // attribute name to "value". Resulting in
+            //   <a name="1" value="2" />
+            // Further implying that quoted attributes and numbers can exclude
+            // the comma between attribute values.
             if ("a".equals(na)) {
               n = "href";
             } else if ("control".equals(na)
               || "input".equals(na)
+              || "property".equals(na)
+              || "target".equals(na)
               || "param".equals(na)) {
               n = "name";
             } else if ("img".equals(na)
@@ -185,6 +194,8 @@ public class StruxtJavaParser extends Parser {
               n = "src";
             } else if ("option".equals(na)) {
               n = "value";
+            } else if ("mkdir".equals(na)) {
+              n = "dir";
             } else if ("form".equals(na)) {
               n = "action";
             } else if ("value-of".equals(na)) {
@@ -272,17 +283,17 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "struxt"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:230:1: struxt returns [StruxtJavaParser self] : (xml= xmldecl )? (doctype= DOC )? node EOF ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:241:1: struxt returns [StruxtJavaParser self] : (xml= xmldecl )? (doctype= DOC )? node EOF ;
     public final StruxtJavaParser struxt() throws RecognitionException {
         StruxtJavaParser self = null;
 
         Token doctype=null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:231:5: ( (xml= xmldecl )? (doctype= DOC )? node EOF )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:231:7: (xml= xmldecl )? (doctype= DOC )? node EOF
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:242:5: ( (xml= xmldecl )? (doctype= DOC )? node EOF )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:242:7: (xml= xmldecl )? (doctype= DOC )? node EOF
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:231:10: (xml= xmldecl )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:242:10: (xml= xmldecl )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -291,7 +302,7 @@ public class StruxtJavaParser extends Parser {
             }
             switch (alt1) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:231:10: xml= xmldecl
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:242:10: xml= xmldecl
                     {
                     pushFollow(FOLLOW_xmldecl_in_struxt53);
                     xmldecl();
@@ -304,7 +315,7 @@ public class StruxtJavaParser extends Parser {
 
             }
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:232:14: (doctype= DOC )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:243:14: (doctype= DOC )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -313,7 +324,7 @@ public class StruxtJavaParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:232:14: doctype= DOC
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:243:14: doctype= DOC
                     {
                     doctype=(Token)match(input,DOC,FOLLOW_DOC_in_struxt64); 
 
@@ -345,11 +356,11 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "xmldecl"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:236:1: xmldecl : XML attributes '.' ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:247:1: xmldecl : XML attributes '.' ;
     public final void xmldecl() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:237:5: ( XML attributes '.' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:237:7: XML attributes '.'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:248:5: ( XML attributes '.' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:248:7: XML attributes '.'
             {
             match(input,XML,FOLLOW_XML_in_xmldecl94); 
             addPI("xml");
@@ -378,7 +389,7 @@ public class StruxtJavaParser extends Parser {
     };
 
     // $ANTLR start "node"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:240:1: node : ( tag children | text= value | cdata= CDATA );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:251:1: node : ( tag children | text= value | cdata= CDATA );
     public final StruxtJavaParser.node_return node() throws RecognitionException {
         StruxtJavaParser.node_return retval = new StruxtJavaParser.node_return();
         retval.start = input.LT(1);
@@ -388,7 +399,7 @@ public class StruxtJavaParser extends Parser {
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:241:5: ( tag children | text= value | cdata= CDATA )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:252:5: ( tag children | text= value | cdata= CDATA )
             int alt3=3;
             switch ( input.LA(1) ) {
             case ID:
@@ -418,7 +429,7 @@ public class StruxtJavaParser extends Parser {
 
             switch (alt3) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:241:7: tag children
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:252:7: tag children
                     {
                     pushFollow(FOLLOW_tag_in_node119);
                     tag();
@@ -435,7 +446,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:242:7: text= value
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:253:7: text= value
                     {
                     pushFollow(FOLLOW_value_in_node133);
                     text=value();
@@ -447,7 +458,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:243:7: cdata= CDATA
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:254:7: cdata= CDATA
                     {
                     cdata=(Token)match(input,CDATA,FOLLOW_CDATA_in_node145); 
                     addCDATA((cdata!=null?cdata.getText():null));
@@ -471,14 +482,14 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "tag"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:246:1: tag : n= name ( attributes )? ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:257:1: tag : n= name ( attributes )? ;
     public final void tag() throws RecognitionException {
         StruxtJavaParser.name_return n = null;
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:247:5: (n= name ( attributes )? )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:247:7: n= name ( attributes )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:258:5: (n= name ( attributes )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:258:7: n= name ( attributes )?
             {
             pushFollow(FOLLOW_name_in_tag166);
             n=name();
@@ -486,7 +497,7 @@ public class StruxtJavaParser extends Parser {
             state._fsp--;
 
             addNode(n.namespace, n.nodename);
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:247:50: ( attributes )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:258:50: ( attributes )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -495,7 +506,7 @@ public class StruxtJavaParser extends Parser {
             }
             switch (alt4) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:247:50: attributes
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:258:50: attributes
                     {
                     pushFollow(FOLLOW_attributes_in_tag170);
                     attributes();
@@ -524,10 +535,10 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "children"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:250:10: fragment children : ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' | EOF ) );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:261:10: fragment children : ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' | EOF ) );
     public final void children() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:251:5: ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' | EOF ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:262:5: ( '{' childs '}' | ( ':' ( node )* )? ( '.' | ';' | EOF ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -545,7 +556,7 @@ public class StruxtJavaParser extends Parser {
             }
             switch (alt7) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:251:7: '{' childs '}'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:262:7: '{' childs '}'
                     {
                     match(input,20,FOLLOW_20_in_children189); 
                     pushFollow(FOLLOW_childs_in_children191);
@@ -558,9 +569,9 @@ public class StruxtJavaParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:252:7: ( ':' ( node )* )? ( '.' | ';' | EOF )
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:7: ( ':' ( node )* )? ( '.' | ';' | EOF )
                     {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:252:7: ( ':' ( node )* )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:7: ( ':' ( node )* )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -569,10 +580,10 @@ public class StruxtJavaParser extends Parser {
                     }
                     switch (alt6) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:252:8: ':' ( node )*
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:8: ':' ( node )*
                             {
                             match(input,22,FOLLOW_22_in_children202); 
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:252:12: ( node )*
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:12: ( node )*
                             loop5:
                             do {
                                 int alt5=2;
@@ -585,7 +596,7 @@ public class StruxtJavaParser extends Parser {
 
                                 switch (alt5) {
                             	case 1 :
-                            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:252:12: node
+                            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:12: node
                             	    {
                             	    pushFollow(FOLLOW_node_in_children204);
                             	    node();
@@ -634,20 +645,20 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "childs"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:255:10: fragment childs : ( node )* (nodename= tag )? ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:266:10: fragment childs : ( node )* (nodename= tag )? ;
     public final void childs() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:256:5: ( ( node )* (nodename= tag )? )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:256:7: ( node )* (nodename= tag )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:5: ( ( node )* (nodename= tag )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:7: ( node )* (nodename= tag )?
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:256:7: ( node )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:7: ( node )*
             loop8:
             do {
                 int alt8=2;
                 alt8 = dfa8.predict(input);
                 switch (alt8) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:256:7: node
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:7: node
             	    {
             	    pushFollow(FOLLOW_node_in_childs234);
             	    node();
@@ -663,7 +674,7 @@ public class StruxtJavaParser extends Parser {
                 }
             } while (true);
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:256:21: (nodename= tag )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:21: (nodename= tag )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -672,7 +683,7 @@ public class StruxtJavaParser extends Parser {
             }
             switch (alt9) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:256:21: nodename= tag
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:21: nodename= tag
                     {
                     pushFollow(FOLLOW_tag_in_childs239);
                     tag();
@@ -701,7 +712,7 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "attribute"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:259:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:270:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );
     public final void attribute() throws RecognitionException {
         Token o=null;
         StruxtJavaParser.name_return n = null;
@@ -712,19 +723,19 @@ public class StruxtJavaParser extends Parser {
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:260:5: (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:5: (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) )
             int alt15=4;
             alt15 = dfa15.predict(input);
             switch (alt15) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:260:7: n= name (o= OP )? (v= value )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:7: n= name (o= OP )? (v= value )?
                     {
                     pushFollow(FOLLOW_name_in_attribute261);
                     n=name();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:260:15: (o= OP )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:15: (o= OP )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -733,7 +744,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     switch (alt10) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:260:15: o= OP
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:15: o= OP
                             {
                             o=(Token)match(input,OP,FOLLOW_OP_in_attribute265); 
 
@@ -742,7 +753,7 @@ public class StruxtJavaParser extends Parser {
 
                     }
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:260:21: (v= value )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:21: (v= value )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -751,7 +762,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     switch (alt11) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:260:21: v= value
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:21: v= value
                             {
                             pushFollow(FOLLOW_value_in_attribute270);
                             v=value();
@@ -769,14 +780,14 @@ public class StruxtJavaParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:261:7: v= value (o= OP )? (n= name )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:272:7: v= value (o= OP )? (n= name )?
                     {
                     pushFollow(FOLLOW_value_in_attribute283);
                     v=value();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:261:16: (o= OP )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:272:16: (o= OP )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -785,7 +796,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     switch (alt12) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:261:16: o= OP
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:272:16: o= OP
                             {
                             o=(Token)match(input,OP,FOLLOW_OP_in_attribute287); 
 
@@ -794,7 +805,7 @@ public class StruxtJavaParser extends Parser {
 
                     }
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:261:22: (n= name )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:272:22: (n= name )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -803,7 +814,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     switch (alt13) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:261:22: n= name
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:272:22: n= name
                             {
                             pushFollow(FOLLOW_name_in_attribute292);
                             n=name();
@@ -821,7 +832,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:262:7: n= name o= OP n1= name
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:273:7: n= name o= OP n1= name
                     {
                     pushFollow(FOLLOW_name_in_attribute305);
                     n=name();
@@ -839,10 +850,10 @@ public class StruxtJavaParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:7: o= OP (n= name | v= value )
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:274:7: o= OP (n= name | v= value )
                     {
                     o=(Token)match(input,OP,FOLLOW_OP_in_attribute325); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:12: (n= name | v= value )
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:274:12: (n= name | v= value )
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -860,7 +871,7 @@ public class StruxtJavaParser extends Parser {
                     }
                     switch (alt14) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:13: n= name
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:274:13: n= name
                             {
                             pushFollow(FOLLOW_name_in_attribute330);
                             n=name();
@@ -871,7 +882,7 @@ public class StruxtJavaParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:263:20: v= value
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:274:20: v= value
                             {
                             pushFollow(FOLLOW_value_in_attribute334);
                             v=value();
@@ -907,7 +918,7 @@ public class StruxtJavaParser extends Parser {
     };
 
     // $ANTLR start "name"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:266:10: fragment name returns [Token namespace, Token nodename] : (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:277:10: fragment name returns [Token namespace, Token nodename] : (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) ;
     public final StruxtJavaParser.name_return name() throws RecognitionException {
         StruxtJavaParser.name_return retval = new StruxtJavaParser.name_return();
         retval.start = input.LT(1);
@@ -917,10 +928,10 @@ public class StruxtJavaParser extends Parser {
 
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:5: ( (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:5: ( (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:7: (s= ns PRENS n= ID | n= ID ( POSTNS s= ns )? )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -948,23 +959,23 @@ public class StruxtJavaParser extends Parser {
             }
             switch (alt17) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:8: s= ns PRENS n= ID
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:8: s= ns PRENS n= ID
                     {
-                    pushFollow(FOLLOW_ns_in_name363);
+                    pushFollow(FOLLOW_ns_in_name398);
                     s=ns();
 
                     state._fsp--;
 
-                    match(input,PRENS,FOLLOW_PRENS_in_name365); 
-                    n=(Token)match(input,ID,FOLLOW_ID_in_name369); 
+                    match(input,PRENS,FOLLOW_PRENS_in_name400); 
+                    n=(Token)match(input,ID,FOLLOW_ID_in_name404); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:26: n= ID ( POSTNS s= ns )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:26: n= ID ( POSTNS s= ns )?
                     {
-                    n=(Token)match(input,ID,FOLLOW_ID_in_name375); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:31: ( POSTNS s= ns )?
+                    n=(Token)match(input,ID,FOLLOW_ID_in_name410); 
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:31: ( POSTNS s= ns )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -973,10 +984,10 @@ public class StruxtJavaParser extends Parser {
                     }
                     switch (alt16) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:267:33: POSTNS s= ns
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:33: POSTNS s= ns
                             {
-                            match(input,POSTNS,FOLLOW_POSTNS_in_name379); 
-                            pushFollow(FOLLOW_ns_in_name383);
+                            match(input,POSTNS,FOLLOW_POSTNS_in_name414); 
+                            pushFollow(FOLLOW_ns_in_name418);
                             s=ns();
 
                             state._fsp--;
@@ -1012,17 +1023,17 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "ns"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:270:10: fragment ns returns [Token namespace] : s= ID ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:288:10: fragment ns returns [Token namespace] : s= ID ;
     public final Token ns() throws RecognitionException {
         Token namespace = null;
 
         Token s=null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:5: (s= ID )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:271:7: s= ID
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:289:5: (s= ID )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:289:7: s= ID
             {
-            s=(Token)match(input,ID,FOLLOW_ID_in_ns413); 
+            s=(Token)match(input,ID,FOLLOW_ID_in_ns448); 
             namespace =s;
 
             }
@@ -1040,15 +1051,15 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "value"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:274:10: fragment value returns [String s] : v= ( STR | INT | FLOAT | CHAR ) ;
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:292:10: fragment value returns [String s] : v= ( STR | INT | FLOAT | CHAR ) ;
     public final String value() throws RecognitionException {
         String s = null;
 
         Token v=null;
 
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:275:5: (v= ( STR | INT | FLOAT | CHAR ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:275:7: v= ( STR | INT | FLOAT | CHAR )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:5: (v= ( STR | INT | FLOAT | CHAR ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:7: v= ( STR | INT | FLOAT | CHAR )
             {
             v=(Token)input.LT(1);
             if ( (input.LA(1)>=STR && input.LA(1)<=CHAR) ) {
@@ -1077,10 +1088,10 @@ public class StruxtJavaParser extends Parser {
 
 
     // $ANTLR start "attributes"
-    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:278:10: fragment attributes : ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' );
+    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:296:10: fragment attributes : ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' );
     public final void attributes() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:279:5: ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:297:5: ( attribute ( ',' attribute )* | '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')' | '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']' )
             int alt21=3;
             switch ( input.LA(1) ) {
             case OP:
@@ -1112,14 +1123,14 @@ public class StruxtJavaParser extends Parser {
 
             switch (alt21) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:279:7: attribute ( ',' attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:297:7: attribute ( ',' attribute )*
                     {
-                    pushFollow(FOLLOW_attribute_in_attributes475);
+                    pushFollow(FOLLOW_attribute_in_attributes510);
                     attribute();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:279:17: ( ',' attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:297:17: ( ',' attribute )*
                     loop18:
                     do {
                         int alt18=2;
@@ -1132,10 +1143,10 @@ public class StruxtJavaParser extends Parser {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:279:19: ',' attribute
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:297:19: ',' attribute
                     	    {
-                    	    match(input,24,FOLLOW_24_in_attributes479); 
-                    	    pushFollow(FOLLOW_attribute_in_attributes481);
+                    	    match(input,24,FOLLOW_24_in_attributes514); 
+                    	    pushFollow(FOLLOW_attribute_in_attributes516);
                     	    attribute();
 
                     	    state._fsp--;
@@ -1153,15 +1164,15 @@ public class StruxtJavaParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:280:7: '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:298:7: '(' attribute ( ( ',' | ';' | '.' ) attribute )* ')'
                     {
-                    match(input,25,FOLLOW_25_in_attributes491); 
-                    pushFollow(FOLLOW_attribute_in_attributes493);
+                    match(input,25,FOLLOW_25_in_attributes526); 
+                    pushFollow(FOLLOW_attribute_in_attributes528);
                     attribute();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:280:21: ( ( ',' | ';' | '.' ) attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:298:21: ( ( ',' | ';' | '.' ) attribute )*
                     loop19:
                     do {
                         int alt19=2;
@@ -1174,7 +1185,7 @@ public class StruxtJavaParser extends Parser {
 
                         switch (alt19) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:280:23: ( ',' | ';' | '.' ) attribute
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:298:23: ( ',' | ';' | '.' ) attribute
                     	    {
                     	    if ( input.LA(1)==19||(input.LA(1)>=23 && input.LA(1)<=24) ) {
                     	        input.consume();
@@ -1185,7 +1196,7 @@ public class StruxtJavaParser extends Parser {
                     	        throw mse;
                     	    }
 
-                    	    pushFollow(FOLLOW_attribute_in_attributes505);
+                    	    pushFollow(FOLLOW_attribute_in_attributes540);
                     	    attribute();
 
                     	    state._fsp--;
@@ -1199,20 +1210,20 @@ public class StruxtJavaParser extends Parser {
                         }
                     } while (true);
 
-                    match(input,26,FOLLOW_26_in_attributes509); 
+                    match(input,26,FOLLOW_26_in_attributes544); 
 
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:281:7: '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:299:7: '[' attribute ( ( ',' | ';' | '.' ) attribute )* ']'
                     {
-                    match(input,27,FOLLOW_27_in_attributes517); 
-                    pushFollow(FOLLOW_attribute_in_attributes519);
+                    match(input,27,FOLLOW_27_in_attributes552); 
+                    pushFollow(FOLLOW_attribute_in_attributes554);
                     attribute();
 
                     state._fsp--;
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:281:21: ( ( ',' | ';' | '.' ) attribute )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:299:21: ( ( ',' | ';' | '.' ) attribute )*
                     loop20:
                     do {
                         int alt20=2;
@@ -1225,7 +1236,7 @@ public class StruxtJavaParser extends Parser {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:281:23: ( ',' | ';' | '.' ) attribute
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:299:23: ( ',' | ';' | '.' ) attribute
                     	    {
                     	    if ( input.LA(1)==19||(input.LA(1)>=23 && input.LA(1)<=24) ) {
                     	        input.consume();
@@ -1236,7 +1247,7 @@ public class StruxtJavaParser extends Parser {
                     	        throw mse;
                     	    }
 
-                    	    pushFollow(FOLLOW_attribute_in_attributes531);
+                    	    pushFollow(FOLLOW_attribute_in_attributes566);
                     	    attribute();
 
                     	    state._fsp--;
@@ -1250,7 +1261,7 @@ public class StruxtJavaParser extends Parser {
                         }
                     } while (true);
 
-                    match(input,28,FOLLOW_28_in_attributes535); 
+                    match(input,28,FOLLOW_28_in_attributes570); 
 
                     }
                     break;
@@ -1514,7 +1525,7 @@ public class StruxtJavaParser extends Parser {
             this.transition = DFA8_transition;
         }
         public String getDescription() {
-            return "()* loopback of 256:7: ( node )*";
+            return "()* loopback of 267:7: ( node )*";
         }
     }
     static final String DFA15_eotS =
@@ -1574,7 +1585,7 @@ public class StruxtJavaParser extends Parser {
             this.transition = DFA15_transition;
         }
         public String getDescription() {
-            return "259:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );";
+            return "270:10: fragment attribute : (n= name (o= OP )? (v= value )? | v= value (o= OP )? (n= name )? | n= name o= OP n1= name | o= OP (n= name | v= value ) );";
         }
     }
  
@@ -1612,26 +1623,26 @@ public class StruxtJavaParser extends Parser {
     public static final BitSet FOLLOW_OP_in_attribute325 = new BitSet(new long[]{0x0000000000007A00L});
     public static final BitSet FOLLOW_name_in_attribute330 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_value_in_attribute334 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ns_in_name363 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_PRENS_in_name365 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_ID_in_name369 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_name375 = new BitSet(new long[]{0x0000000000000402L});
-    public static final BitSet FOLLOW_POSTNS_in_name379 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_ns_in_name383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_ns413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_value440 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_attribute_in_attributes475 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_24_in_attributes479 = new BitSet(new long[]{0x0000000000007A80L});
-    public static final BitSet FOLLOW_attribute_in_attributes481 = new BitSet(new long[]{0x0000000001000002L});
-    public static final BitSet FOLLOW_25_in_attributes491 = new BitSet(new long[]{0x0000000000007A80L});
-    public static final BitSet FOLLOW_attribute_in_attributes493 = new BitSet(new long[]{0x0000000005880000L});
-    public static final BitSet FOLLOW_set_in_attributes497 = new BitSet(new long[]{0x0000000000007A80L});
-    public static final BitSet FOLLOW_attribute_in_attributes505 = new BitSet(new long[]{0x0000000005880000L});
-    public static final BitSet FOLLOW_26_in_attributes509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_attributes517 = new BitSet(new long[]{0x0000000000007A80L});
-    public static final BitSet FOLLOW_attribute_in_attributes519 = new BitSet(new long[]{0x0000000011880000L});
-    public static final BitSet FOLLOW_set_in_attributes523 = new BitSet(new long[]{0x0000000000007A80L});
-    public static final BitSet FOLLOW_attribute_in_attributes531 = new BitSet(new long[]{0x0000000011880000L});
-    public static final BitSet FOLLOW_28_in_attributes535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ns_in_name398 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_PRENS_in_name400 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_ID_in_name404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_name410 = new BitSet(new long[]{0x0000000000000402L});
+    public static final BitSet FOLLOW_POSTNS_in_name414 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_ns_in_name418 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_ns448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_value475 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_attribute_in_attributes510 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_24_in_attributes514 = new BitSet(new long[]{0x0000000000007A80L});
+    public static final BitSet FOLLOW_attribute_in_attributes516 = new BitSet(new long[]{0x0000000001000002L});
+    public static final BitSet FOLLOW_25_in_attributes526 = new BitSet(new long[]{0x0000000000007A80L});
+    public static final BitSet FOLLOW_attribute_in_attributes528 = new BitSet(new long[]{0x0000000005880000L});
+    public static final BitSet FOLLOW_set_in_attributes532 = new BitSet(new long[]{0x0000000000007A80L});
+    public static final BitSet FOLLOW_attribute_in_attributes540 = new BitSet(new long[]{0x0000000005880000L});
+    public static final BitSet FOLLOW_26_in_attributes544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_attributes552 = new BitSet(new long[]{0x0000000000007A80L});
+    public static final BitSet FOLLOW_attribute_in_attributes554 = new BitSet(new long[]{0x0000000011880000L});
+    public static final BitSet FOLLOW_set_in_attributes558 = new BitSet(new long[]{0x0000000000007A80L});
+    public static final BitSet FOLLOW_attribute_in_attributes566 = new BitSet(new long[]{0x0000000011880000L});
+    public static final BitSet FOLLOW_28_in_attributes570 = new BitSet(new long[]{0x0000000000000002L});
 
 }

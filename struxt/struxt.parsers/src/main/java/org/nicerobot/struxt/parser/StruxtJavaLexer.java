@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g 2011-04-19 00:09:41
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g 2011-04-24 20:29:16
 
 package org.nicerobot.struxt.parser;
 
@@ -254,10 +254,10 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = PRENS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:5: ( ( '!' | '#' | '::' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:7: ( '!' | '#' | '::' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:304:5: ( ( '!' | '#' | '::' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:304:7: ( '!' | '#' | '::' )
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:7: ( '!' | '#' | '::' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:304:7: ( '!' | '#' | '::' )
             int alt1=3;
             switch ( input.LA(1) ) {
             case '!':
@@ -284,21 +284,21 @@ public class StruxtJavaLexer extends Lexer {
 
             switch (alt1) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:8: '!'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:304:8: '!'
                     {
                     match('!'); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:12: '#'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:304:12: '#'
                     {
                     match('#'); 
 
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:285:16: '::'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:304:16: '::'
                     {
                     match("::"); 
 
@@ -324,8 +324,8 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = POSTNS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:289:5: ( ( '@' | '\\\\' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:289:7: ( '@' | '\\\\' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:308:5: ( ( '@' | '\\\\' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:308:7: ( '@' | '\\\\' )
             {
             if ( input.LA(1)=='@'||input.LA(1)=='\\' ) {
                 input.consume();
@@ -352,22 +352,22 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = OP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:5: ( ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:5: ( ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )
             int alt2=22;
             alt2 = dfa2.predict(input);
             switch (alt2) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:8: '<'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:8: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:14: '<<'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:14: '<<'
                     {
                     match("<<"); 
 
@@ -375,7 +375,7 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:21: '<-'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:21: '<-'
                     {
                     match("<-"); 
 
@@ -383,7 +383,7 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:28: '<->'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:28: '<->'
                     {
                     match("<->"); 
 
@@ -391,7 +391,7 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 5 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:36: '->'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:36: '->'
                     {
                     match("->"); 
 
@@ -399,7 +399,7 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 6 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:43: '>>'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:43: '>>'
                     {
                     match(">>"); 
 
@@ -407,49 +407,49 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 7 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:50: '>'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:50: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 8 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:56: '~'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:56: '~'
                     {
                     match('~'); 
 
                     }
                     break;
                 case 9 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:62: '$'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:62: '$'
                     {
                     match('$'); 
 
                     }
                     break;
                 case 10 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:68: '%'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:68: '%'
                     {
                     match('%'); 
 
                     }
                     break;
                 case 11 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:74: '^'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:74: '^'
                     {
                     match('^'); 
 
                     }
                     break;
                 case 12 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:80: '&'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:80: '&'
                     {
                     match('&'); 
 
                     }
                     break;
                 case 13 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:293:86: '&&'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:312:86: '&&'
                     {
                     match("&&"); 
 
@@ -457,14 +457,14 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 14 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:7: '*'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:7: '*'
                     {
                     match('*'); 
 
                     }
                     break;
                 case 15 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:13: '**'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:13: '**'
                     {
                     match("**"); 
 
@@ -472,35 +472,35 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 16 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:20: '-'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:20: '-'
                     {
                     match('-'); 
 
                     }
                     break;
                 case 17 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:26: '+'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:26: '+'
                     {
                     match('+'); 
 
                     }
                     break;
                 case 18 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:32: '='
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:32: '='
                     {
                     match('='); 
 
                     }
                     break;
                 case 19 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:38: '|'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:38: '|'
                     {
                     match('|'); 
 
                     }
                     break;
                 case 20 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:44: '||'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:44: '||'
                     {
                     match("||"); 
 
@@ -508,14 +508,14 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 21 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:51: '/'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:51: '/'
                     {
                     match('/'); 
 
                     }
                     break;
                 case 22 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:294:57: '?'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:313:57: '?'
                     {
                     match('?'); 
 
@@ -540,8 +540,8 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:298:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )* )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:298:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:317:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )* )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:317:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -552,7 +552,7 @@ public class StruxtJavaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:298:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:317:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '-' )*
             loop3:
             do {
                 int alt3=2;
@@ -601,8 +601,8 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = XML;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:302:5: ( '?xml' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:302:7: '?xml'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:321:5: ( '?xml' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:321:7: '?xml'
             {
             match("?xml"); 
 
@@ -622,12 +622,12 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = DOC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:306:5: ( '!!!' ( options {greedy=false; } : . )+ '!!!' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:306:7: '!!!' ( options {greedy=false; } : . )+ '!!!'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:325:5: ( '!!!' ( options {greedy=false; } : . )+ '!!!' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:325:7: '!!!' ( options {greedy=false; } : . )+ '!!!'
             {
             match("!!!"); 
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:306:13: ( options {greedy=false; } : . )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:325:13: ( options {greedy=false; } : . )+
             int cnt4=0;
             loop4:
             do {
@@ -662,7 +662,7 @@ public class StruxtJavaLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:306:38: .
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:325:38: .
             	    {
             	    matchAny(); 
 
@@ -696,12 +696,12 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = CDATA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:310:5: ( '[[\"' ( options {greedy=false; } : . )+ '\"]]' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:310:7: '[[\"' ( options {greedy=false; } : . )+ '\"]]'
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:329:5: ( '[[\"' ( options {greedy=false; } : . )+ '\"]]' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:329:7: '[[\"' ( options {greedy=false; } : . )+ '\"]]'
             {
             match("[[\""); 
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:310:13: ( options {greedy=false; } : . )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:329:13: ( options {greedy=false; } : . )+
             int cnt5=0;
             loop5:
             do {
@@ -736,7 +736,7 @@ public class StruxtJavaLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:310:38: .
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:329:38: .
             	    {
             	    matchAny(); 
 
@@ -770,7 +770,7 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = STR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:314:5: ( '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"' | '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\'' | '\"' (~ ( '\"' ) )* '\"' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:333:5: ( '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"' | '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\'' | '\"' (~ ( '\"' ) )* '\"' )
             int alt9=3;
             int LA9_0 = input.LA(1);
 
@@ -807,11 +807,11 @@ public class StruxtJavaLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:314:7: '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:333:7: '\"\"\"' ( options {greedy=false; } : . )* '\"\"\"'
                     {
                     match("\"\"\""); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:314:13: ( options {greedy=false; } : . )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:333:13: ( options {greedy=false; } : . )*
                     loop6:
                     do {
                         int alt6=2;
@@ -845,7 +845,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:314:38: .
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:333:38: .
                     	    {
                     	    matchAny(); 
 
@@ -863,11 +863,11 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:315:7: '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\''
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:334:7: '\\'\\'\\'' ( options {greedy=false; } : . )* '\\'\\'\\''
                     {
                     match("'''"); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:315:16: ( options {greedy=false; } : . )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:334:16: ( options {greedy=false; } : . )*
                     loop7:
                     do {
                         int alt7=2;
@@ -901,7 +901,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:315:41: .
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:334:41: .
                     	    {
                     	    matchAny(); 
 
@@ -919,10 +919,10 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:316:6: '\"' (~ ( '\"' ) )* '\"'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:335:6: '\"' (~ ( '\"' ) )* '\"'
                     {
                     match('\"'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:316:10: (~ ( '\"' ) )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:335:10: (~ ( '\"' ) )*
                     loop8:
                     do {
                         int alt8=2;
@@ -935,7 +935,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:316:10: ~ ( '\"' )
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:335:10: ~ ( '\"' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -974,7 +974,7 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:320:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:339:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1002,11 +1002,11 @@ public class StruxtJavaLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:320:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:339:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
                     {
                     match("//"); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:320:14: (~ ( '\\n' | '\\r' ) )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:339:14: (~ ( '\\n' | '\\r' ) )*
                     loop10:
                     do {
                         int alt10=2;
@@ -1019,7 +1019,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:320:14: ~ ( '\\n' | '\\r' )
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:339:14: ~ ( '\\n' | '\\r' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1039,7 +1039,7 @@ public class StruxtJavaLexer extends Lexer {
                         }
                     } while (true);
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:320:28: ( '\\r' )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:339:28: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -1048,7 +1048,7 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:320:28: '\\r'
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:339:28: '\\r'
                             {
                             match('\r'); 
 
@@ -1063,11 +1063,11 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:321:9: '/*' ( options {greedy=false; } : . )* '*/'
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:340:9: '/*' ( options {greedy=false; } : . )* '*/'
                     {
                     match("/*"); 
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:321:14: ( options {greedy=false; } : . )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:340:14: ( options {greedy=false; } : . )*
                     loop12:
                     do {
                         int alt12=2;
@@ -1092,7 +1092,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:321:42: .
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:340:42: .
                     	    {
                     	    matchAny(); 
 
@@ -1125,8 +1125,8 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:325:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:325:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:344:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:344:9: ( ' ' | '\\t' | '\\r' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1154,10 +1154,10 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:332:5: ( ( '0' .. '9' )+ )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:332:7: ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:351:5: ( ( '0' .. '9' )+ )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:351:7: ( '0' .. '9' )+
             {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:332:7: ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:351:7: ( '0' .. '9' )+
             int cnt14=0;
             loop14:
             do {
@@ -1171,7 +1171,7 @@ public class StruxtJavaLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:332:7: '0' .. '9'
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:351:7: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1203,14 +1203,14 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
             int alt21=3;
             alt21 = dfa21.predict(input);
             switch (alt21) {
                 case 1 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
                     {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:9: ( '0' .. '9' )+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:9: ( '0' .. '9' )+
                     int cnt15=0;
                     loop15:
                     do {
@@ -1224,7 +1224,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:10: '0' .. '9'
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1241,7 +1241,7 @@ public class StruxtJavaLexer extends Lexer {
                     } while (true);
 
                     match('.'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:25: ( '0' .. '9' )*
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:25: ( '0' .. '9' )*
                     loop16:
                     do {
                         int alt16=2;
@@ -1254,7 +1254,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:26: '0' .. '9'
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:26: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1266,7 +1266,7 @@ public class StruxtJavaLexer extends Lexer {
                         }
                     } while (true);
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:37: ( EXPONENT )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:37: ( EXPONENT )?
                     int alt17=2;
                     int LA17_0 = input.LA(1);
 
@@ -1275,7 +1275,7 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     switch (alt17) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:336:37: EXPONENT
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:355:37: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -1288,10 +1288,10 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:337:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:356:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
                     {
                     match('.'); 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:337:13: ( '0' .. '9' )+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:356:13: ( '0' .. '9' )+
                     int cnt18=0;
                     loop18:
                     do {
@@ -1305,7 +1305,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:337:14: '0' .. '9'
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:356:14: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1321,7 +1321,7 @@ public class StruxtJavaLexer extends Lexer {
                         cnt18++;
                     } while (true);
 
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:337:25: ( EXPONENT )?
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:356:25: ( EXPONENT )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -1330,7 +1330,7 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     switch (alt19) {
                         case 1 :
-                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:337:25: EXPONENT
+                            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:356:25: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -1343,9 +1343,9 @@ public class StruxtJavaLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:338:9: ( '0' .. '9' )+ EXPONENT
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:357:9: ( '0' .. '9' )+ EXPONENT
                     {
-                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:338:9: ( '0' .. '9' )+
+                    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:357:9: ( '0' .. '9' )+
                     int cnt20=0;
                     loop20:
                     do {
@@ -1359,7 +1359,7 @@ public class StruxtJavaLexer extends Lexer {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:338:10: '0' .. '9'
+                    	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:357:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1394,11 +1394,11 @@ public class StruxtJavaLexer extends Lexer {
         try {
             int _type = CHAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:342:5: ( '\\'' (~ ( '\\'' ) )+ '\\'' )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:342:8: '\\'' (~ ( '\\'' ) )+ '\\''
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:361:5: ( '\\'' (~ ( '\\'' ) )+ '\\'' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:361:8: '\\'' (~ ( '\\'' ) )+ '\\''
             {
             match('\''); 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:342:13: (~ ( '\\'' ) )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:361:13: (~ ( '\\'' ) )+
             int cnt22=0;
             loop22:
             do {
@@ -1412,7 +1412,7 @@ public class StruxtJavaLexer extends Lexer {
 
                 switch (alt22) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:342:13: ~ ( '\\'' )
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:361:13: ~ ( '\\'' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1451,8 +1451,8 @@ public class StruxtJavaLexer extends Lexer {
     // $ANTLR start "EXPONENT"
     public final void mEXPONENT() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:347:5: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:347:7: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:366:5: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:366:7: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -1463,7 +1463,7 @@ public class StruxtJavaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:347:17: ( '+' | '-' )?
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:366:17: ( '+' | '-' )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -1489,7 +1489,7 @@ public class StruxtJavaLexer extends Lexer {
 
             }
 
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:347:28: ( '0' .. '9' )+
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:366:28: ( '0' .. '9' )+
             int cnt24=0;
             loop24:
             do {
@@ -1503,7 +1503,7 @@ public class StruxtJavaLexer extends Lexer {
 
                 switch (alt24) {
             	case 1 :
-            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:347:29: '0' .. '9'
+            	    // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:366:29: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1531,8 +1531,8 @@ public class StruxtJavaLexer extends Lexer {
     // $ANTLR start "HEX_DIGIT"
     public final void mHEX_DIGIT() throws RecognitionException {
         try {
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:352:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:352:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:371:5: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // /Users/Shared/Dropbox/workspace/projects/github.com/text-plain/struxt/struxt.parsers/src/main/antlr/StruxtJava.g:371:7: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -1809,7 +1809,7 @@ public class StruxtJavaLexer extends Lexer {
             this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "293:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )";
+            return "312:7: ( '<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' | '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?' )";
         }
     }
     static final String DFA21_eotS =
@@ -1862,7 +1862,7 @@ public class StruxtJavaLexer extends Lexer {
             this.transition = DFA21_transition;
         }
         public String getDescription() {
-            return "335:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
+            return "354:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
         }
     }
     static final String DFA25_eotS =
