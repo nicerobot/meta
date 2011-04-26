@@ -26,6 +26,26 @@ SELFU=$(basename $0)
 SELF=${SELFU%.*}
 NOW=$(date -u +%Y%m%dt%H%M%S)
 
+usage() {
+  echo "Usage: ${SELF} [OPTIONS] XML-file"
+cat <<USAGE
+
+  -h  This help.
+  -o: Output file.
+  
+USAGE
+}
+
+OUTPUT=
+
+while getopts "ho:" OPT; do
+  case $OPT in
+    h ) usage && exit 0 ;;
+    o ) OUTPUT=${OPTARG} ;;
+  esac
+done
+shift $(($OPTIND - 1))
+
 PAYLOAD=$(awk '/^__ARCHIVE__/ {print NR + 1; exit 0; }' ${0})
 PATHD=${TMPDIR:=${TMP:=$([ -w /tmp ] && echo '/tmp/' || echo './')}}${SELF}.${RANDOM}
 mkdir -p ${PATHD} 2>/dev/null && (
@@ -33,6 +53,7 @@ mkdir -p ${PATHD} 2>/dev/null && (
   { tail -n+${PAYLOAD} ${SELFD}/${SELFU} | tar jx; } >/dev/null 2>&1
 )
 trap '{ unalias rm; unset rm; \rm -rf ${PATHD}; } >/dev/null 2>&1' 0
+[ -n "${OUTPUT}" ] && ! [ -w ${OUTPUT} ] && exec >${OUTPUT}
 java -jar ${PATHD}/saxon9he.jar ${1} ${PATHD}/text-plain.xslt || exit $?
 echo
 exit 0

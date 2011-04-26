@@ -45,6 +45,55 @@
           </descriptorRefs>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>rpm-maven-plugin</artifactId>
+        <version>2.1-alpha-1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>rpm</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <copyright>(BSD) 2011, Nice Robot Corporation</copyright>
+          <summary>Transform between XML and Struxt.</summary>
+          <group>Application/Collectors</group>
+          <prefix>/usr/local</prefix>
+          <changelogFile>CHANGES.txt</changelogFile>
+          <needarch>x86</needarch>
+          <targetOS>Linux</targetOS>
+          <targetVendor>none</targetVendor>
+          <vendor>nicerobot</vendor>
+          <packager>nicerobot</packager>
+          <url>http://github.com/nicerobot/text-plain/wiki/Struxt</url>
+          <defineStatements>
+            <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>
+            <defineStatement>_tmppath /tmp</defineStatement>               
+            <defineStatement>_target none</defineStatement>               
+            <defineStatement>_target_cpu noarch</defineStatement>               
+            <defineStatement>_target_os Linux</defineStatement>               
+          </defineStatements>
+          <mappings>
+            <mapping>
+              <directory>/usr/local/bin</directory>
+              <filemode>755</filemode>
+              <sources>
+                <source>
+                  <location>target/stxt2xml</location>
+                </source>
+                <source>
+                  <location>target/xml2stxt</location>
+                </source>
+              </sources>
+            </mapping>
+          </mappings>
+          <preinstallScriptlet>
+            <script>echo "installing Struxt"</script>
+          </preinstallScriptlet>
+      </configuration>
+    </plugin>
     </plugins>
   </build>
 </project>

@@ -26,6 +26,30 @@ SELFU=$(basename $0)
 SELF=${SELFU%.*}
 NOW=$(date -u +%Y%m%dt%H%M%S)
 
+usage() {
+  echo "Usage: ${SELF} [OPTIONS] struxt-file..."
+cat <<USAGE
+
+  -h  This help.
+  -C  Suppress <!-- -->
+  -D  Suppress <![CDATA[]]>
+  -X  Suppress <?xml?>
+  
+USAGE
+}
+
+D=()
+
+while getopts "hCDX" OPT; do
+  case $OPT in
+    h ) usage && exit 0 ;;
+    C ) D[${#D[*]}]='-Dorg.nicerobot.struxt.output.Comments=false' ;;
+    D ) D[${#D[*]}]='-Dorg.nicerobot.struxt.output.CDATA=false' ;;
+    X ) D[${#D[*]}]='-Dorg.nicerobot.struxt.output.PI=false' ;;
+  esac
+done
+shift $(($OPTIND - 1))
+
 PAYLOAD=$(awk '/^__ARCHIVE__/ {print NR + 1; exit 0; }' ${0})
 PATHD=${TMPDIR:=${TMP:=$([ -w /tmp ] && echo '/tmp/' || echo './')}}${SELF}.${RANDOM}
 mkdir -p ${PATHD} 2>/dev/null && (
@@ -33,7 +57,7 @@ mkdir -p ${PATHD} 2>/dev/null && (
   { tail -n+${PAYLOAD} ${SELFD}/${SELFU} | tar jx; } >/dev/null 2>&1
 )
 trap '{ unalias rm; unset rm; \rm -rf ${PATHD}; } >/dev/null 2>&1' 0
-java -jar ${PATHD}/struxt.jar ${@} || exit $?
+java -jar ${PATHD}/struxt.jar ${D[*]} ${@} || exit $?
 exit 0
 
 # $Id: $
