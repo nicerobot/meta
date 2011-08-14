@@ -1,0 +1,95 @@
+main xmlns "http://wiki.yak.net/997" {
+
+import { "flag" "go/ast" "go/parser" "go/token" "go/types" "os" }
+initialize { "go/printer" }
+
+/*!
+  comment for FOO
+*/
+const FOO = 23 //! commend for FOO
+
+var BAR/int = FOO
+
+type TYPE/int
+
+type Worm/struct {
+  Worm/comment {
+    "Something useful about Worm."
+  }
+
+  wormlen/int64
+}
+
+// SQL
+CREATE/sql TABLE "stat" {
+  day           DATE, PRIMARY KEY.
+  week          NUMBER=2, NULL="no".
+  month         NUMBER=2, NULL="no".
+  month_name    VARCHAR2=20, NULL="no".
+  quarter       VARCHAR2=20, NULL="no".
+  year          NUMBER=4, NULL="no".
+  season        VARCHAR2=20, NULL="no".
+}
+CREATE/sql INDEX "idx_stat_year", on "stat.year".
+ALTER/sql TABLE "call" {
+  ADD CONSTRAINT "call_date_stat_fk".
+  FOREIGN KEY "call_date", REFERENCES "stat.day".
+}
+
+type Apple/struct {
+  Worm                  // TODO ?? what's this do?
+  color/string
+  rotation/complex128
+}
+type WormLener/interface {
+  WormLen()/int64
+}
+
+WormLen[p/*Worm]()/int64 { return (p.wormlen) }
+
+main() {
+  flag.Parse()
+
+  aaa := new(Apple)
+  xxx := aaa.WormLen()
+  var www WormLener = aaa
+  println(www.(*Apple).rotation, xxx)
+
+  fset := token.NewFileSet()
+  files := make(map[string]*ast.File)
+
+  for _, filename := range flag.Args() {
+
+    tree, err := parser.ParseFile(fset, filename, nil, 0)
+    if err != nil {
+      panic(err)
+    }
+
+    println("#####################################")
+    importer := types.GcImporter
+    univ := types.Universe
+
+    files[filename] = tree
+    pkg, err := ast.NewPackage(fset, files, importer, univ)
+    if err != nil {
+            panic(err)
+    }
+    _ = pkg
+
+    n, err := ast.Fprint(os.Stdout, fset, tree, nil)
+    println("n=", n)
+  }
+
+  for name, tree := range files {
+    println("#####################################")
+    println("#######################")
+    println("#######################   ", name)
+    println("#######################")
+    n, err := ast.Fprint(os.Stdout, fset, tree, nil)
+    if err != nil {
+      panic(err)
+    }
+    println("n=", n)
+    println("")
+  }
+}

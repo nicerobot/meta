@@ -1,0 +1,57 @@
+%{
+#include <stdbool.h>
+#include <assert.h>
+%}
+
+struxt     = -* xmldecl? doctype? node                   {printf("struxt\n");}
+xmldecl    = '?xml' attributes '.'
+           | '?XML' attributes '\n'                      {printf("?xml.1\n");}
+doctype    = '!!!' (!'!!!' .)+ '!!!'                     {printf("?xml.2\n");}
+cdata      = '[[\"' (!'\"]]' .)+ '\"]]'                  {printf("cdata\n");}
+comment    = '//' [^\n\r]*
+           | '/*' (!'*/' .)* '*/'
+node       = tag children                                {printf("node\n");}
+           | literal
+           | cdata
+           | comment
+tag        = name attributes?                            {printf("tag\n");}
+children   = '{' node* tag? '}'
+           | (':' node*)? ('.'|';')
+attr       = name -* OP? literal?                        {printf("attr.1\n");}
+           | literal -* OP? name?                        {printf("attr.2\n");}
+           | name -* OP name                             {printf("attr.3\n");}
+           | OP ( name | literal )                       {printf("attr.4\n");}
+attribute  = name -* ':' -* literal                      {printf("attribute\n");}
+           | attr
+name       = id (PRENS id | (POSTNS id)?)                {printf("name\n");}
+literal    = (str
+           | number
+           | char) -*                                    {printf("literal\n");}
+attributes = -+ attr ( ',' -* attr)* -*                  {printf("attribute.1\n");}
+           | -* '(' -* attribute ( [,;.] -* attribute)* ')' {printf("attribute.2\n");}
+           | -* '[' -* attribute ( [,;.] -* attribute)* ']' {printf("attribute.3\n");}
+
+
+id         = [a-zA-Z_][-a-zA-Z0-9_]*
+str        = '"' [^"]+ '"'                               {printf("string\n");}
+
+number     = '-'? int frac? exp?
+int        = [0-9]+
+frac       = '.' int
+exp        = [eE] [-+] [0-9]+
+char       = '\'' . '\''
+
+PRENS      = [!#] | '::'
+POSTNS     = '@' | '\\'
+OP         = ('<' | '<<' | '<-' | '<->' | '->' | '>>' | '>' | '~' | '$' | '%' | '^' | '&' | '&&' |
+             '*' | '**' | '-' | '+' | '=' | '|' | '||' | '/' | '?') -*
+
+-	         = [ \t\n\r]
+
+%%
+
+int main()
+{
+  while (yyparse());
+  return 0;
+}
