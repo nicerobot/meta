@@ -76,7 +76,7 @@ Address:
     ~3h30m
     ~1y
     ~6mo
-    
+
 Durations default to "from now" (i.e. "^now"). For example
 
     ~3h30m
@@ -88,13 +88,13 @@ is the same as
 ### Repetitions
 
     *1mo
-    
+
 Repetitions default to "from now". See Durations.
 
 ### Links
 
     [groceries
-    [party=https://mail.google.com/mail/?ui=2&shva=1#label/_data_/123bb3b356190ba1
+    [party=http://www.group.as/friendfeed/
 
 ### Markdown
 
@@ -113,7 +113,7 @@ Context is generally automated by processing utilities at the time of creation b
 Relative dates are always transformed into a fixed format at the time of processing. For example,
 
     ^now
-    
+
 is transformed into
 
     ^now=1265000033
