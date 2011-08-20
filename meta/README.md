@@ -21,7 +21,7 @@ Meta-identifiers:
     -w multiline mediawiki
     :: context
 
-A meta-string is a meta-identifier followed immediately by a word. The only exception is --.
+A meta-string is a meta-identifier followed immediately by a word. The only exception is -[mtw].
 
 Any meta-string except #word and [link can be immediately followed by #name to assign a name/tag to the string.
 
@@ -98,7 +98,7 @@ Repetitions default to "from now". See Durations.
 
 ### Markdown
 
-    The following is markdown -- [home](http://github.com/nicerobot/text-plain)\n_italics_\n## Header\n\n- bullet
+    The following is markdown -m [home](http://github.com/nicerobot/text-plain)\n_italics_\n## Header\n\n- bullet
 
 ### Context
 
