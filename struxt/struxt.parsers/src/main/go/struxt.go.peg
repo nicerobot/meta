@@ -1,7 +1,0 @@
-package main
-
-type Struxt Peg {
-  node.Node
-}
-
-struxt <- 'struxt' ?
