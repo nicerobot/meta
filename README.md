@@ -15,7 +15,8 @@ Meta-identifiers:
     =  location.                                         =(log,lat|name)
     ~  duration estimate.       ~2h45m                   ~NyNtNwNdNhNmNsNi(^date)
     *  repeating.                                        *TBD
-    [  link.                                             [(name=)link
+    [  data.                                             
+    /  link.                                             [(name=)link
     -m multiline markdown
     -t multiline textile
     -w multiline mediawiki
