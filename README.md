@@ -12,11 +12,10 @@ Meta-identifiers:
     #t tags.                    #t grocery,eggs,milk     #t tags,list,info,fun
     @  contact.                 @Anna                    @name
     @d mood.                    @d happy                 @d anything
-    =  location.                                         =(log,lat|name)
+    =  location.                                         =(lng,lat|name)
     ~  duration estimate.       ~2h45m                   ~NyNtNwNdNhNmNsNi(^date)
     *  repeating.                                        *TBD
-    [  data.                                             
-    /  link.                                             [(name=)link
+    [  link.                                             [(name=)link
     -m multiline markdown
     -t multiline textile
     -w multiline mediawiki
@@ -53,7 +52,7 @@ Named priorities:
 
 ### Locations
 
-Latitude and longitude:
+Longitude and latitude:
 
     =48.858845,2.294351#EiffelTower
     =here
