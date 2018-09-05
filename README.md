@@ -11,7 +11,7 @@ Meta-identifiers:
     #  tags.                    #grocery,eggs #milk      #tags,list
     #t tags.                    #t grocery,eggs,milk     #t tags,list,info,fun
     @  contact.                 @Anna                    @name
-    @d mood.                    @d happy                 @d anything
+    :- mood.                    :-happy                  :-anything
     =  location.                                         =(lng,lat|name)
     ~  duration estimate.       ~2h45m                   ~NyNtNwNdNhNmNsNi(^date)
     *  repeating.                                        *TBD
@@ -70,6 +70,7 @@ Address:
     @Anna
     @800.555.1234#Work
     @tel:800.555.1234#Work
+    @name|example.com
 
 ### Durations
 
